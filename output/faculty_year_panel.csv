@@ -1,0 +1,160 @@
+last,year,active,faculty_type,faculty_rank,is_tt,pct_research,n_outputs,total_citations,mean_if,research_fte,output_per_fte
+Bayham,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,8,510,19.74,0.5,16
+Bayham,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,6,169,4.53,0.5,12
+Bayham,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,4,34,2.47,0.5,8
+Bayham,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,25,3.55,0.5,4
+Bayham,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,2,4.5,0.5,4
+Bayham,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,1,3.4,0.5,4
+Bennett,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,25,2,0,NA,0.25,8
+Bennett,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,25,1,0,NA,0.25,4
+Berning,2021,1,Tenured/Tenure Track,Professor,TRUE,50,1,3,1.87,0.5,2
+Berning,2022,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Berning,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,33,4.6,0.5,6
+Berning,2024,1,Tenured/Tenure Track,Professor,TRUE,50,1,12,3.4,0.5,2
+Berning,2025,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,3.6,0.5,2
+Berning,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,4.9,0.5,2
+Bonanno,2021,1,Tenured/Tenure Track,Professor,TRUE,50,6,49,4.46,0.5,12
+Bonanno,2022,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Bonanno,2023,1,Tenured/Tenure Track,Professor,TRUE,50,5,14,2.82,0.5,10
+Bonanno,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,13,2.6,0.5,4
+Bonanno,2025,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Bonanno,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,4.9,0.5,2
+Burkhardt,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,50,5.81,0.5,4
+Burkhardt,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,6,89,4.59,0.5,12
+Burkhardt,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,4,35,5.05,0.5,8
+Burkhardt,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,27,6.7,0.5,4
+Burkhardt,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,20,9.4,0.5,6
+Burkhardt,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,1,0,12.5,0.5,2
+Chenarides,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,2,22,2.15,0.5,4
+Chenarides,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,5,3,2.15,0.5,10
+Chenarides,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,5,6,4.28,0.5,10
+Chenarides,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,0,NA,0.5,2
+Chouinard,2021,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
+Chouinard,2022,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
+Chouinard,2023,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
+Chouinard,2024,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
+Chouinard,2025,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
+Chouinard,2026,1,Tenured/Tenure Track,NA,TRUE,5,1,1,2.3,0.05,20
+Clark,2021,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
+Clark,2022,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
+Clark,2023,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
+Clark,2024,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
+Clark,2025,1,Continuing,Master Instructor,FALSE,0,1,0,NA,0,NA
+Clark,2026,1,Continuing,Master Instructor,FALSE,0,1,0,NA,0,NA
+Cleary,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,64,4.23,0.5,6
+Cleary,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,38,5.95,0.5,6
+Cleary,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,19,4.27,0.5,6
+Cleary,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,14,2.33,0.5,6
+Cleary,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,0,0,NA,0.5,0
+Cleary,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,0,0,NA,0.5,0
+Costanigro,2021,1,Tenured/Tenure Track,Professor,TRUE,50,4,32,2.48,0.5,8
+Costanigro,2022,1,Tenured/Tenure Track,Professor,TRUE,50,1,19,5.4,0.5,2
+Costanigro,2023,1,Tenured/Tenure Track,Professor,TRUE,50,1,14,4.2,0.5,2
+Costanigro,2024,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Costanigro,2025,1,Tenured/Tenure Track,Professor,TRUE,50,2,9,5.2,0.5,4
+Costanigro,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,2.3,0.5,2
+Countryman,2021,1,Tenured/Tenure Track,Professor,TRUE,50,4,242,2.93,0.5,8
+Countryman,2022,1,Tenured/Tenure Track,Professor,TRUE,50,2,17,5.5,0.5,4
+Countryman,2023,1,Tenured/Tenure Track,Professor,TRUE,50,1,10,1.8,0.5,2
+Countryman,2024,1,Tenured/Tenure Track,Professor,TRUE,50,6,62,3.38,0.5,12
+Countryman,2025,1,Tenured/Tenure Track,Professor,TRUE,50,6,25,4.68,0.5,12
+Countryman,2026,1,Tenured/Tenure Track,Professor,TRUE,50,2,0,3.6,0.5,4
+Delay,2021,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,4,52,6.98,0.4,10
+Delay,2022,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,3,11,4.6,0.4,7.5
+Delay,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,11,2.65,0.4,5
+Delay,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,1,1.6,0.4,5
+Delay,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,5,18,3.02,0.4,12.5
+Delay,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,1,5.85,0.4,5
+Enns,2021,1,Tenured/Tenure Track,Professor,TRUE,0,0,0,NA,0,NA
+Enns,2022,1,Tenured/Tenure Track,Professor,TRUE,0,1,0,NA,0,NA
+Enns,2023,1,Tenured/Tenure Track,Professor,TRUE,0,1,2,NA,0,NA
+Enns,2024,1,Tenured/Tenure Track,Professor,TRUE,0,0,0,NA,0,NA
+Enns,2025,1,Tenured/Tenure Track,Professor,TRUE,0,4,2,2.83,0,NA
+Enns,2026,1,Tenured/Tenure Track,Professor,TRUE,0,1,0,NA,0,NA
+Frasier,2021,1,Tenured/Tenure Track,NA,TRUE,NA,1,10,2.46,NA,NA
+Goemans,2021,1,Tenured/Tenure Track,Professor,TRUE,50,5,62,3.57,0.5,10
+Goemans,2022,1,Tenured/Tenure Track,Professor,TRUE,50,2,34,5.45,0.5,4
+Goemans,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,68,5.97,0.5,6
+Goemans,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,13,3.9,0.5,4
+Goemans,2025,1,Tenured/Tenure Track,Professor,TRUE,50,3,3,5.57,0.5,6
+Goemans,2026,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Graff,2021,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
+Graff,2022,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
+Graff,2023,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
+Graff,2024,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
+Graff,2025,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
+Graff,2026,1,Tenured/Tenure Track,Professor,TRUE,35,1,0,4.9,0.35,2.857142857142857
+Hill,2021,1,Tenured/Tenure Track,NA,TRUE,50,3,46,5.41,0.5,6
+Hill,2022,1,Tenured/Tenure Track,NA,TRUE,50,1,8,0.9,0.5,2
+Hoag,2021,1,Tenured/Tenure Track,Professor,TRUE,35,1,2,3.89,0.35,2.857142857142857
+Hoag,2022,1,Tenured/Tenure Track,Professor,TRUE,35,3,53,2.2,0.35,8.571428571428571
+Hoag,2023,1,Tenured/Tenure Track,Professor,TRUE,35,1,6,3.4,0.35,2.857142857142857
+Hoag,2024,1,Tenured/Tenure Track,Professor,TRUE,35,4,34,3.3,0.35,11.428571428571429
+Hoag,2025,1,Tenured/Tenure Track,Professor,TRUE,35,5,28,5.95,0.35,14.285714285714286
+Hoag,2026,1,Tenured/Tenure Track,Professor,TRUE,35,3,1,4.05,0.35,8.571428571428571
+Jablonski,2021,1,Tenured/Tenure Track,NA,TRUE,25,8,147,3.62,0.25,32
+Jablonski,2022,1,Tenured/Tenure Track,NA,TRUE,25,3,52,3.2,0.25,12
+Jablonski,2023,1,Tenured/Tenure Track,NA,TRUE,25,3,6,2.37,0.25,12
+Jablonski,2024,1,Tenured/Tenure Track,NA,TRUE,25,2,1,1.7,0.25,8
+Koontz,2021,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Koontz,2022,1,Tenured/Tenure Track,Professor,TRUE,15,1,0,5.8,0.15,6.666666666666667
+Koontz,2023,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Koontz,2024,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Koontz,2025,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Koontz,2026,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Kroll,2021,1,Tenured/Tenure Track,Professor,TRUE,40,3,57,3.29,0.4,7.5
+Kroll,2022,1,Tenured/Tenure Track,Professor,TRUE,40,0,0,NA,0.4,0
+Kroll,2023,1,Tenured/Tenure Track,Professor,TRUE,40,2,56,5.35,0.4,5
+Kroll,2024,1,Tenured/Tenure Track,Professor,TRUE,40,2,13,3.3,0.4,5
+Kroll,2025,1,Tenured/Tenure Track,Professor,TRUE,40,0,0,NA,0.4,0
+Kroll,2026,1,Tenured/Tenure Track,Professor,TRUE,40,1,0,3.5,0.4,2.5
+Lewis,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,5,5,0.5,4
+Lewis,2025,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,47.3,0.5,2
+Lewis,2026,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
+Magnan,2023,1,Tenured/Tenure Track,Professor,TRUE,50,2,4,3.6,0.5,4
+Magnan,2024,1,Tenured/Tenure Track,Professor,TRUE,50,1,2,0.5,0.5,2
+Magnan,2025,1,Tenured/Tenure Track,Professor,TRUE,50,2,2,5.05,0.5,4
+Magnan,2026,1,Tenured/Tenure Track,Professor,TRUE,50,2,1,6.05,0.5,4
+Manning,2021,1,Tenured/Tenure Track,NA,TRUE,50,4,38,3.87,0.5,8
+Manning,2022,1,Tenured/Tenure Track,NA,TRUE,50,4,53,3.83,0.5,8
+Manning,2023,1,Tenured/Tenure Track,NA,TRUE,50,2,34,4.95,0.5,4
+Manning,2024,1,Tenured/Tenure Track,NA,TRUE,50,1,2,5,0.5,2
+Mooney,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,25,1,6,3.34,0.25,4
+Mooney,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,25,2,17,3.05,0.25,8
+Mooney,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,25,5,18,1.88,0.25,20
+Mooney,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,25,7,40,1.95,0.25,28
+Mooney,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,25,6,18,2.37,0.25,24
+Mooney,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,25,0,0,NA,0.25,0
+Perry,2021,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
+Perry,2022,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
+Perry,2023,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
+Perry,2024,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
+Ritten,2022,1,Continuing,Professor,FALSE,10,8,112,1.87,0.1,80
+Ritten,2023,1,Continuing,Professor,FALSE,10,2,15,4.8,0.1,20
+Ritten,2024,1,Continuing,Professor,FALSE,10,5,17,2.53,0.1,50
+Ritten,2025,1,Continuing,Professor,FALSE,10,16,61,3.55,0.1,160
+Ritten,2026,1,Continuing,Professor,FALSE,10,5,1,2.44,0.1,50
+Seidl,2021,1,Tenured/Tenure Track,Professor,TRUE,15,3,88,13.01,0.15,20
+Seidl,2022,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Seidl,2023,1,Tenured/Tenure Track,Professor,TRUE,15,2,32,5.9,0.15,13.333333333333334
+Seidl,2024,1,Tenured/Tenure Track,Professor,TRUE,15,2,56,4.7,0.15,13.333333333333334
+Seidl,2025,1,Tenured/Tenure Track,Professor,TRUE,15,1,0,NA,0.15,6.666666666666667
+Seidl,2026,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
+Suter,2021,1,Tenured/Tenure Track,Professor,TRUE,50,6,57,4.1,0.5,12
+Suter,2022,1,Tenured/Tenure Track,Professor,TRUE,50,4,46,3.79,0.5,8
+Suter,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,7,2.7,0.5,6
+Suter,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,24,4.65,0.5,4
+Suter,2025,1,Tenured/Tenure Track,Professor,TRUE,50,6,3,4.95,0.5,12
+Suter,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,6.3,0.5,2
+Thilmany,2021,1,Tenured/Tenure Track,Professor,TRUE,21,4,72,4.47,0.21,19.047619047619047
+Thilmany,2022,1,Tenured/Tenure Track,Professor,TRUE,21,4,52,3.2,0.21,19.047619047619047
+Thilmany,2023,1,Tenured/Tenure Track,Professor,TRUE,21,4,19,3.1,0.21,19.047619047619047
+Thilmany,2024,1,Tenured/Tenure Track,Professor,TRUE,21,5,3,3.2,0.21,23.80952380952381
+Thilmany,2025,1,Tenured/Tenure Track,Professor,TRUE,21,2,2,2.8,0.21,9.523809523809524
+Thilmany,2026,1,Tenured/Tenure Track,Professor,TRUE,21,2,0,2.05,0.21,9.523809523809524
+Van Sandt,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,20,2,0,3.9,0.2,10
+Van Sandt,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,20,2,0,3.8,0.2,10
+Woerman,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,9,5.9,0.5,2
+Woerman,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,10,3.2,0.5,2
+Woerman,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,2,35,13.5,0.5,4
+Woerman,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,7,56.1,0.5,2

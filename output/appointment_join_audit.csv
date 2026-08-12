@@ -1,0 +1,37 @@
+last,appt_source,faculty_type,in_publications,in_appointments,audit_note
+Charriez,appointment_splits.csv,Contract,FALSE,TRUE,"Appointment record, no publications in window"
+Eshelman,appointment_splits.csv,Contract,FALSE,TRUE,"Appointment record, no publications in window"
+Perry,roster.csv (departed or not in appointment file),Tenured/Tenure Track,FALSE,TRUE,"Appointment record, no publications in window"
+Riley,appointment_splits.csv,Continuing,FALSE,TRUE,"Appointment record, no publications in window"
+Watson,appointment_splits.csv,Continuing,FALSE,TRUE,"Appointment record, no publications in window"
+Bayham,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Bennett,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Berning,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Bonanno,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Burkhardt,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Chenarides,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Chouinard,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
+Clark,appointment_splits.csv,Continuing,TRUE,TRUE,Matched
+Cleary,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Costanigro,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Countryman,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Delay,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Enns,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Frasier,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
+Goemans,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Graff,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Hill,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
+Hoag,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Jablonski,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
+Koontz,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Kroll,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Lewis,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Magnan,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Manning,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
+Mooney,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Ritten,appointment_splits.csv,Continuing,TRUE,TRUE,Matched
+Seidl,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Suter,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Thilmany,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Van Sandt,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+Woerman,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched

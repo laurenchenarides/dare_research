@@ -1,0 +1,6 @@
+au_id,au_display_name,au_name_norm,au_last,au_first_init,grad_last,grad_first,program,term_code,grad_year,name_norm,match_type
+https://openalex.org/A5035315099,Marissa C. Lee,marissa c lee,lee,m,Lee,Marissa,AREC-MS,202110,2021,marissa lee,Last name + first initial - REVIEW
+https://openalex.org/A5112678107,Joey Blumberg,joey blumberg,blumberg,j,Blumberg,Joseph,AREC-PHD,202410,2024,joseph blumberg,Last name + first initial - REVIEW
+https://openalex.org/A5050534384,R. Aaron Hrozencik,r aaron hrozencik,hrozencik,r,Hrozencik,Robert,AREC-PHD,201960,2019,robert hrozencik,Last name + first initial - REVIEW
+https://openalex.org/A5098620561,Zarif I. Rasul,zarif i rasul,rasul,z,Rasul,Zarif,AREC-PHD,202490,2024,zarif rasul,Last name + first initial - REVIEW
+https://openalex.org/A5120702958,Caleb E. Axlund,caleb e axlund,axlund,c,Axlund,Caleb,AREC-MS,202490,2024,caleb axlund,Last name + first initial - REVIEW
