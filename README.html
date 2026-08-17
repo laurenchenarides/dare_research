@@ -453,12 +453,13 @@ writes to <code>output/</code>. Caches the raw API response to
 <p>The pipeline is numbered. Run stages in order. Later stages read
 earlier outputs.</p>
 </div>
-<div id="counting-rules-summary-codebook.md-is-authoritative" class="section level2">
-<h2>Counting rules (summary — CODEBOOK.md is authoritative)</h2>
+<div id="counting-rules" class="section level2">
+<h2>Counting rules</h2>
 <ul>
-<li><strong>Window:</strong> 2021–2025. Publications count regardless of
-the author’s institution at the time. 2026 items are held out, flagged
-<code>edge_2026</code>.</li>
+<li><strong>Window:</strong> The core window is 2021–2026. Publications
+count only if the author was affiliated with Colorado State at the time.
+For some tables, however, 2026 items are held out, flagged
+<code>edge_2026</code>, because the complete year is not available.</li>
 <li><strong>Publication types:</strong> JA, BC (book chapter), BK
 (book), RP (research report), CP (conference proceeding).
 <code>extension_output = 1</code> marks extension and non-refereed
@@ -481,12 +482,9 @@ distinct-paper count by the volume of internal collaboration; that gap
 is the interdisciplinary-collaboration evidence, not double counting.
 Department totals dedupe on DOI (title+year where no DOI).</li>
 <li><strong>Grants:</strong> include any award active during 2021–2025
-regardless of start year (pre-2021 starts flagged
-<code>active_prewindow</code>). Keep funded, submitted, under review,
-and pending; exclude only not-funded/declined. Dollar amounts are
-provisional pending VPR corroboration; <code>dollar_basis</code> records
-total vs CSU-share. On shared grants keep the PI’s figure and flag
-disagreements. Award amounts were retrieved from the <a href="https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx">OVPR</a>
+regardless of start year. Keep funded, submitted, under review, and
+pending; exclude only not-funded/declined. On shared grants keep the
+PI’s figure. Award amounts were retrieved from the <a href="https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx">OVPR</a>
 where <code>Date Submitted Between: 01/01/2021 and 08/01/2026</code> and
 <code>Lead Unit = Agricultural + Resource Economics (1172)</code>.</li>
 <li><strong>Presentations:</strong> one row per faculty-year-talk. Each

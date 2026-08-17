@@ -51,14 +51,14 @@ README.md    this file
 
 The pipeline is numbered. Run stages in order. Later stages read earlier outputs.
 
-## Counting rules (summary — CODEBOOK.md is authoritative)
+## Counting rules
 
-- **Window:** 2021–2025. Publications count regardless of the author's institution at the time. 2026 items are held out, flagged `edge_2026`.
+- **Window:** The core window is 2021–2026. Publications count only if the author was affiliated with Colorado State at the time. For some tables, however, 2026 items are held out, flagged `edge_2026`, because the complete year is not available.
 - **Publication types:** JA, BC (book chapter), BK (book), RP (research report), CP (conference proceeding). `extension_output = 1` marks extension and non-refereed reports, excluded from research counts.
 - **Index class:** `a` = carries an impact factor; `b` = peer-reviewed, no impact factor. Blank = not yet verified against JCR/Scopus. A blank is a to-do, not a zero.
 - **Student coauthor (union rule):** a CV-coded `Y` is authoritative and is never downgraded; a registrar match adds `Y` where the CV did not claim one. `student_evidence` records which source supports each `Y`. A CV-only `Y` that the registrar can't corroborate is expected — the registrar file covers only AREC graduates, not undergraduates, other departments, or other institutions.
 - **Cross-population (fallback only):** a co-authored paper is added to a DARE co-author's list only if it is absent from their own CV. If already present, their own entry stands — no propagated duplicate. Per-faculty counts therefore exceed the department distinct-paper count by the volume of internal collaboration; that gap is the interdisciplinary-collaboration evidence, not double counting. Department totals dedupe on DOI (title+year where no DOI).
-- **Grants:** include any award active during 2021–2025 regardless of start year (pre-2021 starts flagged `active_prewindow`). Keep funded, submitted, under review, and pending; exclude only not-funded/declined. Dollar amounts are provisional pending VPR corroboration; `dollar_basis` records total vs CSU-share. On shared grants keep the PI's figure and flag disagreements. Award amounts were retrieved from the [OVPR](https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx) where `Date Submitted Between: 01/01/2021 and 08/01/2026` and `Lead Unit = Agricultural + Resource Economics (1172)`.
+- **Grants:** include any award active during 2021–2025 regardless of start year. Keep funded, submitted, under review, and pending; exclude only not-funded/declined. On shared grants keep the PI's figure. Award amounts were retrieved from the [OVPR](https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx) where `Date Submitted Between: 01/01/2021 and 08/01/2026` and `Lead Unit = Agricultural + Resource Economics (1172)`.
 - **Presentations:** one row per faculty-year-talk. Each venue is its own row (a paper presented at three venues is three rows). Typed conference / invited / other; posters flagged.
 - **Appointment splits** are held constant across the window. Chouinard is 5% research. Weighting uses the research share itself, so splits that don't total 100 (Thilmany, Bennett) do not distort research FTE.
 - **Departed/retired faculty scope** (Hill, Manning, Jablonski, and Perry who left before the window). Count them for the years they were active, consistent with partial-window treatment of faculty hired after 2021.
