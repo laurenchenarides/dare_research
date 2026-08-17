@@ -53,7 +53,7 @@ The pipeline is numbered. Run stages in order. Later stages read earlier outputs
 
 ## Counting rules
 
-- **Window:** The core window is 2021–2026. Publications count only if the author was affiliated with Colorado State at the time. For some tables, however, 2026 items are held out, flagged `edge_2026`, because the complete year is not available.
+- **Collection window** is 2021–2026. **Complete-year reporting window** is 2021–2025. Publications from 2026 are retained for currency and flagged `edge_2026`, but excluded from tables and figures requiring a complete annual numerator and denominator.
 - **Publication types:** JA, BC (book chapter), BK (book), RP (research report), CP (conference proceeding). `extension_output = 1` marks extension and non-refereed reports, excluded from research counts.
 - **Index class:** `a` = carries an impact factor; `b` = peer-reviewed, no impact factor. Blank = not yet verified against JCR/Scopus. A blank is a to-do, not a zero.
 - **Student coauthor (union rule):** a CV-coded `Y` is authoritative and is never downgraded; a registrar match adds `Y` where the CV did not claim one. `student_evidence` records which source supports each `Y`. A CV-only `Y` that the registrar can't corroborate is expected — the registrar file covers only AREC graduates, not undergraduates, other departments, or other institutions.
