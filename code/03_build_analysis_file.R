@@ -39,7 +39,7 @@ library(stringr)
 library(readr)
 library(purrr)
 
-setwd("C:\Users\lachenar\OneDrive - Colostate\CAS DARE Team-5 year Review - Documents\Research and Creative Artistry - LAUREN\dare_research")
+setwd("C:/Users/lachenar/OneDrive - Colostate/CAS DARE Team-5 year Review - Documents/Research and Creative Artistry - LAUREN/dare_research")
 
 in_dir  <- "data"
 out_dir <- "output"

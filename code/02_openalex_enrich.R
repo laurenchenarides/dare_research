@@ -58,7 +58,7 @@ library(readxl)
 library(purrr)
 library(tibble)
 
-setwd("C:\Users\lachenar\OneDrive - Colostate\CAS DARE Team-5 year Review - Documents\Research and Creative Artistry - LAUREN\dare_research")
+setwd("C:/Users/lachenar/OneDrive - Colostate/CAS DARE Team-5 year Review - Documents/Research and Creative Artistry - LAUREN/dare_research")
 
 # ==============================================================================
 # 0. Configuration

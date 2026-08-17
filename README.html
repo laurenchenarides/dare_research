@@ -422,12 +422,12 @@ reproducibly, say so rather than doing it by hand.</li>
   conferred_degrees.xlsx                 CSU AREC conferred degrees (registrar)
 code/
   01_unpack_cvs.py                       CV packets -&gt; per-faculty text
-  02_openalex_enrich.py                  Enriches the faculty-DOI publication list 
+  02_openalex_enrich.R                  Enriches the faculty-DOI publication list 
                                           with OpenAlex metadata
-  03_build_analysis_file.py              Joins faculty appointment splits to the 
+  03_build_analysis_file.R              Joins faculty appointment splits to the 
                                           enriched publication list and builds the 
                                           analysis-ready files
-  04_publication_tables.py               Produces the publication and disciplinary-influence tables
+  04_publication_tables.R               Produces the publication and disciplinary-influence tables
 output/      generated analysis files (see script headers); safe to delete/regen
 CODEBOOK.md  the authoritative rule set — consult before changing any counting logic
 README.md    this file</code></pre>
@@ -486,7 +486,9 @@ regardless of start year (pre-2021 starts flagged
 and pending; exclude only not-funded/declined. Dollar amounts are
 provisional pending VPR corroboration; <code>dollar_basis</code> records
 total vs CSU-share. On shared grants keep the PI’s figure and flag
-disagreements.</li>
+disagreements. Award amounts were retrieved from the <a href="https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx">OVPR</a>
+where <code>Date Submitted Between: 01/01/2021 and 08/01/2026</code> and
+<code>Lead Unit = Agricultural + Resource Economics (1172)</code>.</li>
 <li><strong>Presentations:</strong> one row per faculty-year-talk. Each
 venue is its own row (a paper presented at three venues is three rows).
 Typed conference / invited / other; posters flagged.</li>
