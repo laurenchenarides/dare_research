@@ -1,96 +1,146 @@
 # ==============================================================================
 # Script Name:  02_openalex_enrich.R
 # Author:       Lauren Chenarides
-# Last updated: July 2026
-# Description:  Builds the analysis-ready files for Section 4 (Research and
-#               Creative Artistry) of the DARE program review. Enriches the
-#               faculty-DOI publication list with OpenAlex metadata (full
-#               authorship lists, institutional affiliations, citation counts),
-#               matches coauthors against the CSU conferred-degree roster to
-#               identify student and alumni coauthorships, maps journal impact
-#               factors to each journal-year, joins faculty appointment splits,
-#               and produces a faculty-year panel with headcount and
-#               research-FTE denominators.
+# Purpose:      Discover missing publications for rostered faculty, append them
+#               to the curated publication data in memory, and enrich the
+#               resulting faculty-publication file with OpenAlex metadata,
+#               graduate-coauthor matches, and journal impact factors.
 #
-# Inputs (all in `in_dir`):
-#   - publications_faculty_doi_cleaned.csv   : Faculty-DOI publication list
-#   - journal_impact_factors_2021_2026.xlsx  : Wide IF table, sheet "Impact Factors"
-#   - conferred_degrees.xlsx                 : CSU conferred degrees, sheet "conferred"
-#   - appointment_splits.csv                 : Effort distribution, type, rank
-#   - roster.csv                             : Per-year active flags; departed faculty splits
+# Run this script from anywhere inside the dare_research repository.
 #
-# Outputs (all in `out_dir`):
-#   - oa_works_raw.rds            : Cached raw OpenAlex response (list form)
-#   - doi_integrity_audit.csv     : DOIs with conflicting years, titles, or venues
-#   - oa_missing_dois.csv         : DOIs OpenAlex did not resolve
-#   - pub_openalex.csv            : One row per DOI - citations, year, venue
-#   - coauthors_long.csv          : One row per DOI x author x affiliation
-#   - coauthor_grad_match.csv     : Coauthors matched to conferred AREC graduates
-#   - coauthor_match_review.csv   : Probable (initial-only) matches for review
-#   - journal_if_audit.csv        : Which venues matched the IF table and how
-#   - publications_enriched.csv   : Publications + citations + IF + student flag
-#   - faculty_appointments.csv    : Cleaned appointment table with join key
-#   - pubs_analysis.csv           : Publication level + appointment + rank
-#   - faculty_year_panel.csv      : Faculty-year panel, active flag, research FTE
-#   - dept_year_summary.csv       : Department totals by year, headcount and FTE
-#   - appointment_join_audit.csv  : Faculty appearing in only one source
+# Required roster columns:
+#   last, first, area, orcid, openalex_author_id
 #
-# Notes:
-#   - Uses oa_fetch(output = "list"). openalexR v2.0.0 raises "Column name `id`
-#     must not be duplicated" when building the works tibble; requesting list
-#     output skips that conversion and parses the OpenAlex JSON directly, so the
-#     script does not depend on openalexR's column naming.
-#   - Appointment splits are held constant across 2021-2025 per CODEBOOK.md.
-#   - Dollar and IF values remain provisional pending JCR/Scopus and VPR checks.
+# Publication windows:
+#   - 2021-2025: program-review reporting window
+#   - 2026: collected and flagged as edge_2026, but not part of the window
 #
-# Dependencies:
-#   - Packages: openalexR, dplyr, tidyr, stringr, readr, readxl, purrr, tibble
+# Important design rules:
+#   - data/publications_faculty_doi_cleaned.csv remains the curated baseline.
+#   - OpenAlex discovery uses verified ORCID/OpenAlex author identifiers only.
+#   - Faculty-year activity flags in roster.csv determine CSU affiliation at
+#     publication. Newly discovered works outside an active year are audited
+#     but not appended.
+#   - New faculty-publication rows are appended automatically and written to
+#     data/publications_faculty_doi_updated.csv.
+#   - OpenAlex's exact work type is retained in openalex_type. The narrower DARE
+#     type is assigned only where a defensible mapping exists. All other types
+#     receive OA_OTHER and type_requires_review = 1.
+#   - DOI is the preferred publication key. OpenAlex work ID is second. A
+#     normalized title-year key is the final fallback.
+#   - CV/curated publication year remains authoritative. OpenAlex year is an
+#     audit field and never silently replaces the curated year.
+#   - This script ends with publications_enriched.csv. Appointment joins,
+#     faculty-year panels, and department summaries belong in stage 03.
 #
-# Execution Time: Moderate (~5 min for ~400 DOIs, network dependent)
+# Main inputs:
+#   data/publications_faculty_doi_cleaned.csv
+#   data/roster.csv
+#   data/journal_impact_factors_2021_2026.xlsx
+#   data/conferred_degrees.xlsx
+#
+# Main outputs:
+#   data/publications_faculty_doi_updated.csv
+#   output/publications_enriched.csv
+#   output/pub_openalex.csv
+#   output/coauthors_long.csv
+#   output/coauthor_grad_match.csv
+#   output/openalex_discovery_audit.csv
+#   output/openalex_affiliation_exclusions.csv
+#   output/publication_affiliation_audit.csv
+#   output/openalex_type_mapping_audit.csv
+#   output/roster_identifier_audit.csv
+#   output/doi_integrity_audit.csv
+#   output/oa_missing_dois.csv
+#   output/journal_if_audit.csv
+#   output/if_key_audit.csv
+#
+# Packages:
+#   openalexR, dplyr, tidyr, stringr, readr, readxl, purrr, tibble
 # ==============================================================================
 
-library(openalexR)
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(readr)
-library(readxl)
-library(purrr)
-library(tibble)
+suppressPackageStartupMessages({
+  library(openalexR)
+  library(dplyr)
+  library(tidyr)
+  library(stringr)
+  library(readr)
+  library(readxl)
+  library(purrr)
+  library(tibble)
+})
 
-setwd("C:/Users/lachenar/OneDrive - Colostate/CAS DARE Team-5 year Review - Documents/Research and Creative Artistry - LAUREN/dare_research")
 
 # ==============================================================================
 # 0. Configuration
 # ==============================================================================
 
-options(openalexR.mailto = "lauren.chenarides@colostate.edu")
-# options(openalexR.apikey = "YOUR_KEY_HERE")   # use options(), not Sys.setenv()
+REPORT_YEARS    <- 2021:2025
+DISCOVERY_YEARS <- 2021:2026
 
-in_dir  <- "data"
-out_dir <- "output"
-dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+# Discovery is refreshed by default because its purpose is to find new works.
+REFRESH_DISCOVERY <- TRUE
 
-WINDOW <- 2021:2025
+# DOI enrichment uses a structured cache. Set TRUE to discard it and re-query.
+REFRESH_DOI_CACHE <- FALSE
 
-# IF_2023 and IF_2026 are empty in the current lookup. TRUE falls back to the
-# nearest available year for the same journal, recorded in `if_match_rule`.
-# FALSE returns NA for those years instead.
+# When an exact journal-year impact factor is unavailable, use the closest
+# available year for that journal. Equal-distance ties use the earlier year.
 USE_NEAREST_IF_YEAR <- TRUE
 
-# Set TRUE to discard the cached OpenAlex response and re-query.
-REFRESH_OPENALEX <- FALSE
+options(openalexR.mailto = "lauren.chenarides@colostate.edu")
+# Store the API key outside this script, for example in ~/.Rprofile:
+# options(openalexR.apikey = "YOUR_API_KEY")
 
 
 # ==============================================================================
-# 1. Helper functions
+# 1. General helpers
 # ==============================================================================
 
-`%||%` <- function(x, y) if (is.null(x) || length(x) == 0) y else x
+`%||%` <- function(x, y) {
+  if (is.null(x) || length(x) == 0) y else x
+}
 
-# Normalize person names for matching against the registrar roster.
-normalize_name <- function(name) {
-  name %>%
+find_project_root <- function(start = getwd()) {
+  current <- normalizePath(start, winslash = "/", mustWork = TRUE)
+
+  repeat {
+    has_readme  <- file.exists(file.path(current, "README.md"))
+    has_codebook <- file.exists(file.path(current, "CODEBOOK.md"))
+
+    if (has_readme && has_codebook) return(current)
+
+    parent <- dirname(current)
+    if (identical(parent, current)) {
+      stop(
+        "Could not locate the dare_research project root. ",
+        "Run the script from inside the repository.",
+        call. = FALSE
+      )
+    }
+    current <- parent
+  }
+}
+
+PROJECT_ROOT <- find_project_root()
+in_dir       <- file.path(PROJECT_ROOT, "data")
+out_dir      <- file.path(PROJECT_ROOT, "output")
+
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+
+base_publications_path <- file.path(
+  in_dir,
+  "publications_faculty_doi_cleaned.csv"
+)
+updated_publications_path <- file.path(
+  in_dir,
+  "publications_faculty_doi_updated.csv"
+)
+roster_path <- file.path(in_dir, "roster.csv")
+
+
+normalize_name <- function(x) {
+  x %>%
     iconv(from = "UTF-8", to = "ASCII//TRANSLIT") %>%
     str_replace_all("\\*", " ") %>%
     str_replace_all("[\u00A0\u200B]", " ") %>%
@@ -101,337 +151,1462 @@ normalize_name <- function(name) {
     str_trim()
 }
 
-# Normalize journal titles so naming variants collapse to one key.
-normalize_journal <- function(x) {
+normalize_text <- function(x) {
   x %>%
     iconv(from = "UTF-8", to = "ASCII//TRANSLIT") %>%
     str_to_lower() %>%
     str_replace_all("&", " and ") %>%
     str_replace_all("[^a-z0-9]+", " ") %>%
+    str_squish()
+}
+
+normalize_journal <- function(x) {
+  x %>%
+    normalize_text() %>%
     str_remove_all("\\b(the|of|and|for|an|a)\\b") %>%
     str_squish()
 }
 
 clean_doi <- function(x) {
   x %>%
-    str_remove("^https?://(dx\\.)?doi\\.org/") %>%
+    as.character() %>%
     str_trim() %>%
-    str_to_lower()
+    str_remove(regex("^doi:\\s*", ignore_case = TRUE)) %>%
+    str_remove(regex("^https?://(dx\\.)?doi\\.org/", ignore_case = TRUE)) %>%
+    str_to_lower() %>%
+    na_if("")
 }
 
-# TRUE only for well-formed DOIs. Placeholders such as "nodoi" must become NA:
-# a shared non-DOI string acts as a join key and would collapse unrelated
-# papers into a single record.
-is_valid_doi <- function(x) str_detect(coalesce(x, ""), "^10\\.\\d{4,9}/\\S+$")
-
-# Extract a last-name join key. Handles multi-word surnames ("Anders Van Sandt")
-# and inconsistent capitalization ("MARCO Costanigro").
-extract_last <- function(full_name) {
-  parts <- str_split(str_squish(full_name), " ")
-  map_chr(parts, function(p) {
-    n <- length(p)
-    if (n >= 3 && str_to_lower(p[n - 1]) %in% c("van", "de", "del", "della", "mc", "st")) {
-      str_c(p[n - 1], " ", p[n])
-    } else {
-      p[n]
-    }
-  }) %>%
-    str_to_title() %>%
-    str_squish()
+is_valid_doi <- function(x) {
+  str_detect(coalesce(x, ""), "^10\\.\\d{4,9}/\\S+$")
 }
 
-# Only network-level failures are worth retrying. A schema or parsing error
-# fails identically on every attempt, so it stops immediately.
-is_transient_error <- function(e) {
-  str_detect(
-    conditionMessage(e),
-    regex("429|too many requests|timeout|timed out|connection|could not resolve|recv failure|handshake|50[0234] ",
-          ignore_case = TRUE)
+clean_orcid <- function(x) {
+  x %>%
+    as.character() %>%
+    str_trim() %>%
+    str_remove(regex("^https?://orcid\\.org/", ignore_case = TRUE)) %>%
+    str_to_upper() %>%
+    na_if("")
+}
+
+is_valid_orcid <- function(x) {
+  str_detect(coalesce(x, ""), "^\\d{4}-\\d{4}-\\d{4}-[\\dX]{4}$")
+}
+
+clean_openalex_author_id <- function(x) {
+  x %>%
+    as.character() %>%
+    str_trim() %>%
+    str_remove(regex("^https?://openalex\\.org/", ignore_case = TRUE)) %>%
+    str_to_upper() %>%
+    na_if("")
+}
+
+is_valid_openalex_author_id <- function(x) {
+  str_detect(coalesce(x, ""), "^A\\d+$")
+}
+
+clean_openalex_work_id <- function(x) {
+  x %>%
+    as.character() %>%
+    str_trim() %>%
+    str_remove(regex("^https?://openalex\\.org/", ignore_case = TRUE)) %>%
+    str_to_upper() %>%
+    na_if("")
+}
+
+make_title_year_key <- function(title, year) {
+  title_key <- normalize_text(title)
+  title_key <- if_else(
+    is.na(title_key) | title_key == "",
+    NA_character_,
+    str_sub(title_key, 1, 60)
+  )
+
+  if_else(
+    is.na(title_key) | is.na(year),
+    NA_character_,
+    str_c("titleyear:", title_key, "|", year)
   )
 }
 
-fetch_chunk <- function(dois, max_tries = 4) {
-  for (attempt in seq_len(max_tries)) {
-    result <- tryCatch(
-      oa_fetch(entity = "works", doi = dois, output = "list", verbose = FALSE),
-      error = function(e) e
-    )
-    if (!inherits(result, "error")) return(result)
-    if (!is_transient_error(result)) {
-      stop("Non-transient OpenAlex error (not retried): ", conditionMessage(result))
-    }
-    wait <- 2^attempt
-    message("  transient error, retry ", attempt, " after ", wait, "s")
-    Sys.sleep(wait)
-  }
-  stop("Failed after ", max_tries, " attempts for chunk beginning ", dois[1])
+make_publication_key <- function(doi, title, year, openalex_work_id = NA_character_) {
+  doi_clean <- clean_doi(doi)
+  oa_id     <- clean_openalex_work_id(openalex_work_id)
+  title_key <- make_title_year_key(title, year)
+
+  case_when(
+    is_valid_doi(doi_clean) ~ str_c("doi:", doi_clean),
+    !is.na(oa_id)           ~ str_c("oa:", oa_id),
+    !is.na(title_key)       ~ title_key,
+    TRUE                    ~ NA_character_
+  )
 }
 
-# ---- Parsers over the OpenAlex Works schema ----------------------------------
-# https://developers.openalex.org/api-reference/works
+work_identity <- function(w) {
+  oa_id <- clean_openalex_work_id(w$id %||% NA_character_)
+  doi   <- clean_doi(w$doi %||% NA_character_)
+  title <- w$display_name %||% w$title %||% NA_character_
+  year  <- suppressWarnings(as.integer(w$publication_year %||% NA))
+
+  make_publication_key(doi, title, year, oa_id)
+}
+
+unique_works <- function(works) {
+  if (length(works) == 0) return(list())
+
+  keys <- map_chr(works, work_identity)
+  keep <- !is.na(keys) & !duplicated(keys)
+  works[keep]
+}
+
+map_openalex_type <- function(oa_type) {
+  case_when(
+    oa_type %in% c("article", "review", "data-paper", "software-paper") ~ "JA",
+    oa_type == "book"                                                     ~ "BK",
+    oa_type == "book-chapter"                                             ~ "BC",
+    oa_type == "conference-paper"                                         ~ "CP",
+    oa_type == "report"                                                   ~ "RP",
+    TRUE                                                                   ~ "OA_OTHER"
+  )
+}
+
+type_mapping_rule <- function(oa_type) {
+  mapped <- map_openalex_type(oa_type)
+  case_when(
+    oa_type == "report" ~
+      "Mapped to RP; research, extension, and refereed status require review",
+    mapped == "OA_OTHER" ~
+      "No direct DARE codebook mapping; review OpenAlex type",
+    TRUE ~ "Direct OpenAlex-to-DARE mapping"
+  )
+}
+
+openalex_type_requires_review <- function(oa_type) {
+  as.integer(oa_type == "report" | map_openalex_type(oa_type) == "OA_OTHER")
+}
+
+default_extension_output <- function(oa_type) {
+  if_else(
+    oa_type == "report" | map_openalex_type(oa_type) == "OA_OTHER",
+    NA_integer_,
+    0L
+  )
+}
+
+is_transient_error <- function(e) {
+  str_detect(
+    conditionMessage(e),
+    regex(
+      paste(
+        "429|too many requests|timeout|timed out|connection|",
+        "could not resolve|recv failure|handshake|50[0234]"
+      ),
+      ignore_case = TRUE
+    )
+  )
+}
+
+fetch_oa <- function(args, max_tries = 4) {
+  for (attempt in seq_len(max_tries)) {
+    result <- tryCatch(
+      do.call(openalexR::oa_fetch, args),
+      error = function(e) e
+    )
+
+    if (!inherits(result, "error")) return(result)
+
+    if (!is_transient_error(result)) {
+      stop(
+        "Non-transient OpenAlex error: ",
+        conditionMessage(result),
+        call. = FALSE
+      )
+    }
+
+    wait_seconds <- 2^attempt
+    message(
+      "Transient OpenAlex error. Retry ",
+      attempt,
+      " of ",
+      max_tries,
+      " after ",
+      wait_seconds,
+      " seconds."
+    )
+    Sys.sleep(wait_seconds)
+  }
+
+  stop("OpenAlex request failed after ", max_tries, " attempts.", call. = FALSE)
+}
+
+bind_missing_columns <- function(df, defaults) {
+  for (column_name in names(defaults)) {
+    if (!column_name %in% names(df)) {
+      df[[column_name]] <- rep(defaults[[column_name]], nrow(df))
+    }
+  }
+  df
+}
+
+
+# ==============================================================================
+# 2. OpenAlex parsers
+# ==============================================================================
 
 parse_work_meta <- function(w) {
+  oa_id     <- clean_openalex_work_id(w$id %||% NA_character_)
+  doi_raw   <- w$doi %||% NA_character_
+  doi_clean <- clean_doi(doi_raw)
+  doi_clean <- if_else(is_valid_doi(doi_clean), doi_clean, NA_character_)
+  oa_title  <- w$display_name %||% w$title %||% NA_character_
+  oa_year   <- suppressWarnings(as.integer(w$publication_year %||% NA))
+
   tibble(
-    oa_id          = w$id %||% NA_character_,
-    doi_raw        = w$doi %||% NA_character_,
-    oa_title       = w$display_name %||% w$title %||% NA_character_,
-    oa_year        = as.integer(w$publication_year %||% NA),
-    oa_date        = w$publication_date %||% NA_character_,
-    oa_type        = w$type %||% NA_character_,
-    cited_by_count = as.integer(w$cited_by_count %||% NA),
-    oa_venue       = w$primary_location$source$display_name %||% NA_character_,
-    oa_issn_l      = w$primary_location$source$issn_l %||% NA_character_,
-    oa_publisher   = w$primary_location$source$host_organization_name %||% NA_character_,
-    is_oa          = w$open_access$is_oa %||% NA,
-    is_retracted   = w$is_retracted %||% NA,
-    n_authors      = length(w$authorships %||% list())
+    publication_key = make_publication_key(doi_clean, oa_title, oa_year, oa_id),
+    oa_id            = oa_id,
+    doi_raw          = doi_raw,
+    doi_clean        = doi_clean,
+    oa_title         = oa_title,
+    oa_year          = oa_year,
+    oa_date          = w$publication_date %||% NA_character_,
+    oa_type          = w$type %||% NA_character_,
+    cited_by_count   = suppressWarnings(as.integer(w$cited_by_count %||% NA)),
+    oa_venue         = w$primary_location$source$display_name %||% NA_character_,
+    oa_issn_l        = w$primary_location$source$issn_l %||% NA_character_,
+    oa_publisher     = w$primary_location$source$host_organization_name %||% NA_character_,
+    is_oa            = w$open_access$is_oa %||% NA,
+    is_retracted     = w$is_retracted %||% NA,
+    n_authors        = length(w$authorships %||% list())
   )
 }
 
 parse_work_authors <- function(w) {
   auths <- w$authorships %||% list()
-  if (length(auths) == 0) return(NULL)
+  if (length(auths) == 0) return(tibble())
+
+  work_meta <- parse_work_meta(w)
 
   map_dfr(auths, function(a) {
-    base <- tibble(
-      oa_id            = w$id %||% NA_character_,
-      doi_raw          = w$doi %||% NA_character_,
-      author_position  = a$author_position %||% NA_character_,
-      au_id            = a$author$id %||% NA_character_,
-      au_display_name  = a$author$display_name %||% NA_character_,
-      au_orcid         = a$author$orcid %||% NA_character_,
-      is_corresponding = a$is_corresponding %||% NA,
-      raw_author_name  = a$raw_author_name %||% NA_character_,
-      raw_affiliation  = paste(a$raw_affiliation_strings %||% character(0),
-                               collapse = "; ")
+    author_id    <- clean_openalex_author_id(a$author$id %||% NA_character_)
+    author_orcid <- clean_orcid(a$author$orcid %||% a$raw_orcid %||% NA_character_)
+    author_name  <- a$author$display_name %||% a$raw_author_name %||% NA_character_
+    author_norm  <- normalize_name(author_name)
+    author_key   <- coalesce(
+      author_id,
+      if_else(!is.na(author_norm), str_c("name:", author_norm), NA_character_)
     )
 
-    insts <- a$institutions %||% list()
-    if (length(insts) == 0) {
-      base %>% mutate(institution = NA_character_, ror = NA_character_,
-                      country_code = NA_character_, institution_type = NA_character_)
-    } else {
-      # One row per author-institution pair; multi-affiliated authors repeat.
-      map_dfr(insts, function(i) {
-        base %>% mutate(
+    base <- tibble(
+      publication_key = work_meta$publication_key,
+      oa_id            = work_meta$oa_id,
+      doi_clean        = work_meta$doi_clean,
+      au_key           = author_key,
+      au_id            = author_id,
+      au_orcid         = author_orcid,
+      au_display_name  = author_name,
+      au_name_norm     = author_norm,
+      author_position  = a$author_position %||% NA_character_,
+      is_corresponding = a$is_corresponding %||% NA,
+      raw_author_name  = a$raw_author_name %||% NA_character_,
+      raw_affiliation  = paste(
+        a$raw_affiliation_strings %||% character(0),
+        collapse = "; "
+      )
+    )
+
+    institutions <- a$institutions %||% list()
+
+    if (length(institutions) == 0) {
+      return(
+        base %>%
+          mutate(
+            institution      = NA_character_,
+            ror              = NA_character_,
+            country_code     = NA_character_,
+            institution_type = NA_character_
+          )
+      )
+    }
+
+    map_dfr(institutions, function(i) {
+      base %>%
+        mutate(
           institution      = i$display_name %||% NA_character_,
           ror              = i$ror %||% NA_character_,
           country_code     = i$country_code %||% NA_character_,
           institution_type = i$type %||% NA_character_
         )
-      })
-    }
+    })
   })
 }
 
 
 # ==============================================================================
-# 2. Read inputs
+# 3. Read and validate the curated inputs
 # ==============================================================================
 
-pubs <- read_csv(file.path(in_dir, "publications_faculty_doi_cleaned.csv"),
-                 show_col_types = FALSE) %>%
-  mutate(
-    last      = str_to_title(last),
-    doi_clean = clean_doi(doi),
-    doi_clean = if_else(is_valid_doi(doi_clean), doi_clean, NA_character_)
-  )
+pubs <- read_csv(base_publications_path, show_col_types = FALSE)
+roster <- read_csv(roster_path, show_col_types = FALSE)
 
-nrow(pubs)                                 # N = 406 faculty-publication rows
-sum(is.na(pubs$doi_clean))                 # N = 20 rows with no usable DOI
-n_distinct(pubs$doi_clean, na.rm = TRUE)   # N = distinct DOIs to query
-
-if_wide <- read_excel(file.path(in_dir, "journal_impact_factors_2021_2026.xlsx"),
-                      sheet = "Impact Factors")
-
-conferred <- read_excel(file.path(in_dir, "conferred_degrees.xlsx"),
-                        sheet = "conferred")
-
-nrow(conferred)                            # N = 65 conferred AREC graduates
-
-roster <- read_csv(file.path(in_dir, "roster.csv"), show_col_types = FALSE) %>%
-  mutate(last = str_to_title(last))
-
-appt_raw <- read_csv(file.path(in_dir, "appointment_splits.csv"),
-                     show_col_types = FALSE)
-
-
-# ==============================================================================
-# 3. DOI integrity audit
-# ==============================================================================
-
-# A DOI carrying more than one year, title, or venue across faculty rows is
-# either a mis-assigned DOI or a duplicated entry. Both need a human decision;
-# neither should be silently averaged away.
-doi_integrity <- pubs %>%
-  filter(!is.na(doi_clean)) %>%
-  group_by(doi_clean) %>%
-  summarize(
-    n_rows   = n(),
-    n_years  = n_distinct(year),
-    n_titles = n_distinct(title_short),
-    n_venues = n_distinct(venue),
-    years    = paste(sort(unique(year)), collapse = "; "),
-    titles   = paste(unique(title_short), collapse = " | "),
-    venues   = paste(unique(venue), collapse = " | "),
-    faculty  = paste(sort(unique(last)), collapse = "; "),
-    .groups  = "drop"
-  ) %>%
-  filter(n_years > 1 | n_venues > 1) %>%
-  arrange(desc(n_years))
-
-write_csv(doi_integrity, file.path(out_dir, "doi_integrity_audit.csv"))
-nrow(doi_integrity)                        # N = DOIs needing review
-
-# OPEN ITEMS AS OF THIS RUN:
-#   10.1371/journal.pone.0261833 - a PLOS ONE DOI correctly attached to Suter
-#     "Summer Crowds" (2022). Burkhardt "Sustainability of lettuce production"
-#     (Journal of Cleaner Production) carries it incorrectly.
-#   10.1080/10871209.2024.2414880 - two Hoag rows, different titles and years.
-#     Likely one paper entered twice (CV placeholder title plus Scholar title).
-
-
-# ==============================================================================
-# 4. Query OpenAlex by DOI
-# ==============================================================================
-
-dois <- pubs %>% filter(!is.na(doi_clean)) %>% pull(doi_clean) %>% unique()
-chunks <- split(dois, ceiling(seq_along(dois) / 50))
-
-cache_path <- file.path(out_dir, "oa_works_raw.rds")
-if (REFRESH_OPENALEX && file.exists(cache_path)) file.remove(cache_path)
-
-if (file.exists(cache_path)) {
-  message("Reading cached OpenAlex response. Set REFRESH_OPENALEX <- TRUE to refresh.")
-  works_list <- readRDS(cache_path)
-} else {
-  works_list <- list()
-  for (i in seq_along(chunks)) {
-    message("Fetching chunk ", i, " of ", length(chunks))
-    works_list <- c(works_list, fetch_chunk(chunks[[i]]))
-    Sys.sleep(0.5)
-  }
-  # fetch_chunk() stops on failure, so reaching this line means every chunk
-  # returned. A partial result is never cached.
-  saveRDS(works_list, cache_path)
+if (!"orcid" %in% names(roster)) {
+  roster$orcid <- NA_character_
 }
 
-length(works_list)                         # N = works returned by OpenAlex
+if (!"openalex_author_id" %in% names(roster)) {
+  roster$openalex_author_id <- NA_character_
+}
+
+# write_csv(roster, "data/roster.csv", na = "")
+
+required_publication_columns <- c(
+  "last", "first", "area", "year", "type", "index_class",
+  "student_coauthor", "dare_coauthors", "dare_coauthors_names",
+  "title_short", "venue", "doi", "source_file"
+)
+
+missing_publication_columns <- setdiff(
+  required_publication_columns,
+  names(pubs)
+)
+
+if (length(missing_publication_columns) > 0) {
+  stop(
+    "The curated publication file is missing: ",
+    paste(missing_publication_columns, collapse = ", "),
+    call. = FALSE
+  )
+}
+
+active_year_columns <- str_c("y", DISCOVERY_YEARS)
+
+required_roster_columns <- c(
+  "last", "first", "area", "orcid", "openalex_author_id",
+  active_year_columns
+)
+
+missing_roster_columns <- setdiff(required_roster_columns, names(roster))
+
+if (length(missing_roster_columns) > 0) {
+  stop(
+    "roster.csv is missing: ",
+    paste(missing_roster_columns, collapse = ", "),
+    ". Add `orcid` and `openalex_author_id` columns and rerun.",
+    call. = FALSE
+  )
+}
+
+publication_defaults <- list(
+  openalex_work_id    = NA_character_,
+  openalex_type       = NA_character_,
+  type_mapping_rule   = NA_character_,
+  type_requires_review = 0L,
+  extension_output    = NA_integer_,
+  affiliated_at_publication = NA_integer_,
+  affiliation_status  = NA_character_,
+  added_from_openalex = 0L,
+  added_from_coauthor = 0L,
+  author_match_rule   = NA_character_,
+  discovery_date      = NA_character_,
+  edge_2026           = 0L
+)
+
+pubs <- bind_missing_columns(pubs, publication_defaults) %>%
+  mutate(
+    last                 = str_to_title(str_squish(last)),
+    first                = str_to_title(str_squish(first)),
+    year                 = suppressWarnings(as.integer(year)),
+    doi_clean            = clean_doi(doi),
+    doi_clean            = if_else(
+      is_valid_doi(doi_clean),
+      doi_clean,
+      NA_character_
+    ),
+    openalex_work_id     = clean_openalex_work_id(openalex_work_id),
+    faculty_key          = normalize_name(str_c(first, last, sep = " ")),
+    title_year_key       = make_title_year_key(title_short, year),
+    publication_key      = make_publication_key(
+      doi_clean,
+      title_short,
+      year,
+      openalex_work_id
+    ),
+    extension_output     = case_when(
+      !is.na(extension_output) ~ as.integer(extension_output),
+      type == "EX"             ~ 1L,
+      type %in% c("JA", "BC", "BK", "RP", "CP") ~ 0L,
+      TRUE                     ~ NA_integer_
+    ),
+    edge_2026             = as.integer(year == 2026),
+    added_from_openalex   = replace_na(as.integer(added_from_openalex), 0L),
+    added_from_coauthor   = replace_na(as.integer(added_from_coauthor), 0L),
+    type_requires_review  = replace_na(as.integer(type_requires_review), 0L)
+  )
+
+if (any(is.na(pubs$year))) {
+  stop(
+    "The curated publication file contains missing or invalid years. ",
+    "The CODEBOOK requires undated works to remain excluded.",
+    call. = FALSE
+  )
+}
+
+roster <- roster %>%
+  mutate(
+    last               = str_to_title(str_squish(last)),
+    first              = str_to_title(str_squish(first)),
+    faculty_key        = normalize_name(str_c(first, last, sep = " ")),
+    orcid              = clean_orcid(orcid),
+    openalex_author_id = clean_openalex_author_id(openalex_author_id),
+    orcid_valid        = is.na(orcid) | is_valid_orcid(orcid),
+    openalex_id_valid  = is.na(openalex_author_id) |
+      is_valid_openalex_author_id(openalex_author_id),
+    has_identifier     = !is.na(orcid) | !is.na(openalex_author_id),
+    identifier_status  = case_when(
+      !orcid_valid | !openalex_id_valid ~ "Invalid identifier",
+      !has_identifier                   ~ "No identifier; discovery skipped",
+      !is.na(orcid) & !is.na(openalex_author_id) ~ "ORCID and OpenAlex ID",
+      !is.na(openalex_author_id)         ~ "OpenAlex ID only",
+      TRUE                               ~ "ORCID only"
+    )
+  )
+
+roster_active_year <- roster %>%
+  select(faculty_key, all_of(active_year_columns)) %>%
+  pivot_longer(
+    cols = all_of(active_year_columns),
+    names_to = "active_year_column",
+    values_to = "active_value"
+  ) %>%
+  mutate(
+    year = as.integer(str_remove(active_year_column, "^y")),
+    affiliated_at_publication = suppressWarnings(as.integer(active_value))
+  ) %>%
+  select(faculty_key, year, affiliated_at_publication)
+
+invalid_active_flags <- roster_active_year %>%
+  filter(
+    is.na(affiliated_at_publication) |
+      !affiliated_at_publication %in% c(0L, 1L)
+  )
+
+if (nrow(invalid_active_flags) > 0) {
+  stop(
+    "Roster activity columns y2021 through y2026 must contain only 0 or 1. ",
+    "Correct the activity flags before discovery.",
+    call. = FALSE
+  )
+}
+
+identifier_audit <- roster %>%
+  select(
+    last, first, area, orcid, openalex_author_id,
+    identifier_status, orcid_valid, openalex_id_valid
+  )
+
+write_csv(
+  identifier_audit,
+  file.path(out_dir, "roster_identifier_audit.csv")
+)
+
+if (any(identifier_audit$identifier_status == "Invalid identifier")) {
+  stop(
+    "One or more roster identifiers are invalid. ",
+    "Review output/roster_identifier_audit.csv.",
+    call. = FALSE
+  )
+}
+
+duplicate_faculty_keys <- roster %>%
+  count(faculty_key, name = "n") %>%
+  filter(n > 1)
+
+duplicate_orcids <- roster %>%
+  filter(!is.na(orcid)) %>%
+  count(orcid, name = "n") %>%
+  filter(n > 1)
+
+duplicate_openalex_ids <- roster %>%
+  filter(!is.na(openalex_author_id)) %>%
+  count(openalex_author_id, name = "n") %>%
+  filter(n > 1)
+
+if (
+  nrow(duplicate_faculty_keys) > 0 ||
+    nrow(duplicate_orcids) > 0 ||
+    nrow(duplicate_openalex_ids) > 0
+) {
+  stop(
+    "Roster names or identifiers are assigned to multiple faculty. ",
+    "Resolve the duplicates before discovery.",
+    call. = FALSE
+  )
+}
+
+# Apply the roster's annual activity flags to the curated publication rows.
+# Rows outside an active CSU year remain in the data for traceability, but the
+# flag makes them ineligible for reporting in stages 03 and 04.
+pubs <- pubs %>%
+  select(-affiliated_at_publication, -affiliation_status) %>%
+  left_join(
+    roster_active_year,
+    by = c("faculty_key", "year"),
+    relationship = "many-to-one"
+  ) %>%
+  mutate(
+    affiliation_match_missing = is.na(affiliated_at_publication),
+    affiliation_status = case_when(
+      affiliation_match_missing ~ "No matching roster faculty-year",
+      affiliated_at_publication == 1L ~ "Active CSU affiliation",
+      TRUE ~ "Outside active CSU affiliation"
+    ),
+    affiliated_at_publication = coalesce(
+      affiliated_at_publication,
+      0L
+    )
+  )
+
+publication_affiliation_audit <- pubs %>%
+  filter(affiliated_at_publication != 1L) %>%
+  select(
+    last, first, area, year, title_short, venue, doi,
+    publication_key, affiliation_status, affiliation_match_missing
+  ) %>%
+  arrange(last, year, title_short)
+
+write_csv(
+  publication_affiliation_audit,
+  file.path(out_dir, "publication_affiliation_audit.csv")
+)
+
+if (any(pubs$affiliation_match_missing)) {
+  stop(
+    "At least one curated publication has no matching roster faculty-year. ",
+    "Review output/publication_affiliation_audit.csv.",
+    call. = FALSE
+  )
+}
+
+pubs <- pubs %>% select(-affiliation_match_missing)
 
 
 # ==============================================================================
-# 5. Work-level table: citations and venue
+# 4. Audit the curated DOI keys before making API requests
 # ==============================================================================
 
-pub_openalex <- map_dfr(works_list, parse_work_meta) %>%
-  mutate(doi_clean = clean_doi(doi_raw)) %>%
+audit_doi_integrity <- function(df) {
+  df %>%
+    filter(!is.na(doi_clean)) %>%
+    group_by(doi_clean) %>%
+    summarize(
+      n_rows   = n(),
+      n_years  = n_distinct(year, na.rm = TRUE),
+      n_titles = n_distinct(title_short, na.rm = TRUE),
+      n_venues = n_distinct(venue, na.rm = TRUE),
+      years    = paste(sort(unique(na.omit(year))), collapse = "; "),
+      titles   = paste(unique(na.omit(title_short)), collapse = " | "),
+      venues   = paste(unique(na.omit(venue)), collapse = " | "),
+      faculty  = paste(sort(unique(last)), collapse = "; "),
+      .groups  = "drop"
+    ) %>%
+    filter(n_years > 1 | n_titles > 1 | n_venues > 1) %>%
+    arrange(desc(n_years), desc(n_titles), desc(n_venues))
+}
+
+doi_integrity_curated <- audit_doi_integrity(pubs)
+
+write_csv(
+  doi_integrity_curated,
+  file.path(out_dir, "doi_integrity_audit.csv")
+)
+
+if (nrow(doi_integrity_curated) > 0) {
+  stop(
+    nrow(doi_integrity_curated),
+    " DOI keys have conflicting years, titles, or venues. ",
+    "Review output/doi_integrity_audit.csv before continuing.",
+    call. = FALSE
+  )
+}
+
+
+# ==============================================================================
+# 5. Discover works by verified roster identifiers
+# ==============================================================================
+
+discovery_cache_path <- file.path(out_dir, "oa_discovery_raw.rds")
+
+discovery_signature <- roster %>%
+  arrange(faculty_key) %>%
+  transmute(
+    signature_piece = str_c(
+      faculty_key,
+      coalesce(orcid, ""),
+      coalesce(openalex_author_id, ""),
+      sep = "|"
+    )
+  ) %>%
+  pull(signature_piece) %>%
+  paste(collapse = "||") %>%
+  str_c(
+    paste(range(DISCOVERY_YEARS), collapse = "-"),
+    .,
+    sep = "||"
+  )
+
+use_discovery_cache <- FALSE
+
+if (!REFRESH_DISCOVERY && file.exists(discovery_cache_path)) {
+  discovery_cache <- readRDS(discovery_cache_path)
+  use_discovery_cache <- is.list(discovery_cache) &&
+    identical(discovery_cache$signature, discovery_signature)
+}
+
+if (use_discovery_cache) {
+  message("Reading cached faculty discovery response.")
+  works_by_query <- discovery_cache$works_by_query
+  query_meta     <- discovery_cache$query_meta
+} else {
+  works_by_query <- list()
+  query_meta     <- tibble(
+    query_key = character(),
+    faculty_key = character(),
+    query_basis = character()
+  )
+
+  roster_to_query <- roster %>% filter(has_identifier)
+
+  for (i in seq_len(nrow(roster_to_query))) {
+    person <- roster_to_query[i, ]
+
+    if (!is.na(person$openalex_author_id)) {
+      query_key <- str_c(person$faculty_key, "__openalex_id")
+      message(
+        "Discovering works for ",
+        person$first,
+        " ",
+        person$last,
+        " by OpenAlex ID."
+      )
+
+      works_by_query[[query_key]] <- fetch_oa(list(
+        entity = "works",
+        author.id = person$openalex_author_id,
+        from_publication_date = str_c(min(DISCOVERY_YEARS), "-01-01"),
+        to_publication_date = str_c(max(DISCOVERY_YEARS), "-12-31"),
+        output = "list",
+        verbose = FALSE
+      ))
+
+      query_meta <- bind_rows(
+        query_meta,
+        tibble(
+          query_key = query_key,
+          faculty_key = person$faculty_key,
+          query_basis = "OpenAlex author ID query"
+        )
+      )
+    }
+
+    if (!is.na(person$orcid)) {
+      query_key <- str_c(person$faculty_key, "__orcid")
+      message(
+        "Discovering works for ",
+        person$first,
+        " ",
+        person$last,
+        " by ORCID."
+      )
+
+      works_by_query[[query_key]] <- fetch_oa(list(
+        entity = "works",
+        author.orcid = person$orcid,
+        from_publication_date = str_c(min(DISCOVERY_YEARS), "-01-01"),
+        to_publication_date = str_c(max(DISCOVERY_YEARS), "-12-31"),
+        output = "list",
+        verbose = FALSE
+      ))
+
+      query_meta <- bind_rows(
+        query_meta,
+        tibble(
+          query_key = query_key,
+          faculty_key = person$faculty_key,
+          query_basis = "ORCID query"
+        )
+      )
+    }
+  }
+
+  saveRDS(
+    list(
+      signature = discovery_signature,
+      works_by_query = works_by_query,
+      query_meta = query_meta,
+      cached_at = Sys.time()
+    ),
+    discovery_cache_path
+  )
+}
+
+works_by_query <- map(works_by_query, unique_works)
+
+query_index_raw <- imap_dfr(works_by_query, function(works, query_key) {
+  if (length(works) == 0) return(tibble())
+
+  tibble(
+    query_key = query_key,
+    oa_id = map_chr(
+      works,
+      ~ clean_openalex_work_id(.x$id %||% NA_character_)
+    )
+  ) %>%
+    filter(!is.na(oa_id))
+})
+
+if (nrow(query_index_raw) == 0) {
+  query_index <- tibble(
+    oa_id = character(),
+    faculty_key = character(),
+    query_basis = character()
+  )
+} else {
+  query_index <- query_index_raw %>%
+    left_join(query_meta, by = "query_key", relationship = "many-to-one") %>%
+    distinct(oa_id, faculty_key, query_basis)
+}
+
+discovery_works <- unique_works(
+  purrr::flatten(unname(works_by_query))
+)
+
+if (length(discovery_works) > 0) {
+  discovery_meta <- map_dfr(discovery_works, parse_work_meta) %>%
+    filter(oa_year %in% DISCOVERY_YEARS) %>%
+    distinct(oa_id, .keep_all = TRUE)
+
+  discovery_authors <- map_dfr(discovery_works, parse_work_authors) %>%
+    filter(publication_key %in% discovery_meta$publication_key) %>%
+    distinct()
+} else {
+  discovery_meta <- tibble()
+  discovery_authors <- tibble()
+}
+
+
+# ==============================================================================
+# 6. Match discovered works to rostered faculty and append new rows
+# ==============================================================================
+
+new_publication_rows <- pubs[0, ]
+discovery_append_audit <- tibble()
+discovery_affiliation_exclusions <- tibble()
+
+if (nrow(discovery_meta) > 0) {
+  query_pairs <- query_index %>%
+    inner_join(
+      discovery_meta %>% select(oa_id, publication_key),
+      by = "oa_id",
+      relationship = "many-to-one"
+    ) %>%
+    transmute(
+      publication_key,
+      faculty_key,
+      author_match_rule = query_basis,
+      match_priority = if_else(
+        query_basis == "OpenAlex author ID query",
+        1L,
+        2L
+      ),
+      direct_query_match = 1L
+    )
+
+  author_rows <- discovery_authors %>%
+    distinct(
+      publication_key, au_key, au_id, au_orcid,
+      au_display_name, au_name_norm
+    )
+
+  matches_by_openalex_id <- author_rows %>%
+    filter(!is.na(au_id)) %>%
+    inner_join(
+      roster %>%
+        filter(!is.na(openalex_author_id)) %>%
+        select(faculty_key, openalex_author_id),
+      by = c("au_id" = "openalex_author_id"),
+      relationship = "many-to-one"
+    ) %>%
+    transmute(
+      publication_key,
+      faculty_key,
+      author_match_rule = "OpenAlex author ID in authorship",
+      match_priority = 1L,
+      direct_query_match = 0L
+    )
+
+  matches_by_orcid <- author_rows %>%
+    filter(!is.na(au_orcid)) %>%
+    inner_join(
+      roster %>%
+        filter(!is.na(orcid)) %>%
+        select(faculty_key, orcid),
+      by = c("au_orcid" = "orcid"),
+      relationship = "many-to-one"
+    ) %>%
+    transmute(
+      publication_key,
+      faculty_key,
+      author_match_rule = "ORCID in authorship",
+      match_priority = 2L,
+      direct_query_match = 0L
+    )
+
+  matches_by_exact_name <- author_rows %>%
+    filter(!is.na(au_name_norm)) %>%
+    inner_join(
+      roster %>% select(faculty_key),
+      by = c("au_name_norm" = "faculty_key"),
+      relationship = "many-to-one"
+    ) %>%
+    transmute(
+      publication_key,
+      faculty_key,
+      author_match_rule = "Exact normalized roster name in authorship",
+      match_priority = 4L,
+      direct_query_match = 0L
+    )
+
+  roster_work_matches <- bind_rows(
+    query_pairs,
+    matches_by_openalex_id,
+    matches_by_orcid,
+    matches_by_exact_name
+  ) %>%
+    group_by(publication_key, faculty_key) %>%
+    arrange(match_priority, desc(direct_query_match), .by_group = TRUE) %>%
+    summarize(
+      author_match_rule = first(author_match_rule),
+      direct_query_match = max(direct_query_match),
+      .groups = "drop"
+    )
+
+  dare_author_summary <- roster_work_matches %>%
+    left_join(
+      roster %>% select(faculty_key, last),
+      by = "faculty_key",
+      relationship = "many-to-one"
+    ) %>%
+    group_by(publication_key) %>%
+    summarize(
+      n_dare_authors = n_distinct(faculty_key),
+      dare_coauthors_names = paste(sort(unique(last)), collapse = ";"),
+      .groups = "drop"
+    )
+
+  discovered_rows <- roster_work_matches %>%
+    left_join(
+      roster %>% select(faculty_key, last, first, area),
+      by = "faculty_key",
+      relationship = "many-to-one"
+    ) %>%
+    left_join(
+      discovery_meta,
+      by = "publication_key",
+      relationship = "many-to-one"
+    ) %>%
+    left_join(
+      dare_author_summary,
+      by = "publication_key",
+      relationship = "many-to-one"
+    ) %>%
+    mutate(
+      year                  = oa_year,
+      type                  = map_openalex_type(oa_type),
+      index_class           = NA_character_,
+      student_coauthor      = "U",
+      dare_coauthors        = as.integer(n_dare_authors > 1),
+      title_short           = str_squish(oa_title),
+      venue                 = oa_venue,
+      doi                   = doi_clean,
+      source_file           = "OpenAlex discovery",
+      openalex_work_id      = oa_id,
+      openalex_type         = oa_type,
+      type_mapping_rule     = type_mapping_rule(oa_type),
+      type_requires_review  = openalex_type_requires_review(oa_type),
+      extension_output      = default_extension_output(oa_type),
+      added_from_openalex   = 1L,
+      added_from_coauthor   = as.integer(direct_query_match == 0L),
+      discovery_date        = as.character(Sys.Date()),
+      edge_2026             = as.integer(year == 2026),
+      doi_clean             = clean_doi(doi),
+      title_year_key        = make_title_year_key(title_short, year)
+    )
+
+  # When the department already has the publication for another faculty member,
+  # inherit the curated metadata before creating the missing faculty row.
+  existing_meta_by_doi <- pubs %>%
+    filter(!is.na(doi_clean)) %>%
+    group_by(doi_clean) %>%
+    summarize(
+      meta_publication_key = first(publication_key),
+      meta_year            = first(year),
+      meta_type            = first(type),
+      meta_index_class     = first(index_class),
+      meta_title_short     = first(title_short),
+      meta_venue           = first(venue),
+      meta_source_file     = first(source_file),
+      meta_extension       = first(extension_output),
+      .groups = "drop"
+    )
+
+  existing_meta_by_title <- pubs %>%
+    filter(!is.na(title_year_key)) %>%
+    group_by(title_year_key) %>%
+    filter(n_distinct(publication_key) == 1) %>%
+    summarize(
+      title_meta_publication_key = first(publication_key),
+      title_meta_year            = first(year),
+      title_meta_type            = first(type),
+      title_meta_index_class     = first(index_class),
+      title_meta_title_short     = first(title_short),
+      title_meta_venue           = first(venue),
+      title_meta_source_file     = first(source_file),
+      title_meta_extension       = first(extension_output),
+      .groups = "drop"
+    )
+
+  discovered_rows <- discovered_rows %>%
+    left_join(
+      existing_meta_by_doi,
+      by = "doi_clean",
+      relationship = "many-to-one"
+    ) %>%
+    left_join(
+      existing_meta_by_title,
+      by = "title_year_key",
+      relationship = "many-to-one"
+    ) %>%
+    mutate(
+      inherited_existing_record = !is.na(meta_publication_key) |
+        !is.na(title_meta_publication_key),
+      publication_key = coalesce(
+        meta_publication_key,
+        title_meta_publication_key,
+        publication_key
+      ),
+      year = coalesce(meta_year, title_meta_year, year),
+      type = coalesce(meta_type, title_meta_type, type),
+      index_class = coalesce(
+        meta_index_class,
+        title_meta_index_class,
+        index_class
+      ),
+      title_short = coalesce(
+        meta_title_short,
+        title_meta_title_short,
+        title_short
+      ),
+      venue = coalesce(meta_venue, title_meta_venue, venue),
+      source_file = coalesce(
+        meta_source_file,
+        title_meta_source_file,
+        source_file
+      ),
+      extension_output = coalesce(
+        meta_extension,
+        title_meta_extension,
+        extension_output
+      ),
+      type_mapping_rule = if_else(
+        inherited_existing_record,
+        "Inherited from existing curated DARE publication",
+        type_mapping_rule
+      ),
+      type_requires_review = if_else(
+        inherited_existing_record,
+        0L,
+        type_requires_review
+      ),
+      added_from_coauthor = if_else(
+        inherited_existing_record,
+        1L,
+        added_from_coauthor
+      ),
+      edge_2026 = as.integer(year == 2026),
+      title_year_key = make_title_year_key(title_short, year)
+    ) %>%
+    left_join(
+      roster_active_year,
+      by = c("faculty_key", "year"),
+      relationship = "many-to-one"
+    ) %>%
+    mutate(
+      affiliation_status = case_when(
+        is.na(affiliated_at_publication) ~
+          "No matching roster faculty-year",
+        affiliated_at_publication == 1L ~
+          "Active CSU affiliation",
+        TRUE ~ "Outside active CSU affiliation"
+      ),
+      affiliated_at_publication = coalesce(
+        affiliated_at_publication,
+        0L
+      )
+    )
+
+  existing_doi_pairs <- pubs %>%
+    filter(!is.na(doi_clean)) %>%
+    transmute(pair = str_c(faculty_key, "|doi:", doi_clean)) %>%
+    pull(pair)
+
+  existing_oa_pairs <- pubs %>%
+    filter(!is.na(openalex_work_id)) %>%
+    transmute(pair = str_c(faculty_key, "|oa:", openalex_work_id)) %>%
+    pull(pair)
+
+  existing_title_pairs <- pubs %>%
+    filter(!is.na(title_year_key)) %>%
+    transmute(pair = str_c(faculty_key, "|", title_year_key)) %>%
+    pull(pair)
+
+  discovered_rows <- discovered_rows %>%
+    mutate(
+      doi_pair = if_else(
+        !is.na(doi_clean),
+        str_c(faculty_key, "|doi:", doi_clean),
+        NA_character_
+      ),
+      oa_pair = if_else(
+        !is.na(openalex_work_id),
+        str_c(faculty_key, "|oa:", openalex_work_id),
+        NA_character_
+      ),
+      title_pair = if_else(
+        !is.na(title_year_key),
+        str_c(faculty_key, "|", title_year_key),
+        NA_character_
+      ),
+      already_in_curated = doi_pair %in% existing_doi_pairs |
+        oa_pair %in% existing_oa_pairs |
+        title_pair %in% existing_title_pairs
+    )
+
+  discovery_append_audit <- discovered_rows %>%
+    transmute(
+      last, first, area, year, title_short, venue, doi,
+      openalex_work_id, openalex_type, type,
+      type_mapping_rule, type_requires_review,
+      author_match_rule, affiliated_at_publication,
+      affiliation_status, already_in_curated,
+      action = case_when(
+        affiliated_at_publication != 1L ~
+          "Outside active CSU affiliation; not appended",
+        already_in_curated ~ "Already present; not appended",
+        TRUE ~ "Appended to updated publication file"
+      )
+    ) %>%
+    arrange(last, year, title_short)
+
+  discovery_affiliation_exclusions <- discovery_append_audit %>%
+    filter(affiliated_at_publication != 1L)
+
+  new_publication_rows <- discovered_rows %>%
+    filter(
+      !already_in_curated,
+      affiliated_at_publication == 1L
+    ) %>%
+    select(any_of(names(pubs)))
+}
+
+write_csv(
+  discovery_append_audit,
+  file.path(out_dir, "openalex_discovery_audit.csv")
+)
+
+write_csv(
+  discovery_affiliation_exclusions,
+  file.path(out_dir, "openalex_affiliation_exclusions.csv")
+)
+
+updated_pubs <- bind_rows(pubs, new_publication_rows) %>%
+  mutate(
+    faculty_key = normalize_name(str_c(first, last, sep = " ")),
+    doi_clean = clean_doi(doi),
+    doi_clean = if_else(is_valid_doi(doi_clean), doi_clean, NA_character_),
+    openalex_work_id = clean_openalex_work_id(openalex_work_id),
+    title_year_key = make_title_year_key(title_short, year),
+    publication_key = coalesce(
+      publication_key,
+      make_publication_key(
+        doi_clean,
+        title_short,
+        year,
+        openalex_work_id
+      )
+    )
+  )
+
+# Recompute internal-collaboration fields for both existing and appended rows.
+internal_collaboration <- updated_pubs %>%
+  filter(
+    affiliated_at_publication == 1L,
+    !is.na(publication_key)
+  ) %>%
+  group_by(publication_key) %>%
+  summarize(
+    n_dare_authors = n_distinct(faculty_key),
+    dare_names = paste(sort(unique(last)), collapse = ";"),
+    .groups = "drop"
+  )
+
+updated_pubs <- updated_pubs %>%
+  left_join(
+    internal_collaboration,
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
+  mutate(
+    dare_coauthors = if_else(
+      !is.na(n_dare_authors),
+      as.integer(n_dare_authors > 1),
+      dare_coauthors
+    ),
+    dare_coauthors_names = if_else(
+      !is.na(n_dare_authors) & n_dare_authors > 1,
+      dare_names,
+      NA_character_
+    ),
+    edge_2026 = as.integer(year == 2026)
+  ) %>%
+  select(-n_dare_authors, -dare_names)
+
+doi_integrity_updated <- audit_doi_integrity(updated_pubs)
+
+write_csv(
+  doi_integrity_updated,
+  file.path(out_dir, "doi_integrity_audit.csv")
+)
+
+if (nrow(doi_integrity_updated) > 0) {
+  stop(
+    nrow(doi_integrity_updated),
+    " DOI keys conflict after discovery. ",
+    "Review output/doi_integrity_audit.csv.",
+    call. = FALSE
+  )
+}
+
+# ==============================================================================
+# 7. Enrich every valid DOI using a structured cache
+# ==============================================================================
+
+pubs <- updated_pubs
+dois <- pubs %>%
   filter(!is.na(doi_clean)) %>%
-  distinct(doi_clean, .keep_all = TRUE)
+  pull(doi_clean) %>%
+  unique()
 
-nrow(pub_openalex)                              # N = distinct works resolved
-length(setdiff(dois, pub_openalex$doi_clean))   # N = unresolved DOIs
+doi_cache_path <- file.path(out_dir, "oa_works_raw.rds")
+
+if (REFRESH_DOI_CACHE && file.exists(doi_cache_path)) {
+  file.remove(doi_cache_path)
+}
+
+doi_cache <- list(
+  requested_dois = character(),
+  works = list()
+)
+
+if (file.exists(doi_cache_path)) {
+  cached_object <- readRDS(doi_cache_path)
+
+  if (
+    is.list(cached_object) &&
+      all(c("requested_dois", "works") %in% names(cached_object))
+  ) {
+    doi_cache <- cached_object
+  } else {
+    # One-time migration from the old cache, which stored only the work list.
+    migrated_works <- cached_object
+    migrated_dois <- map_chr(
+      migrated_works,
+      ~ clean_doi(.x$doi %||% NA_character_)
+    )
+    migrated_dois <- unique(migrated_dois[is_valid_doi(migrated_dois)])
+
+    doi_cache <- list(
+      requested_dois = migrated_dois,
+      works = migrated_works
+    )
+  }
+}
+
+cached_work_dois <- map_chr(
+  doi_cache$works,
+  ~ clean_doi(.x$doi %||% NA_character_)
+)
+
+keep_cached_work <- is_valid_doi(cached_work_dois) & cached_work_dois %in% dois
+doi_works <- doi_cache$works[keep_cached_work]
+
+dois_to_fetch <- if (REFRESH_DOI_CACHE) {
+  dois
+} else {
+  setdiff(dois, doi_cache$requested_dois)
+}
+
+doi_chunks <- split(
+  dois_to_fetch,
+  ceiling(seq_along(dois_to_fetch) / 50)
+)
+
+if (length(doi_chunks) > 0) {
+  for (i in seq_along(doi_chunks)) {
+    message("Fetching DOI chunk ", i, " of ", length(doi_chunks), ".")
+
+    fetched <- fetch_oa(list(
+      entity = "works",
+      doi = doi_chunks[[i]],
+      output = "list",
+      verbose = FALSE
+    ))
+
+    doi_works <- c(doi_works, fetched)
+    Sys.sleep(0.5)
+  }
+}
+
+doi_works <- unique_works(doi_works)
+
+saveRDS(
+  list(
+    requested_dois = dois,
+    works = doi_works,
+    cached_at = Sys.time()
+  ),
+  doi_cache_path
+)
+
+
+# ==============================================================================
+# 8. Build work-level and coauthor-level OpenAlex tables
+# ==============================================================================
+
+# Discovery may contain works without DOIs. Combine both sources before parsing.
+all_works <- unique_works(c(doi_works, discovery_works))
+
+# A discovered work can inherit the publication key of an existing curated row
+# (for example, when the DOI is missing but the normalized title and year match).
+# Carry that canonical key into the parsed OpenAlex tables so metadata and
+# authorships stay linked to every faculty-publication row.
+oa_key_map <- pubs %>%
+  filter(!is.na(openalex_work_id), !is.na(publication_key)) %>%
+  distinct(oa_id = openalex_work_id, publication_key)
+
+oa_key_map_conflicts <- oa_key_map %>%
+  count(oa_id, name = "n_publication_keys") %>%
+  filter(n_publication_keys > 1)
+
+write_csv(
+  oa_key_map_conflicts,
+  file.path(out_dir, "openalex_id_key_conflicts.csv")
+)
+
+if (nrow(oa_key_map_conflicts) > 0) {
+  stop(
+    "An OpenAlex work ID maps to more than one canonical publication key. ",
+    "Review output/openalex_id_key_conflicts.csv.",
+    call. = FALSE
+  )
+}
+
+oa_key_map <- oa_key_map %>%
+  rename(canonical_publication_key = publication_key)
+
+pub_openalex_raw <- map_dfr(all_works, parse_work_meta) %>%
+  left_join(oa_key_map, by = "oa_id", relationship = "many-to-one") %>%
+  mutate(
+    publication_key = coalesce(
+      canonical_publication_key,
+      publication_key
+    )
+  ) %>%
+  select(-canonical_publication_key) %>%
+  filter(publication_key %in% pubs$publication_key)
+
+oa_key_audit <- pub_openalex_raw %>%
+  count(publication_key, name = "n_openalex_records") %>%
+  filter(n_openalex_records > 1)
+
+write_csv(
+  oa_key_audit,
+  file.path(out_dir, "openalex_work_key_audit.csv")
+)
+
+if (nrow(oa_key_audit) > 0) {
+  stop(
+    "Multiple OpenAlex works map to the same publication key. ",
+    "Review output/openalex_work_key_audit.csv.",
+    call. = FALSE
+  )
+}
+
+pub_openalex <- pub_openalex_raw %>%
+  distinct(publication_key, .keep_all = TRUE)
+
+unresolved_dois <- setdiff(dois, pub_openalex$doi_clean)
 
 missing_dois <- pubs %>%
-  filter(doi_clean %in% setdiff(dois, pub_openalex$doi_clean)) %>%
+  filter(doi_clean %in% unresolved_dois) %>%
   distinct(doi_clean, title_short, venue, year)
 
 write_csv(missing_dois, file.path(out_dir, "oa_missing_dois.csv"))
 
-
-# ==============================================================================
-# 6. Coauthor-level table
-# ==============================================================================
-
-# One row per DOI x author x affiliation. Multi-affiliated authors repeat, so
-# count coauthors with n_distinct(au_id), not nrow().
-coauthors_long <- map_dfr(works_list, parse_work_authors) %>%
-  mutate(doi_clean = clean_doi(doi_raw)) %>%
-  filter(!is.na(au_display_name)) %>%
-  mutate(au_name_norm = normalize_name(au_display_name)) %>%
-  select(doi_clean, oa_id, au_id, au_display_name, au_name_norm, au_orcid,
-         author_position, is_corresponding, institution, ror, country_code,
-         institution_type, raw_affiliation) %>%
+coauthors_long <- map_dfr(all_works, parse_work_authors) %>%
+  left_join(oa_key_map, by = "oa_id", relationship = "many-to-one") %>%
+  mutate(
+    publication_key = coalesce(
+      canonical_publication_key,
+      publication_key
+    )
+  ) %>%
+  select(-canonical_publication_key) %>%
+  filter(publication_key %in% pubs$publication_key) %>%
+  select(
+    publication_key, oa_id, doi_clean, au_key, au_id, au_display_name,
+    au_name_norm, au_orcid, author_position, is_corresponding,
+    institution, ror, country_code, institution_type, raw_affiliation
+  ) %>%
   distinct()
 
-nrow(coauthors_long)                       # N = author-affiliation rows
-n_distinct(coauthors_long$au_id)           # N = distinct coauthors
-n_distinct(coauthors_long$institution)     # N = distinct institutions
-
 
 # ==============================================================================
-# 7. Canonical year per DOI
+# 9. Canonical publication year and graduate-coauthor matching
 # ==============================================================================
 
-# `pubs` is faculty-DOI level, so a paper coauthored by three DARE faculty has
-# three rows. Joins keyed on DOI need one canonical row per DOI. OpenAlex is
-# treated as the authority on publication year; the CV year is the fallback.
-doi_year <- pubs %>%
-  filter(!is.na(doi_clean)) %>%
-  left_join(pub_openalex %>% select(doi_clean, oa_year), by = "doi_clean") %>%
-  group_by(doi_clean) %>%
+# The curated/input year remains authoritative. OpenAlex year is retained only
+# to identify disagreements.
+publication_year <- pubs %>%
+  filter(!is.na(publication_key)) %>%
+  left_join(
+    pub_openalex %>% select(publication_key, oa_year),
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
+  group_by(publication_key) %>%
   summarize(
-    year_cv_min = suppressWarnings(min(year, na.rm = TRUE)),
-    n_years_cv  = n_distinct(year),
-    oa_year     = first(na.omit(oa_year)),
-    .groups     = "drop"
-  ) %>%
-  mutate(
-    year_canonical = coalesce(oa_year, year_cv_min),
-    year_conflict  = n_years_cv > 1
-  ) %>%
-  select(doi_clean, year_canonical, oa_year, year_cv_min, year_conflict)
+    year_canonical = first(year),
+    n_years_input  = n_distinct(year, na.rm = TRUE),
+    oa_year        = first(oa_year),
+    year_conflict  = n_years_input > 1,
+    year_disagrees = !is.na(oa_year) &
+      !is.na(year_canonical) &
+      oa_year != year_canonical,
+    .groups = "drop"
+  )
 
-nrow(doi_year) == n_distinct(doi_year$doi_clean)   # TRUE - safe to join
-sum(doi_year$year_conflict)                        # N = DOIs where CVs disagreed
+if (any(publication_year$year_conflict)) {
+  stop(
+    "A publication key maps to multiple input years. ",
+    "Review output/doi_integrity_audit.csv.",
+    call. = FALSE
+  )
+}
 
+conferred <- read_excel(
+  file.path(in_dir, "conferred_degrees.xlsx"),
+  sheet = "conferred"
+)
 
-# ==============================================================================
-# 8. Match coauthors to conferred graduates
-# ==============================================================================
-
-# Banner term codes are YYYYTT. The leading four digits give the academic year.
-# CONFIRM the term convention (10 / 60 / 90) with the registrar before relying
-# on `grad_year` to separate "student at publication" from "alumni". The name
-# match itself does not depend on it.
 grads <- conferred %>%
   transmute(
     grad_last  = `Last Name`,
     grad_first = `First Name`,
     program    = Program,
     term_code  = `Academic Period Graduation`,
-    grad_year  = suppressWarnings(as.integer(str_sub(as.character(term_code), 1, 4))),
-    name_norm  = normalize_name(paste(`First Name`, `Last Name`)),
+    grad_year  = suppressWarnings(
+      as.integer(str_sub(as.character(term_code), 1, 4))
+    ),
+    name_norm  = normalize_name(str_c(`First Name`, `Last Name`, sep = " ")),
     last_norm  = normalize_name(`Last Name`),
     first_init = str_sub(normalize_name(`First Name`), 1, 1)
   )
 
-# 8a. Exact match on normalized "first last"
-match_exact <- coauthors_long %>%
-  distinct(au_id, au_display_name, au_name_norm) %>%
-  inner_join(grads, by = c("au_name_norm" = "name_norm")) %>%
-  mutate(match_type = "Exact name")
+graduate_name_audit <- grads %>%
+  count(name_norm, name = "n_degree_records") %>%
+  filter(n_degree_records > 1)
 
-nrow(match_exact)                          # N = exact coauthor-graduate matches
+write_csv(
+  graduate_name_audit,
+  file.path(out_dir, "graduate_name_audit.csv")
+)
 
-# 8b. Probable match: same last name and first initial. OpenAlex often stores
-# "S. Zhou" where the registrar has "Siwei Zhou". NOT auto-accepted - these go
-# to a review file so a false positive never becomes a reported statistic.
-match_probable <- coauthors_long %>%
-  distinct(au_id, au_display_name, au_name_norm) %>%
-  mutate(au_last       = word(au_name_norm, -1),
-         au_first_init = str_sub(word(au_name_norm, 1), 1, 1)) %>%
-  inner_join(grads, by = c("au_last" = "last_norm", "au_first_init" = "first_init")) %>%
-  anti_join(match_exact, by = "au_name_norm") %>%
-  mutate(match_type = "Last name + first initial - REVIEW")
+# Multiple records for one normalized graduate name are collapsed. The latest
+# conferred year is used because student status is supported when at least one
+# recorded completion year is at or after the publication year.
+grads_by_name <- grads %>%
+  group_by(name_norm) %>%
+  summarize(
+    grad_last  = first(grad_last),
+    grad_first = first(grad_first),
+    program    = paste(sort(unique(na.omit(program))), collapse = "; "),
+    grad_year  = {
+      if (all(is.na(grad_year))) NA_integer_ else max(grad_year, na.rm = TRUE)
+    },
+    last_norm  = first(last_norm),
+    first_init = first(first_init),
+    n_degree_records = n(),
+    .groups = "drop"
+  )
 
-nrow(match_probable)                       # N = probable matches needing review
-write_csv(match_probable, file.path(out_dir, "coauthor_match_review.csv"))
+coauthor_people <- coauthors_long %>%
+  distinct(au_key, au_id, au_display_name, au_name_norm)
+
+match_exact <- coauthor_people %>%
+  inner_join(
+    grads_by_name,
+    by = c("au_name_norm" = "name_norm"),
+    relationship = "many-to-one"
+  ) %>%
+  mutate(match_type = "Exact normalized name")
+
+match_probable <- coauthor_people %>%
+  mutate(
+    au_last = word(au_name_norm, -1),
+    au_first_init = str_sub(word(au_name_norm, 1), 1, 1)
+  ) %>%
+  inner_join(
+    grads_by_name,
+    by = c(
+      "au_last" = "last_norm",
+      "au_first_init" = "first_init"
+    ),
+    relationship = "many-to-many"
+  ) %>%
+  anti_join(match_exact %>% distinct(au_key), by = "au_key") %>%
+  mutate(match_type = "Last name + first initial; review required")
+
+write_csv(
+  match_probable,
+  file.path(out_dir, "coauthor_match_review.csv")
+)
 
 coauthor_grad_match <- coauthors_long %>%
-  inner_join(match_exact %>% select(au_name_norm, grad_last, grad_first,
-                                    program, grad_year, match_type),
-             by = "au_name_norm") %>%
-  left_join(doi_year %>% select(doi_clean, year_canonical), by = "doi_clean") %>%
+  inner_join(
+    match_exact %>%
+      select(
+        au_key, au_name_norm, grad_last, grad_first,
+        program, grad_year, n_degree_records, match_type
+      ),
+    by = c("au_key", "au_name_norm"),
+    relationship = "many-to-one"
+  ) %>%
+  left_join(
+    publication_year %>% select(publication_key, year_canonical),
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
   mutate(
     student_status = case_when(
       is.na(grad_year) | is.na(year_canonical) ~ "Unknown",
@@ -441,75 +1616,164 @@ coauthor_grad_match <- coauthors_long %>%
   ) %>%
   arrange(grad_last, year_canonical)
 
-write_csv(coauthor_grad_match, file.path(out_dir, "coauthor_grad_match.csv"))
-count(coauthor_grad_match, student_status)
+write_csv(
+  coauthor_grad_match,
+  file.path(out_dir, "coauthor_grad_match.csv")
+)
 
 student_flag_oa <- coauthor_grad_match %>%
-  group_by(doi_clean) %>%
+  group_by(publication_key) %>%
   summarize(
-    n_grad_coauthors   = n_distinct(au_name_norm),
-    grad_coauthors     = paste(sort(unique(au_display_name)), collapse = "; "),
+    n_grad_coauthors = n_distinct(au_key),
+    grad_coauthors = paste(
+      sort(unique(na.omit(au_display_name))),
+      collapse = "; "
+    ),
     any_student_at_pub = any(student_status == "Student at publication"),
     .groups = "drop"
   )
 
-# CV-coded student flag rolled up to the DOI. The same paper can carry Y on one
-# faculty's row and N or U on another's; a Y anywhere makes it a student paper.
-cv_student_doi <- pubs %>%
-  filter(!is.na(doi_clean)) %>%
-  group_by(doi_clean) %>%
+cv_student_publication <- pubs %>%
+  filter(!is.na(publication_key)) %>%
+  group_by(publication_key) %>%
   summarize(
     student_cv = case_when(
       any(student_coauthor == "Y", na.rm = TRUE) ~ "Y",
       any(student_coauthor == "N", na.rm = TRUE) ~ "N",
-      TRUE                                       ~ "U"
+      TRUE                                        ~ "U"
     ),
-    student_cv_conflict = n_distinct(na.omit(student_coauthor)) > 1,
+    student_cv_conflict = n_distinct(
+      na.omit(student_coauthor)
+    ) > 1,
     .groups = "drop"
   )
 
-sum(cv_student_doi$student_cv_conflict)    # N = DOIs coded inconsistently
-
 
 # ==============================================================================
-# 9. Map impact factors to journal-year
+# 10. Map journal impact factors without multiplying publication rows
 # ==============================================================================
 
-if_long <- if_wide %>%
-  pivot_longer(cols = starts_with("IF_"), names_to = "if_year",
-               values_to = "impact_factor") %>%
-  mutate(if_year      = as.integer(str_remove(if_year, "^IF_")),
-         journal_norm = normalize_journal(Journal)) %>%
-  filter(!is.na(impact_factor))
+if_wide <- read_excel(
+  file.path(in_dir, "journal_impact_factors_2021_2026.xlsx"),
+  sheet = "Impact Factors"
+)
 
-nrow(if_long)                              # N = journal-year IF observations
+if (!"Journal" %in% names(if_wide)) {
+  stop("The impact-factor sheet has no `Journal` column.", call. = FALSE)
+}
 
-pubs_norm <- pubs %>% mutate(journal_norm = normalize_journal(venue))
+if_columns <- names(if_wide)[str_detect(names(if_wide), "^IF_\\d{4}$")]
+
+if (length(if_columns) == 0) {
+  stop("The impact-factor sheet has no IF_YYYY columns.", call. = FALSE)
+}
+
+if_long_raw <- if_wide %>%
+  pivot_longer(
+    cols = all_of(if_columns),
+    names_to = "if_year",
+    values_to = "impact_factor"
+  ) %>%
+  mutate(
+    if_year = as.integer(str_remove(if_year, "^IF_")),
+    journal_norm = normalize_journal(Journal)
+  ) %>%
+  filter(!is.na(impact_factor), !is.na(journal_norm), journal_norm != "") %>%
+  distinct(Journal, journal_norm, if_year, impact_factor)
+
+if_key_audit <- if_long_raw %>%
+  group_by(journal_norm, if_year) %>%
+  summarize(
+    n_source_rows = n(),
+    n_journals = n_distinct(Journal),
+    n_values = n_distinct(impact_factor),
+    journals = paste(sort(unique(Journal)), collapse = " | "),
+    impact_factors = paste(sort(unique(impact_factor)), collapse = " | "),
+    .groups = "drop"
+  ) %>%
+  filter(n_source_rows > 1) %>%
+  mutate(
+    resolution = if_else(
+      n_values == 1,
+      "Collapsed to one identical journal-year value",
+      "Conflicting values; execution stopped"
+    )
+  )
+
+write_csv(if_key_audit, file.path(out_dir, "if_key_audit.csv"))
+
+if (any(if_key_audit$n_values > 1)) {
+  stop(
+    "The impact-factor lookup has conflicting values for at least one ",
+    "normalized journal-year key. Review output/if_key_audit.csv.",
+    call. = FALSE
+  )
+}
+
+# Collapse exact duplicates and journal-title variants only after confirming
+# that each normalized journal-year key has one impact-factor value. This makes
+# the downstream lookup explicitly many-to-one and prevents row multiplication.
+if_long <- if_long_raw %>%
+  group_by(journal_norm, if_year) %>%
+  summarize(
+    Journal = paste(sort(unique(Journal)), collapse = " | "),
+    impact_factor = first(impact_factor),
+    .groups = "drop"
+  )
+
+pubs_norm <- pubs %>%
+  mutate(journal_norm = normalize_journal(venue))
+
+n_rows_before_if <- nrow(pubs_norm)
 
 if_strict <- pubs_norm %>%
-  left_join(if_long %>% select(journal_norm, if_year, impact_factor),
-            by = c("journal_norm", "year" = "if_year")) %>%
-  mutate(if_year_used  = if_else(!is.na(impact_factor), year, NA_integer_),
-         if_match_rule = if_else(!is.na(impact_factor), "Exact journal-year",
-                                 NA_character_))
+  left_join(
+    if_long %>% select(journal_norm, if_year, impact_factor),
+    by = c("journal_norm", "year" = "if_year"),
+    relationship = "many-to-one"
+  ) %>%
+  mutate(
+    impact_factor = if_else(type == "JA", impact_factor, NA_real_),
+    if_year_used = if_else(!is.na(impact_factor), year, NA_integer_),
+    if_match_rule = if_else(
+      !is.na(impact_factor),
+      "Exact journal-year",
+      NA_character_
+    )
+  )
+
+if (nrow(if_strict) != n_rows_before_if) {
+  stop("The exact impact-factor join changed the publication row count.")
+}
 
 if (USE_NEAREST_IF_YEAR) {
   nearest_if <- if_strict %>%
-    filter(is.na(impact_factor)) %>%
+    filter(type == "JA", is.na(impact_factor), !is.na(journal_norm)) %>%
     distinct(journal_norm, year) %>%
-    inner_join(if_long %>% select(journal_norm, if_year, impact_factor),
-               by = "journal_norm", relationship = "many-to-many") %>%
+    inner_join(
+      if_long %>% select(journal_norm, if_year, impact_factor),
+      by = "journal_norm",
+      relationship = "many-to-many"
+    ) %>%
     mutate(year_gap = abs(if_year - year)) %>%
     group_by(journal_norm, year) %>%
-    slice_min(year_gap, n = 1, with_ties = FALSE) %>%
+    arrange(year_gap, if_year, .by_group = TRUE) %>%
+    slice_head(n = 1) %>%
     ungroup() %>%
-    transmute(journal_norm, year,
-              impact_factor_fb = impact_factor,
-              if_year_used_fb  = if_year,
-              if_match_rule_fb = paste0("Nearest year (", if_year, ")"))
+    transmute(
+      journal_norm,
+      year,
+      impact_factor_fb = impact_factor,
+      if_year_used_fb  = if_year,
+      if_match_rule_fb = str_c("Nearest year (", if_year, ")")
+    )
 
-  publications_enriched <- if_strict %>%
-    left_join(nearest_if, by = c("journal_norm", "year")) %>%
+  publications_if <- if_strict %>%
+    left_join(
+      nearest_if,
+      by = c("journal_norm", "year"),
+      relationship = "many-to-one"
+    ) %>%
     mutate(
       impact_factor = coalesce(impact_factor, impact_factor_fb),
       if_year_used  = coalesce(if_year_used, if_year_used_fb),
@@ -517,248 +1781,164 @@ if (USE_NEAREST_IF_YEAR) {
     ) %>%
     select(-ends_with("_fb"))
 } else {
-  publications_enriched <- if_strict
+  publications_if <- if_strict
 }
 
+if (nrow(publications_if) != nrow(pubs)) {
+  stop("Impact-factor mapping changed the publication row count.")
+}
 
-# ==============================================================================
-# 10. Assemble the enriched publication file
-# ==============================================================================
-
-publications_enriched <- publications_enriched %>%
-  left_join(pub_openalex,    by = "doi_clean") %>%
-  left_join(student_flag_oa, by = "doi_clean") %>%
-  left_join(cv_student_doi,  by = "doi_clean") %>%
-  left_join(doi_year %>% select(doi_clean, year_canonical, year_conflict),
-            by = "doi_clean") %>%
+# A journal article with a matched impact factor is verified as index class a.
+# No-match rows remain blank because class b requires separate peer-review and
+# indexing verification.
+publications_if <- publications_if %>%
   mutate(
-    if_match_rule = replace_na(if_match_rule, "No IF match"),
-    student_cv    = coalesce(student_cv, student_coauthor, "U"),
-
-    # Union rule: a CV-coded Y is authoritative and is never downgraded. A
-    # registrar match adds a Y where the CV did not claim one.
-    student_coauthor_final = case_when(
-      student_cv == "Y"                               ~ "Y",
-      !is.na(n_grad_coauthors) & n_grad_coauthors > 0 ~ "Y",
-      student_cv == "N"                               ~ "N",
-      TRUE                                            ~ "U"
-    ),
-    student_evidence = case_when(
-      student_cv == "Y" & !is.na(n_grad_coauthors) & n_grad_coauthors > 0 ~ "CV and registrar",
-      student_cv == "Y"                                                   ~ "CV only",
-      !is.na(n_grad_coauthors) & n_grad_coauthors > 0                     ~ "Registrar only",
-      student_cv == "N"                                                   ~ "Neither",
-      TRUE                                                                ~ "Undetermined"
-    ),
-    year_disagrees = !is.na(oa_year) & !is.na(year) & oa_year != year
-  )
-
-nrow(publications_enriched)                              # N = 406
-sum(is.na(publications_enriched$impact_factor))          # N with no IF
-sum(publications_enriched$year_disagrees, na.rm = TRUE)  # N year mismatches
-count(publications_enriched, student_coauthor_final, student_evidence)
-
-# "CV only" rows are expected, not errors: the conferred file covers 65 AREC
-# graduates, so it cannot match undergraduates, students in other departments,
-# students at coauthors' institutions, or current students not yet graduated.
-
-journal_if_audit <- publications_enriched %>%
-  count(venue, journal_norm, type, if_match_rule, name = "n_pubs") %>%
-  arrange(if_match_rule == "Exact journal-year", desc(n_pubs))
-
-write_csv(journal_if_audit,      file.path(out_dir, "journal_if_audit.csv"))
-write_csv(pub_openalex,          file.path(out_dir, "pub_openalex.csv"))
-write_csv(coauthors_long,        file.path(out_dir, "coauthors_long.csv"))
-write_csv(publications_enriched, file.path(out_dir, "publications_enriched.csv"))
-
-
-# ==============================================================================
-# 11. Faculty appointments
-# ==============================================================================
-
-# Column 7 of the appointment file is unnamed and flags departures ("GONE").
-gone_col <- names(appt_raw)[7]
-
-faculty_appointments <- appt_raw %>%
-  rename(
-    candidate_name = `Candidate Name`,
-    faculty_type   = `Faculty Type`,
-    faculty_rank   = `Faculty Rank`,
-    pct_teaching   = `Effort Distribution: Instruction, Advising, and Mentoring`,
-    pct_research   = `Effort Distribution: Research, Scholarship, and Creative Activity`,
-    pct_service    = `Effort Distribution: University/Professional/Public Service and Outreach`
-  ) %>%
-  mutate(
-    last           = extract_last(candidate_name),
-    departed_flag  = !is.na(.data[[gone_col]]),
-    is_tt          = faculty_type == "Tenured/Tenure Track",
-    split_sum      = pct_teaching + pct_research + pct_service,
-    split_sums_100 = split_sum == 100,
-    appt_source    = "appointment_splits.csv"
-  ) %>%
-  select(last, candidate_name, faculty_type, faculty_rank, is_tt,
-         pct_teaching, pct_research, pct_service, split_sum, split_sums_100,
-         departed_flag, appt_source)
-
-nrow(faculty_appointments)                 # N = 30
-sum(faculty_appointments$is_tt)            # N = 24 tenured/tenure track
-sum(!faculty_appointments$split_sums_100)  # N = 2 (Thilmany 51, Bennett 90)
-
-# Splits that do not total 100 are left as reported. Weighting uses the research
-# share itself, so Thilmany contributes 0.21 FTE either way. No imputation.
-
-# The appointment file is a current snapshot and omits faculty who left during
-# the window. Their splits come from roster.csv so 2021-2024 denominators are
-# complete. CONFIRM the faculty_type assumption below for each.
-roster_only <- roster %>%
-  filter(!last %in% faculty_appointments$last) %>%
-  transmute(
-    last,
-    candidate_name = str_c(first, " ", last),
-    faculty_type   = "Tenured/Tenure Track",
-    faculty_rank   = NA_character_,
-    is_tt          = TRUE,
-    pct_teaching   = as.numeric(teaching_pct),
-    pct_research   = as.numeric(research_pct),
-    pct_service    = as.numeric(outreach_pct),
-    split_sum      = pct_teaching + pct_research + pct_service,
-    split_sums_100 = split_sum == 100,
-    departed_flag  = TRUE,
-    appt_source    = "roster.csv (departed or absent from appointment file)"
-  )
-
-nrow(roster_only)          # N = added from roster (Chouinard, Frasier, Hill,
-                           #     Jablonski, Manning)
-
-faculty_appointments <- bind_rows(faculty_appointments, roster_only)
-write_csv(faculty_appointments, file.path(out_dir, "faculty_appointments.csv"))
-
-appointment_join_audit <- full_join(
-  faculty_appointments %>% distinct(last, appt_source, faculty_type),
-  publications_enriched %>% distinct(last) %>% mutate(in_publications = TRUE),
-  by = "last"
-) %>%
-  mutate(
-    in_appointments = !is.na(appt_source),
-    in_publications = replace_na(in_publications, FALSE),
-    audit_note = case_when(
-      in_appointments & !in_publications ~ "Appointment record, no publications in window",
-      !in_appointments & in_publications ~ "Publications but no appointment record",
-      TRUE                               ~ "Matched"
+    index_class_missing = is.na(index_class) |
+      str_squish(index_class) == "",
+    index_class = case_when(
+      !index_class_missing ~ index_class,
+      type == "JA" & !is.na(impact_factor) ~ "a",
+      TRUE ~ NA_character_
     )
   ) %>%
-  arrange(audit_note, last)
+  select(-index_class_missing)
 
-write_csv(appointment_join_audit, file.path(out_dir, "appointment_join_audit.csv"))
-count(appointment_join_audit, audit_note)
+# The impact-factor joins preserve row order and have already been checked for
+# multiplication, so copy the verified index class back to the updated
+# publication data before writing its single final version.
+updated_pubs$index_class <- publications_if$index_class
+pubs$index_class <- publications_if$index_class
+
+write_csv(
+  updated_pubs %>% select(-doi_clean, -faculty_key, -title_year_key),
+  updated_publications_path
+)
+
+message(
+  "Appended ",
+  nrow(new_publication_rows),
+  " faculty-publication rows and wrote ",
+  updated_publications_path,
+  "."
+)
 
 
 # ==============================================================================
-# 12. Publication-level analysis file
+# 11. Assemble and write the enriched publication file
 # ==============================================================================
 
-pubs_analysis <- publications_enriched %>%
+publications_enriched <- publications_if %>%
   left_join(
-    faculty_appointments %>%
-      select(last, faculty_type, faculty_rank, is_tt,
-             pct_research, pct_teaching, pct_service, departed_flag),
-    by = "last"
+    pub_openalex %>% select(-doi_clean),
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
+  left_join(
+    student_flag_oa,
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
+  left_join(
+    cv_student_publication,
+    by = "publication_key",
+    relationship = "many-to-one"
+  ) %>%
+  left_join(
+    publication_year %>%
+      select(
+        publication_key, year_canonical,
+        year_conflict, year_disagrees
+      ),
+    by = "publication_key",
+    relationship = "many-to-one"
   ) %>%
   mutate(
-    research_fte = pct_research / 100,
-    in_window    = year %in% WINDOW,
-    countable    = extension_output == 0 & in_window
+    if_match_rule = case_when(
+      type != "JA"                 ~ "Not applicable",
+      is.na(if_match_rule)          ~ "No IF match",
+      TRUE                          ~ if_match_rule
+    ),
+    student_cv = coalesce(student_cv, student_coauthor, "U"),
+    student_coauthor_final = case_when(
+      student_cv == "Y" ~ "Y",
+      any_student_at_pub %in% TRUE ~ "Y",
+      student_cv == "N" ~ "N",
+      TRUE              ~ "U"
+    ),
+    student_evidence = case_when(
+      student_cv == "Y" &
+        any_student_at_pub %in% TRUE ~
+        "CV and registrar",
+      student_cv == "Y" ~ "CV only",
+      any_student_at_pub %in% TRUE ~
+        "Registrar only",
+      student_cv == "N" ~ "Neither",
+      TRUE              ~ "Undetermined"
+    ),
+    in_reporting_window = year %in% REPORT_YEARS,
+    edge_2026 = as.integer(year == 2026)
   )
 
-nrow(pubs_analysis)                        # N = 406
-sum(is.na(pubs_analysis$pct_research))     # N = rows with no appointment match
+if (nrow(publications_enriched) != nrow(pubs)) {
+  stop(
+    "Publication enrichment changed the row count from ",
+    nrow(pubs),
+    " to ",
+    nrow(publications_enriched),
+    ". Check the preceding joins.",
+    call. = FALSE
+  )
+}
 
-write_csv(pubs_analysis, file.path(out_dir, "pubs_analysis.csv"))
-
-
-# ==============================================================================
-# 13. Faculty-year panel and department summary
-# ==============================================================================
-
-active_long <- roster %>%
-  select(last, starts_with("y20")) %>%
-  pivot_longer(cols = starts_with("y20"), names_to = "year", values_to = "active") %>%
-  mutate(year   = as.integer(str_remove(year, "^y")),
-         active = as.integer(active)) %>%
-  filter(year %in% WINDOW)
-
-output_counts <- pubs_analysis %>%
-  filter(countable) %>%
-  count(last, year, name = "n_outputs")
-
-citation_counts <- pubs_analysis %>%
-  filter(countable) %>%
-  group_by(last, year) %>%
-  summarize(total_citations = sum(cited_by_count, na.rm = TRUE),
-            mean_if         = round(mean(impact_factor, na.rm = TRUE), 2),
-            n_student_pubs  = sum(student_coauthor_final == "Y", na.rm = TRUE),
-            .groups = "drop")
-
-faculty_year_panel <- active_long %>%
-  left_join(faculty_appointments %>%
-              select(last, faculty_type, faculty_rank, is_tt, pct_research),
-            by = "last") %>%
-  left_join(output_counts,   by = c("last", "year")) %>%
-  left_join(citation_counts, by = c("last", "year")) %>%
-  mutate(
-    n_outputs       = replace_na(n_outputs, 0L),
-    total_citations = replace_na(total_citations, 0),
-    n_student_pubs  = replace_na(n_student_pubs, 0L),
-    research_fte    = if_else(active == 1, pct_research / 100, 0),
-    output_per_fte  = if_else(research_fte > 0, n_outputs / research_fte, NA_real_)
+journal_if_audit <- publications_enriched %>%
+  count(
+    venue, journal_norm, type, if_match_rule,
+    name = "n_faculty_publication_rows"
   ) %>%
-  arrange(last, year)
+  arrange(if_match_rule, desc(n_faculty_publication_rows))
 
-write_csv(faculty_year_panel, file.path(out_dir, "faculty_year_panel.csv"))
+openalex_type_mapping_audit <- publications_enriched %>%
+  filter(added_from_openalex == 1L) %>%
+  count(
+    openalex_type,
+    type,
+    type_mapping_rule,
+    type_requires_review,
+    name = "n_faculty_publication_rows"
+  ) %>%
+  arrange(desc(type_requires_review), openalex_type)
 
-# Two denominators. Headcount is what a reviewer computes by default; research
-# FTE is what the department is actually funded to produce. The gap between
-# them is the argument.
-dept_year_summary <- faculty_year_panel %>%
-  filter(active == 1) %>%
-  group_by(year) %>%
-  summarize(
-    headcount_all   = n(),
-    headcount_tt    = sum(is_tt, na.rm = TRUE),
-    research_fte    = sum(research_fte, na.rm = TRUE),
-    n_outputs       = sum(n_outputs),
-    total_citations = sum(total_citations),
-    n_student_pubs  = sum(n_student_pubs),
-    output_per_head = round(n_outputs / headcount_all, 2),
-    output_per_tt   = round(n_outputs / headcount_tt, 2),
-    output_per_fte  = round(n_outputs / research_fte, 2),
-    .groups = "drop"
-  )
+write_csv(
+  journal_if_audit,
+  file.path(out_dir, "journal_if_audit.csv")
+)
+write_csv(
+  openalex_type_mapping_audit,
+  file.path(out_dir, "openalex_type_mapping_audit.csv")
+)
+write_csv(
+  pub_openalex,
+  file.path(out_dir, "pub_openalex.csv")
+)
+write_csv(
+  coauthors_long,
+  file.path(out_dir, "coauthors_long.csv")
+)
+write_csv(
+  publications_enriched %>%
+    select(-faculty_key, -title_year_key),
+  file.path(out_dir, "publications_enriched.csv")
+)
 
-write_csv(dept_year_summary, file.path(out_dir, "dept_year_summary.csv"))
-print(dept_year_summary)
-
-# Rank and appointment-type cuts support the mentoring and trajectory
-# discussion in Section 4.
-faculty_year_panel %>%
-  filter(active == 1, !is.na(faculty_rank)) %>%
-  group_by(faculty_rank) %>%
-  summarize(n_faculty_years = n(),
-            research_fte    = sum(research_fte),
-            n_outputs       = sum(n_outputs),
-            output_per_fte  = round(n_outputs / sum(research_fte), 2),
-            .groups = "drop") %>%
-  arrange(desc(output_per_fte)) %>%
-  print()
-
-faculty_year_panel %>%
-  filter(active == 1) %>%
-  group_by(faculty_type) %>%
-  summarize(n_faculty_years = n(),
-            research_fte    = sum(research_fte, na.rm = TRUE),
-            n_outputs       = sum(n_outputs),
-            .groups = "drop") %>%
-  print()
+message(
+  "Stage 02 complete. Input faculty-publication rows: ",
+  nrow(pubs) - nrow(new_publication_rows),
+  ". Appended rows: ",
+  nrow(new_publication_rows),
+  ". Enriched rows: ",
+  nrow(publications_enriched),
+  "."
+)
 
 # ==============================================================================
 # End of script
