@@ -36,7 +36,11 @@
 #   output/table_D2_publications_by_area_long.csv
 #   output/table_D3_other_scholarly_outputs.csv
 #   output/table_D4_impact_indicators.csv
-#   output/publication_count_audit.csv
+#   output/table_D4a_impact_factor_summary.csv
+#   output/table_D4b_citations_by_publication_year.csv
+#   output/table_D4c_journals_by_publication_count.csv
+#   output/publication_qualification_flow.csv
+#   output/publication_id_integrity_audit.csv
 #   output/publication_tables_D1_D4.xlsx
 # ==============================================================================
 
@@ -168,6 +172,18 @@ mean_or_na <- function(x) {
   } else {
     mean(x, na.rm = TRUE)
   }
+}
+
+min_or_na <- function(x) {
+  if (all(is.na(x))) NA_real_ else min(x, na.rm = TRUE)
+}
+
+max_or_na <- function(x) {
+  if (all(is.na(x))) NA_real_ else max(x, na.rm = TRUE)
+}
+
+median_or_na <- function(x) {
+  if (all(is.na(x))) NA_real_ else median(x, na.rm = TRUE)
 }
 
 
@@ -310,13 +326,13 @@ if (nrow(publication_id_audit) > 0) {
   warning(
     nrow(publication_id_audit),
     " publication identifiers map to inconsistent titles, venues, or years. ",
-    "Review `publication_count_audit.csv`."
+    "Review `publication_id_integrity_audit.csv`."
   )
 }
 
 write_csv(
   publication_id_audit,
-  file.path(out_dir, "publication_count_audit.csv")
+  file.path(out_dir, "publication_id_integrity_audit.csv")
 )
 
 
@@ -950,6 +966,118 @@ write_csv(
 )
 
 
+# Supporting quality tables for narrative and appendix use.
+table_D4a_impact_factor_summary <- impact_base %>%
+  summarise(
+    unique_qualifying_publications = n(),
+    publications_with_matched_impact_factor = sum(!is.na(impact_factor)),
+    percent_with_matched_impact_factor =
+      100 * publications_with_matched_impact_factor /
+      unique_qualifying_publications,
+    mean_impact_factor = mean_or_na(impact_factor),
+    median_impact_factor = median_or_na(impact_factor),
+    minimum_impact_factor = min_or_na(impact_factor),
+    maximum_impact_factor = max_or_na(impact_factor)
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+
+table_D4b_citations_by_publication_year <- impact_base %>%
+  group_by(year) %>%
+  summarise(
+    unique_qualifying_publications = n(),
+    publications_with_openalex_citation_data = sum(!is.na(cited_by_count)),
+    total_citations = sum_or_na(cited_by_count),
+    mean_citations_per_publication = mean_or_na(cited_by_count),
+    median_citations_per_publication = median_or_na(cited_by_count),
+    percentage_of_publications_cited =
+      100 * mean(!is.na(cited_by_count) & cited_by_count > 0),
+    partial_year = first(year) == max(WINDOW),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    across(
+      c(mean_citations_per_publication,
+        median_citations_per_publication,
+        percentage_of_publications_cited),
+      ~ round(.x, 2)
+    )
+  ) %>%
+  arrange(year)
+
+table_D4c_journals_by_publication_count <- impact_base %>%
+  mutate(journal = str_squish(venue)) %>%
+  group_by(journal) %>%
+  summarise(
+    publication_count = n(),
+    publications_with_matched_impact_factor = sum(!is.na(impact_factor)),
+    average_impact_factor = mean_or_na(impact_factor),
+    median_impact_factor = median_or_na(impact_factor),
+    minimum_impact_factor = min_or_na(impact_factor),
+    maximum_impact_factor = max_or_na(impact_factor),
+    total_openalex_citations = sum_or_na(cited_by_count),
+    average_openalex_citations_per_publication = mean_or_na(cited_by_count),
+    years_represented = paste(sort(unique(year)), collapse = "; "),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    across(
+      c(average_impact_factor, median_impact_factor,
+        minimum_impact_factor, maximum_impact_factor,
+        average_openalex_citations_per_publication),
+      ~ round(.x, 2)
+    ),
+    publication_rank = min_rank(desc(publication_count))
+  ) %>%
+  arrange(desc(publication_count), desc(average_impact_factor), journal) %>%
+  select(publication_rank, everything())
+
+publication_qualification_flow <- tibble(
+  step = c(
+    "Faculty-publication rows in authoritative updated CSV",
+    "Faculty-publication rows after active-affiliation and analysis rules",
+    "Countable research-output faculty rows after excluding working papers",
+    "Qualifying journal-article faculty-publication rows",
+    "Unique qualifying department journal articles after deduplication"
+  ),
+  record_count = c(
+    nrow(all_outputs),
+    nrow(pubs_analysis),
+    sum(pubs_analysis$research_countable %in% TRUE),
+    nrow(faculty_publications),
+    nrow(publication_level)
+  ),
+  unit = c(
+    "faculty-publication rows", "faculty-publication rows",
+    "faculty-publication rows", "faculty-publication rows",
+    "unique publications"
+  ),
+  explanation = c(
+    "Includes journal articles, other scholarly outputs, working papers, and rows later excluded by affiliation rules.",
+    "Excludes publications outside the faculty member's active CSU affiliation; retains all publication types for analysis.",
+    "Excludes working papers and other publication types not counted as completed research outputs.",
+    "Restricts the productivity measure to peer-reviewed journal articles; books, chapters, proceedings, and other works are reported separately.",
+    "Deduplicates shared DARE publications by DOI, with a title-venue-year fallback when DOI is unavailable."
+  )
+)
+
+write_csv(
+  table_D4a_impact_factor_summary,
+  file.path(out_dir, "table_D4a_impact_factor_summary.csv")
+)
+write_csv(
+  table_D4b_citations_by_publication_year,
+  file.path(out_dir, "table_D4b_citations_by_publication_year.csv")
+)
+write_csv(
+  table_D4c_journals_by_publication_count,
+  file.path(out_dir, "table_D4c_journals_by_publication_count.csv")
+)
+write_csv(
+  publication_qualification_flow,
+  file.path(out_dir, "publication_qualification_flow.csv")
+)
+
+
 # ------------------------------------------------------------------------------
 # 10. Validation checks
 # ------------------------------------------------------------------------------
@@ -1137,6 +1265,27 @@ addStyle(
   cols = 1:ncol(table_D4),
   gridExpand = TRUE
 )
+
+for (sheet_spec in list(
+  list("D4a IF Summary", table_D4a_impact_factor_summary),
+  list("D4b Citations by Year", table_D4b_citations_by_publication_year),
+  list("D4c Journals", table_D4c_journals_by_publication_count),
+  list("Qualification Flow", publication_qualification_flow)
+)) {
+  sheet_name <- sheet_spec[[1]]
+  sheet_data <- sheet_spec[[2]]
+  addWorksheet(wb, sheet_name)
+  writeDataTable(
+    wb, sheet_name, sheet_data,
+    tableStyle = "TableStyleMedium2"
+  )
+  freezePane(wb, sheet_name, firstRow = TRUE)
+  setColWidths(
+    wb, sheet_name,
+    cols = 1:ncol(sheet_data),
+    widths = "auto"
+  )
+}
 
 
 addWorksheet(wb, "Publication Detail")

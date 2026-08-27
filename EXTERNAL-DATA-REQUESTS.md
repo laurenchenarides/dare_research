@@ -55,6 +55,12 @@ The graduate committee workbook measures faculty service on student committees; 
 
 The requested F2 layout is `output/table_F2_faculty_mentoring_supports_template.csv`.
 
+## Scholarly service and disciplinary leadership request
+
+Please provide or verify faculty scholarly-service roles held during 2021–2026. Include journal editor, co-editor, associate editor, and editorial-board roles; elected offices and committee leadership in disciplinary associations; elected fellow status; major grant or journal review panels; leadership in USDA Multistate Research Projects; and other national or international disciplinary service.
+
+For each role, please provide faculty member, organization or journal, role title, start and end year, whether the role was elected, appointed, or competitively selected, and whether it is still active. A targeted CV extraction can create the initial list, but faculty should verify it because CV formatting and update dates vary.
+
 ## Student-engagement gaps: Tables G1 and G2
 
 Please provide annual 2021–2026 records for undergraduate research participants, graduate research assistants, student conference presentations, community-engaged research projects involving students, and other student scholarly products. For output-level records, please include undergraduate/graduate status, research area, venue, peer-review or jury status, external collaborator, and any resulting placement, award, or other outcome.

@@ -1,0 +1,6 @@
+step,record_count,unit,explanation
+Faculty-publication rows in authoritative updated CSV,386,faculty-publication rows,"Includes journal articles, other scholarly outputs, working papers, and rows later excluded by affiliation rules."
+Faculty-publication rows after active-affiliation and analysis rules,383,faculty-publication rows,Excludes publications outside the faculty member's active CSU affiliation; retains all publication types for analysis.
+Countable research-output faculty rows after excluding working papers,375,faculty-publication rows,Excludes working papers and other publication types not counted as completed research outputs.
+Qualifying journal-article faculty-publication rows,347,faculty-publication rows,"Restricts the productivity measure to peer-reviewed journal articles; books, chapters, proceedings, and other works are reported separately."
+Unique qualifying department journal articles after deduplication,265,unique publications,"Deduplicates shared DARE publications by DOI, with a title-venue-year fallback when DOI is unavailable."
