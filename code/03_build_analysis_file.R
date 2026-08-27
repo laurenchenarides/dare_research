@@ -8,8 +8,8 @@
 # Run this script from anywhere inside the dare_research repository.
 #
 # Counting rules implemented here:
-#   - Collection window: 2021-2026.
-#   - Complete-year reporting window: 2021-2025.
+#   - Reporting window: 2021-2026.
+#   - 2026 is included and flagged as a partial year through the latest refresh.
 #   - Faculty-publication rows enter analysis only when the roster marks the
 #     faculty member active in the publication year.
 #   - Countable research outputs are JA, BC, BK, RP, and CP rows that are not
@@ -66,7 +66,7 @@ suppressPackageStartupMessages({
 # 0. Configuration
 # ==============================================================================
 
-REPORT_YEARS     <- 2021:2025
+REPORT_YEARS     <- 2021:2026
 COLLECTION_YEARS <- 2021:2026
 
 COUNTABLE_TYPES <- c("JA", "BC", "BK", "RP", "CP")
@@ -874,7 +874,7 @@ faculty_year_panel <- roster_long %>%
       n_faculty_publication_rows / individual_research_fte,
       NA_real_
     ),
-    complete_reporting_year = year %in% REPORT_YEARS,
+    in_reporting_window = year %in% REPORT_YEARS,
     edge_2026 = as.integer(year == 2026)
   ) %>%
   arrange(last, first, year)
@@ -1010,7 +1010,7 @@ dept_year_summary <- tibble(year = COLLECTION_YEARS) %>%
       ),
       ~ replace_na(as.integer(.x), 0L)
     ),
-    complete_reporting_year = year %in% REPORT_YEARS,
+    in_reporting_window = year %in% REPORT_YEARS,
     edge_2026 = as.integer(year == 2026),
     headcount_tt = headcount_tt_as_listed,
     research_fte_tt_known = research_fte_tt_known_as_listed,
@@ -1018,17 +1018,17 @@ dept_year_summary <- tibble(year = COLLECTION_YEARS) %>%
     research_fte_denominator_complete =
       n_tt_missing_research_share == 0L,
     unique_publications_per_tt = if_else(
-      complete_reporting_year & headcount_tt_as_listed > 0,
+      in_reporting_window & headcount_tt_as_listed > 0,
       n_distinct_publications / headcount_tt_as_listed,
       NA_real_
     ),
     verified_peer_reviewed_per_tt = if_else(
-      complete_reporting_year & headcount_tt_as_listed > 0,
+      in_reporting_window & headcount_tt_as_listed > 0,
       n_distinct_verified_peer_reviewed / headcount_tt_as_listed,
       NA_real_
     ),
     unique_publications_per_research_fte = if_else(
-      complete_reporting_year &
+      in_reporting_window &
         !is.na(research_fte_tt_complete_as_listed) &
         research_fte_tt_complete_as_listed > 0,
       n_distinct_publications /
@@ -1036,7 +1036,7 @@ dept_year_summary <- tibble(year = COLLECTION_YEARS) %>%
       NA_real_
     ),
     verified_peer_reviewed_per_research_fte = if_else(
-      complete_reporting_year &
+      in_reporting_window &
         !is.na(research_fte_tt_complete_as_listed) &
         research_fte_tt_complete_as_listed > 0,
       n_distinct_verified_peer_reviewed /
@@ -1044,12 +1044,12 @@ dept_year_summary <- tibble(year = COLLECTION_YEARS) %>%
       NA_real_
     ),
     unique_publications_per_tt_if_ritten_tt = if_else(
-      complete_reporting_year & headcount_tt_if_ritten_tt > 0,
+      in_reporting_window & headcount_tt_if_ritten_tt > 0,
       n_distinct_publications / headcount_tt_if_ritten_tt,
       NA_real_
     ),
     unique_publications_per_research_fte_if_ritten_tt = if_else(
-      complete_reporting_year &
+      in_reporting_window &
         !is.na(research_fte_tt_complete_if_ritten_tt) &
         research_fte_tt_complete_if_ritten_tt > 0,
       n_distinct_publications /
@@ -1060,7 +1060,7 @@ dept_year_summary <- tibble(year = COLLECTION_YEARS) %>%
   arrange(year)
 
 dept_reporting_summary <- dept_year_summary %>%
-  filter(complete_reporting_year)
+  filter(in_reporting_window)
 
 write_csv(
   dept_year_summary,
@@ -1081,7 +1081,7 @@ research_fte_completeness_audit <- faculty_year_panel %>%
   select(
     year, last, first, area, faculty_type,
     pct_research, appointment_source,
-    classification_source, complete_reporting_year
+    classification_source, in_reporting_window
   ) %>%
   arrange(year, last)
 
@@ -1097,7 +1097,7 @@ message(
   sum(pubs_analysis$research_countable),
   ". Distinct countable publications: ",
   nrow(publication_level_analysis),
-  ". Complete reporting years with missing TT research shares: ",
+  ". Reporting years with missing TT research shares: ",
   paste(
     dept_reporting_summary$year[
       !dept_reporting_summary$research_fte_denominator_complete

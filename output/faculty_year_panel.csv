@@ -1,160 +1,160 @@
-last,year,active,faculty_type,faculty_rank,is_tt,pct_research,n_outputs,total_citations,mean_if,research_fte,output_per_fte
-Bayham,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,8,510,19.74,0.5,16
-Bayham,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,6,169,4.53,0.5,12
-Bayham,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,4,34,2.47,0.5,8
-Bayham,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,25,3.55,0.5,4
-Bayham,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,2,4.5,0.5,4
-Bayham,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,1,3.4,0.5,4
-Bennett,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,25,2,0,NA,0.25,8
-Bennett,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,25,1,0,NA,0.25,4
-Berning,2021,1,Tenured/Tenure Track,Professor,TRUE,50,1,3,1.87,0.5,2
-Berning,2022,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Berning,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,33,4.6,0.5,6
-Berning,2024,1,Tenured/Tenure Track,Professor,TRUE,50,1,12,3.4,0.5,2
-Berning,2025,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,3.6,0.5,2
-Berning,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,4.9,0.5,2
-Bonanno,2021,1,Tenured/Tenure Track,Professor,TRUE,50,6,49,4.46,0.5,12
-Bonanno,2022,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Bonanno,2023,1,Tenured/Tenure Track,Professor,TRUE,50,5,14,2.82,0.5,10
-Bonanno,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,13,2.6,0.5,4
-Bonanno,2025,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Bonanno,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,4.9,0.5,2
-Burkhardt,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,50,5.81,0.5,4
-Burkhardt,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,6,89,4.59,0.5,12
-Burkhardt,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,4,35,5.05,0.5,8
-Burkhardt,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,2,27,6.7,0.5,4
-Burkhardt,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,20,9.4,0.5,6
-Burkhardt,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,1,0,12.5,0.5,2
-Chenarides,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,2,22,2.15,0.5,4
-Chenarides,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,5,3,2.15,0.5,10
-Chenarides,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,5,6,4.28,0.5,10
-Chenarides,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,0,NA,0.5,2
-Chouinard,2021,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
-Chouinard,2022,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
-Chouinard,2023,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
-Chouinard,2024,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
-Chouinard,2025,1,Tenured/Tenure Track,NA,TRUE,5,0,0,NA,0.05,0
-Chouinard,2026,1,Tenured/Tenure Track,NA,TRUE,5,1,1,2.3,0.05,20
-Clark,2021,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
-Clark,2022,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
-Clark,2023,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
-Clark,2024,1,Continuing,Master Instructor,FALSE,0,0,0,NA,0,NA
-Clark,2025,1,Continuing,Master Instructor,FALSE,0,1,0,NA,0,NA
-Clark,2026,1,Continuing,Master Instructor,FALSE,0,1,0,NA,0,NA
-Cleary,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,64,4.23,0.5,6
-Cleary,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,38,5.95,0.5,6
-Cleary,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,19,4.27,0.5,6
-Cleary,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,50,3,14,2.33,0.5,6
-Cleary,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,50,0,0,NA,0.5,0
-Cleary,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,50,0,0,NA,0.5,0
-Costanigro,2021,1,Tenured/Tenure Track,Professor,TRUE,50,4,32,2.48,0.5,8
-Costanigro,2022,1,Tenured/Tenure Track,Professor,TRUE,50,1,19,5.4,0.5,2
-Costanigro,2023,1,Tenured/Tenure Track,Professor,TRUE,50,1,14,4.2,0.5,2
-Costanigro,2024,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Costanigro,2025,1,Tenured/Tenure Track,Professor,TRUE,50,2,9,5.2,0.5,4
-Costanigro,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,2.3,0.5,2
-Countryman,2021,1,Tenured/Tenure Track,Professor,TRUE,50,4,242,2.93,0.5,8
-Countryman,2022,1,Tenured/Tenure Track,Professor,TRUE,50,2,17,5.5,0.5,4
-Countryman,2023,1,Tenured/Tenure Track,Professor,TRUE,50,1,10,1.8,0.5,2
-Countryman,2024,1,Tenured/Tenure Track,Professor,TRUE,50,6,62,3.38,0.5,12
-Countryman,2025,1,Tenured/Tenure Track,Professor,TRUE,50,6,25,4.68,0.5,12
-Countryman,2026,1,Tenured/Tenure Track,Professor,TRUE,50,2,0,3.6,0.5,4
-Delay,2021,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,4,52,6.98,0.4,10
-Delay,2022,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,3,11,4.6,0.4,7.5
-Delay,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,11,2.65,0.4,5
-Delay,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,1,1.6,0.4,5
-Delay,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,5,18,3.02,0.4,12.5
-Delay,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,40,2,1,5.85,0.4,5
-Enns,2021,1,Tenured/Tenure Track,Professor,TRUE,0,0,0,NA,0,NA
-Enns,2022,1,Tenured/Tenure Track,Professor,TRUE,0,1,0,NA,0,NA
-Enns,2023,1,Tenured/Tenure Track,Professor,TRUE,0,1,2,NA,0,NA
-Enns,2024,1,Tenured/Tenure Track,Professor,TRUE,0,0,0,NA,0,NA
-Enns,2025,1,Tenured/Tenure Track,Professor,TRUE,0,4,2,2.83,0,NA
-Enns,2026,1,Tenured/Tenure Track,Professor,TRUE,0,1,0,NA,0,NA
-Frasier,2021,1,Tenured/Tenure Track,NA,TRUE,NA,1,10,2.46,NA,NA
-Goemans,2021,1,Tenured/Tenure Track,Professor,TRUE,50,5,62,3.57,0.5,10
-Goemans,2022,1,Tenured/Tenure Track,Professor,TRUE,50,2,34,5.45,0.5,4
-Goemans,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,68,5.97,0.5,6
-Goemans,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,13,3.9,0.5,4
-Goemans,2025,1,Tenured/Tenure Track,Professor,TRUE,50,3,3,5.57,0.5,6
-Goemans,2026,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Graff,2021,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
-Graff,2022,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
-Graff,2023,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
-Graff,2024,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
-Graff,2025,1,Tenured/Tenure Track,Professor,TRUE,35,0,0,NA,0.35,0
-Graff,2026,1,Tenured/Tenure Track,Professor,TRUE,35,1,0,4.9,0.35,2.857142857142857
-Hill,2021,1,Tenured/Tenure Track,NA,TRUE,50,3,46,5.41,0.5,6
-Hill,2022,1,Tenured/Tenure Track,NA,TRUE,50,1,8,0.9,0.5,2
-Hoag,2021,1,Tenured/Tenure Track,Professor,TRUE,35,1,2,3.89,0.35,2.857142857142857
-Hoag,2022,1,Tenured/Tenure Track,Professor,TRUE,35,3,53,2.2,0.35,8.571428571428571
-Hoag,2023,1,Tenured/Tenure Track,Professor,TRUE,35,1,6,3.4,0.35,2.857142857142857
-Hoag,2024,1,Tenured/Tenure Track,Professor,TRUE,35,4,34,3.3,0.35,11.428571428571429
-Hoag,2025,1,Tenured/Tenure Track,Professor,TRUE,35,5,28,5.95,0.35,14.285714285714286
-Hoag,2026,1,Tenured/Tenure Track,Professor,TRUE,35,3,1,4.05,0.35,8.571428571428571
-Jablonski,2021,1,Tenured/Tenure Track,NA,TRUE,25,8,147,3.62,0.25,32
-Jablonski,2022,1,Tenured/Tenure Track,NA,TRUE,25,3,52,3.2,0.25,12
-Jablonski,2023,1,Tenured/Tenure Track,NA,TRUE,25,3,6,2.37,0.25,12
-Jablonski,2024,1,Tenured/Tenure Track,NA,TRUE,25,2,1,1.7,0.25,8
-Koontz,2021,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Koontz,2022,1,Tenured/Tenure Track,Professor,TRUE,15,1,0,5.8,0.15,6.666666666666667
-Koontz,2023,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Koontz,2024,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Koontz,2025,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Koontz,2026,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Kroll,2021,1,Tenured/Tenure Track,Professor,TRUE,40,3,57,3.29,0.4,7.5
-Kroll,2022,1,Tenured/Tenure Track,Professor,TRUE,40,0,0,NA,0.4,0
-Kroll,2023,1,Tenured/Tenure Track,Professor,TRUE,40,2,56,5.35,0.4,5
-Kroll,2024,1,Tenured/Tenure Track,Professor,TRUE,40,2,13,3.3,0.4,5
-Kroll,2025,1,Tenured/Tenure Track,Professor,TRUE,40,0,0,NA,0.4,0
-Kroll,2026,1,Tenured/Tenure Track,Professor,TRUE,40,1,0,3.5,0.4,2.5
-Lewis,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,5,5,0.5,4
-Lewis,2025,1,Tenured/Tenure Track,Professor,TRUE,50,1,1,47.3,0.5,2
-Lewis,2026,1,Tenured/Tenure Track,Professor,TRUE,50,0,0,NA,0.5,0
-Magnan,2023,1,Tenured/Tenure Track,Professor,TRUE,50,2,4,3.6,0.5,4
-Magnan,2024,1,Tenured/Tenure Track,Professor,TRUE,50,1,2,0.5,0.5,2
-Magnan,2025,1,Tenured/Tenure Track,Professor,TRUE,50,2,2,5.05,0.5,4
-Magnan,2026,1,Tenured/Tenure Track,Professor,TRUE,50,2,1,6.05,0.5,4
-Manning,2021,1,Tenured/Tenure Track,NA,TRUE,50,4,38,3.87,0.5,8
-Manning,2022,1,Tenured/Tenure Track,NA,TRUE,50,4,53,3.83,0.5,8
-Manning,2023,1,Tenured/Tenure Track,NA,TRUE,50,2,34,4.95,0.5,4
-Manning,2024,1,Tenured/Tenure Track,NA,TRUE,50,1,2,5,0.5,2
-Mooney,2021,1,Tenured/Tenure Track,Associate Professor,TRUE,25,1,6,3.34,0.25,4
-Mooney,2022,1,Tenured/Tenure Track,Associate Professor,TRUE,25,2,17,3.05,0.25,8
-Mooney,2023,1,Tenured/Tenure Track,Associate Professor,TRUE,25,5,18,1.88,0.25,20
-Mooney,2024,1,Tenured/Tenure Track,Associate Professor,TRUE,25,7,40,1.95,0.25,28
-Mooney,2025,1,Tenured/Tenure Track,Associate Professor,TRUE,25,6,18,2.37,0.25,24
-Mooney,2026,1,Tenured/Tenure Track,Associate Professor,TRUE,25,0,0,NA,0.25,0
-Perry,2021,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
-Perry,2022,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
-Perry,2023,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
-Perry,2024,1,Tenured/Tenure Track,NA,TRUE,NA,0,0,NA,NA,NA
-Ritten,2022,1,Continuing,Professor,FALSE,10,8,112,1.87,0.1,80
-Ritten,2023,1,Continuing,Professor,FALSE,10,2,15,4.8,0.1,20
-Ritten,2024,1,Continuing,Professor,FALSE,10,5,17,2.53,0.1,50
-Ritten,2025,1,Continuing,Professor,FALSE,10,16,61,3.55,0.1,160
-Ritten,2026,1,Continuing,Professor,FALSE,10,5,1,2.44,0.1,50
-Seidl,2021,1,Tenured/Tenure Track,Professor,TRUE,15,3,88,13.01,0.15,20
-Seidl,2022,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Seidl,2023,1,Tenured/Tenure Track,Professor,TRUE,15,2,32,5.9,0.15,13.333333333333334
-Seidl,2024,1,Tenured/Tenure Track,Professor,TRUE,15,2,56,4.7,0.15,13.333333333333334
-Seidl,2025,1,Tenured/Tenure Track,Professor,TRUE,15,1,0,NA,0.15,6.666666666666667
-Seidl,2026,1,Tenured/Tenure Track,Professor,TRUE,15,0,0,NA,0.15,0
-Suter,2021,1,Tenured/Tenure Track,Professor,TRUE,50,6,57,4.1,0.5,12
-Suter,2022,1,Tenured/Tenure Track,Professor,TRUE,50,4,46,3.79,0.5,8
-Suter,2023,1,Tenured/Tenure Track,Professor,TRUE,50,3,7,2.7,0.5,6
-Suter,2024,1,Tenured/Tenure Track,Professor,TRUE,50,2,24,4.65,0.5,4
-Suter,2025,1,Tenured/Tenure Track,Professor,TRUE,50,6,3,4.95,0.5,12
-Suter,2026,1,Tenured/Tenure Track,Professor,TRUE,50,1,0,6.3,0.5,2
-Thilmany,2021,1,Tenured/Tenure Track,Professor,TRUE,21,4,72,4.47,0.21,19.047619047619047
-Thilmany,2022,1,Tenured/Tenure Track,Professor,TRUE,21,4,52,3.2,0.21,19.047619047619047
-Thilmany,2023,1,Tenured/Tenure Track,Professor,TRUE,21,4,19,3.1,0.21,19.047619047619047
-Thilmany,2024,1,Tenured/Tenure Track,Professor,TRUE,21,5,3,3.2,0.21,23.80952380952381
-Thilmany,2025,1,Tenured/Tenure Track,Professor,TRUE,21,2,2,2.8,0.21,9.523809523809524
-Thilmany,2026,1,Tenured/Tenure Track,Professor,TRUE,21,2,0,2.05,0.21,9.523809523809524
-Van Sandt,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,20,2,0,3.9,0.2,10
-Van Sandt,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,20,2,0,3.8,0.2,10
-Woerman,2023,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,9,5.9,0.5,2
-Woerman,2024,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,10,3.2,0.5,2
-Woerman,2025,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,2,35,13.5,0.5,4
-Woerman,2026,1,Tenured/Tenure Track,Assistant Professor,TRUE,50,1,7,56.1,0.5,2
+faculty_key,last,first,area,research_pct,teaching_pct,outreach_pct,active,year,faculty_type,faculty_rank,is_tt_as_listed,is_tt_if_ritten_tt,pct_research,pct_teaching,pct_service,split_complete,split_sum,split_sums_100,departed_flag,appointment_source,classification_source,n_faculty_publication_rows,n_journal_articles,n_verified_peer_reviewed,n_index_a,n_index_b,n_books,n_book_chapters,n_research_reports,n_conference_proceedings,n_student_coauthored,n_internal_collaboration_rows,n_outputs_with_citation_data,total_citations,mean_impact_factor,individual_research_fte,is_tt,research_fte,tt_research_fte_as_listed,tt_research_fte_if_ritten_tt,output_per_individual_research_fte,in_reporting_window,edge_2026
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2021,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,8,8,8,5,3,0,0,0,0,1,0,7,510,19.737,0.5,TRUE,0.5,0.5,0.5,16,TRUE,0
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2022,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,6,0,0,0,0,0,0,2,6,169,4.533333333333333,0.5,TRUE,0.5,0.5,0.5,12,TRUE,0
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2023,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,3,1,0,0,0,0,2,2,2,34,2.6333333333333333,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,2,2,2,0,0,0,1,0,1,2,2,25,3.55,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,2,2,2,2,4.5,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+jude bayham,Bayham,Jude,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,1,2,1,3.4000000000000004,0.5,TRUE,0.5,0.5,0.5,4,TRUE,1
+jenny bennett,Bennett,Jenny,Ag Ed,25,50,15,1,2025,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,25,50,15,TRUE,90,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,0,2,0,0,0,0,0,1,2,0,NA,0.25,TRUE,0.25,0.25,0.25,8,TRUE,0
+jenny bennett,Bennett,Jenny,Ag Ed,25,50,15,1,2026,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,25,50,15,TRUE,90,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,1,1,0,NA,0.25,TRUE,0.25,0.25,0.25,4,TRUE,1
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,3,1.874,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,0
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,1,3,3,33,5.566666666666666,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,1,1,1,0,0,0,1,0,1,2,1,12,3.4,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,1,1,1,3.6,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+joshua berning,Berning,Joshua,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,1,1,0,4.9,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,6,0,0,0,0,0,2,3,6,49,4.461833333333333,0.5,TRUE,0.5,0.5,0.5,12,TRUE,0
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,0
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,5,0,0,0,0,0,1,3,4,14,3.12,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,2,2,2,0,0,0,1,0,1,2,2,13,2.6,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,0
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,1,1,0,4.9,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2021,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,1,2,50,5.814,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2022,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,6,0,0,0,0,0,0,3,6,89,4.585333333333334,0.5,TRUE,0.5,0.5,0.5,12,TRUE,0
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2023,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,4,0,0,0,0,0,1,2,3,57,5.675,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,1,2,27,6.699999999999999,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,1,2,3,20,9.4,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+jesse burkhardt,Burkhardt,Jesse,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,0,12.5,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+lauren chenarides,Chenarides,Lauren,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,22,2.7565,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+lauren chenarides,Chenarides,Lauren,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,2,3,0,0,0,0,1,1,2,3,2.15,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+lauren chenarides,Chenarides,Lauren,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,5,0,0,0,0,0,1,0,5,6,4.28,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+lauren chenarides,Chenarides,Lauren,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,0,1,0,NA,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.05,TRUE,0.05,0.05,0.05,0,TRUE,0
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2022,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.05,TRUE,0.05,0.05,0.05,0,TRUE,0
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2023,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.05,TRUE,0.05,0.05,0.05,0,TRUE,0
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2024,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.05,TRUE,0.05,0.05,0.05,0,TRUE,0
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2025,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.05,TRUE,0.05,0.05,0.05,0,TRUE,0
+hayley chouinard,Chouinard,Hayley,Ag and Food,5,NA,NA,1,2026,Tenured/Tenure Track,NA,TRUE,TRUE,5,NA,NA,FALSE,NA,NA,FALSE,roster.csv,Roster-only TT list approved for active years,1,1,1,1,0,0,0,0,0,0,1,1,1,2.3,0.05,TRUE,0.05,0.05,0.05,20,TRUE,1
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2021,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,FALSE,0,0,0,NA,TRUE,0
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2022,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,FALSE,0,0,0,NA,TRUE,0
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2023,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,FALSE,0,0,0,NA,TRUE,0
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2024,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,FALSE,0,0,0,NA,TRUE,0
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2025,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,1,1,0,NA,0,FALSE,0,0,0,NA,TRUE,0
+nathan clark,Clark,Nathan,Ag Ed,0,60,40,1,2026,Continuing,Master Instructor,FALSE,FALSE,0,60,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,1,1,0,NA,0,FALSE,0,0,0,NA,TRUE,1
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,2,3,3,64,4.2316666666666665,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,0,0,3,38,5.949,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,1,3,3,19,5.233333333333333,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,0,1,2,14,2.3333333333333335,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,0
+rebecca cleary,Cleary,Rebecca,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,1
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,3,3,3,0,0,0,1,0,2,3,4,22,2.91975,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,19,5.4,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,1,1,14,4.2,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,0
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,1,2,9,5.2,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+marco costanigro,Costanigro,Marco,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,1,1,1,2.3,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,4,4,3,1,0,1,0,0,1,0,4,281,2.933333333333333,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,2,2,2,0,0,0,2,0,2,0,2,17,5.5,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,0,1,10,1.8,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,7,6,6,4,2,0,0,1,0,6,0,4,72,3.375,0.5,TRUE,0.5,0.5,0.5,14,TRUE,0
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,7,6,6,5,1,0,0,1,0,3,0,6,25,4.68,0.5,TRUE,0.5,0.5,0.5,14,TRUE,0
+amanda countryman,Countryman,Amanda,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,2,0,2,0,3.6,0.5,TRUE,0.5,0.5,0.5,4,TRUE,1
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2021,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,2,2,0,0,0,0,1,0,2,52,6.983499999999999,0.4,TRUE,0.4,0.4,0.4,10,TRUE,0
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2022,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,2,1,0,0,0,0,1,0,2,11,4.6,0.4,TRUE,0.4,0.4,0.4,7.5,TRUE,0
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2023,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,0,2,11,3.8499999999999996,0.4,TRUE,0.4,0.4,0.4,5,TRUE,0
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2024,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,1,1,0,0,0,0,0,1,1,1,1.6,0.4,TRUE,0.4,0.4,0.4,5,TRUE,0
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2025,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,5,6,4,1,0,0,0,1,0,4,4,18,3.025,0.4,TRUE,0.4,0.4,0.4,15,TRUE,0
+nathan delay,Delay,Nathan,Ag and Food,40,40,20,1,2026,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,40,40,20,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,1,5.85,0.4,TRUE,0.4,0.4,0.4,5,TRUE,1
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,TRUE,0,0,0,NA,TRUE,0
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,0,1,0,NA,0,TRUE,0,0,0,NA,TRUE,0
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,1,0,1,2,NA,0,TRUE,0,0,0,NA,TRUE,0
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0,TRUE,0,0,0,NA,TRUE,0
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,4,4,4,3,1,0,0,0,0,1,3,4,2,2.8333333333333335,0,TRUE,0,0,0,NA,TRUE,0
+kellie enns,Enns,Kellie,Ag Ed,0,70,30,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,0,70,30,TRUE,100,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,0,1,1,0,NA,0,TRUE,0,0,0,NA,TRUE,1
+marshall frasier,Frasier,Marshall,Ag and Food,NA,NA,NA,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,NA,NA,NA,FALSE,NA,NA,TRUE,roster.csv,Roster-only TT list approved for active years,1,1,1,1,0,0,0,0,0,1,1,1,10,2.46,NA,TRUE,NA,NA,NA,NA,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,5,0,0,0,0,0,0,5,4,62,3.5734,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,2,2,2,0,0,0,1,0,2,3,3,34,5.45,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,2,2,1,34,6,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,2,2,2,0,0,1,0,0,2,2,2,13,3.9,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,1,2,3,3,5.566666666666667,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+chris goemans,Goemans,Chris,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,1
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,1,0,0,0,0,0,NA,NA,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,0
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,1,0,0,0,1,1,0,NA,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,0
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.35,TRUE,0.35,0.35,0.35,0,TRUE,0
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.35,TRUE,0.35,0.35,0.35,0,TRUE,0
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,1,0,0,0,0,1,8,NA,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,0
+gregory graff,Graff,Gregory,Ag and Food,35,40,25,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,0,4.9,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,1
+alexandra hill,Hill,Alexandra,Ag and Food,50,40,10,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,3,3,3,2,1,0,0,0,0,0,1,3,46,5.4085,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+alexandra hill,Hill,Alexandra,Ag and Food,50,40,10,1,2022,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,1,1,1,1,0,0,0,0,0,0,0,1,8,0.9,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,0,1,2,3.889,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,1,2,0,0,0,0,1,1,2,53,2.2,0.35,TRUE,0.35,0.35,0.35,8.571428571428571,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,1,1,6,4,0.35,TRUE,0.35,0.35,0.35,2.857142857142857,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,4,4,3,1,0,2,0,0,1,2,4,34,3.3,0.35,TRUE,0.35,0.35,0.35,17.142857142857142,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,4,1,0,0,0,0,0,3,5,28,5.95,0.35,TRUE,0.35,0.35,0.35,14.285714285714286,TRUE,0
+dana hoag,Hoag,Dana,ENRE,35,40,25,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,35,40,25,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,2,1,0,0,0,0,0,0,2,1,4.05,0.35,TRUE,0.35,0.35,0.35,8.571428571428571,TRUE,1
+becca jablonski,Jablonski,Becca,Ag and Food,25,0,75,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,25,0,75,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,8,7,7,7,0,0,1,0,0,3,7,7,137,3.7912857142857144,0.25,TRUE,0.25,0.25,0.25,32,TRUE,0
+becca jablonski,Jablonski,Becca,Ag and Food,25,0,75,1,2022,Tenured/Tenure Track,NA,TRUE,TRUE,25,0,75,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,5,3,3,3,0,0,2,0,0,0,4,3,52,3.1999999999999997,0.25,TRUE,0.25,0.25,0.25,20,TRUE,0
+becca jablonski,Jablonski,Becca,Ag and Food,25,0,75,1,2023,Tenured/Tenure Track,NA,TRUE,TRUE,25,0,75,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,3,3,3,3,0,0,0,0,0,2,3,3,6,2.6,0.25,TRUE,0.25,0.25,0.25,12,TRUE,0
+becca jablonski,Jablonski,Becca,Ag and Food,25,0,75,1,2024,Tenured/Tenure Track,NA,TRUE,TRUE,25,0,75,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,2,2,2,2,0,0,0,0,0,0,2,2,1,1.7000000000000002,0.25,TRUE,0.25,0.25,0.25,8,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,0,0,0,0,0,1,1,0,0,0,0,NA,NA,0.15,TRUE,0.15,0.15,0.15,13.333333333333334,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,0,5.8,0.15,TRUE,0.15,0.15,0.15,6.666666666666667,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.15,TRUE,0.15,0.15,0.15,0,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,0,1,0,0,0,0,NA,NA,0.15,TRUE,0.15,0.15,0.15,6.666666666666667,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.15,TRUE,0.15,0.15,0.15,0,TRUE,0
+stephen koontz,Koontz,Stephen,Ag and Food,15,35,50,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,15,35,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.15,TRUE,0.15,0.15,0.15,0,TRUE,1
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,0,1,3,57,3.287,0.4,TRUE,0.4,0.4,0.4,7.5,TRUE,0
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,1,0,0,0,0,1,0,NA,0.4,TRUE,0.4,0.4,0.4,2.5,TRUE,0
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,56,5.35,0.4,TRUE,0.4,0.4,0.4,5,TRUE,0
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,13,3.3,0.4,TRUE,0.4,0.4,0.4,5,TRUE,0
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.4,TRUE,0.4,0.4,0.4,0,TRUE,0
+stephan kroll,Kroll,Stephan,ENRE,40,50,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,40,50,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,0,3.5,0.4,TRUE,0.4,0.4,0.4,2.5,TRUE,1
+lynne lewis,Lewis,Lynne,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,5,5,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+lynne lewis,Lewis,Lynne,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,1,47.3,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+lynne lewis,Lewis,Lynne,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.5,TRUE,0.5,0.5,0.5,0,TRUE,1
+nicholas magnan,Magnan,Nicholas,Ag and Food,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,2,0,2,4,4.9,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+nicholas magnan,Magnan,Nicholas,Ag and Food,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,0,1,2,0.5,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+nicholas magnan,Magnan,Nicholas,Ag and Food,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,2,0,2,2,5.05,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+nicholas magnan,Magnan,Nicholas,Ag and Food,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,0,1,1,6.05,0.5,TRUE,0.5,0.5,0.5,4,TRUE,1
+dale manning,Manning,Dale,ENRE,50,40,10,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,4,4,4,4,0,0,0,0,0,0,4,3,38,3.87,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+dale manning,Manning,Dale,ENRE,50,40,10,1,2022,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,5,4,4,4,0,0,0,1,0,2,4,5,53,3.8280000000000003,0.5,TRUE,0.5,0.5,0.5,10,TRUE,0
+dale manning,Manning,Dale,ENRE,50,40,10,1,2023,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,2,2,2,2,0,0,0,0,0,2,2,1,34,6,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+dale manning,Manning,Dale,ENRE,50,40,10,1,2024,Tenured/Tenure Track,NA,TRUE,TRUE,50,40,10,TRUE,100,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,2,1,1,1,0,0,1,0,0,2,2,1,2,5,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2021,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,1,0,1,6,3.338,0.25,TRUE,0.25,0.25,0.25,4,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2022,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,1,2,17,3.05,0.25,TRUE,0.25,0.25,0.25,8,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2023,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,4,1,0,0,0,0,3,1,4,18,2.05,0.25,TRUE,0.25,0.25,0.25,20,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2024,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,7,7,7,4,3,0,0,0,0,5,2,4,40,1.95,0.25,TRUE,0.25,0.25,0.25,28,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2025,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,3,3,0,0,0,0,1,4,4,18,2.3666666666666667,0.25,TRUE,0.25,0.25,0.25,24,TRUE,0
+daniel mooney,Mooney,Daniel,Ag and Food,25,35,40,1,2026,Tenured/Tenure Track,Associate Professor,TRUE,TRUE,25,35,40,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.25,TRUE,0.25,0.25,0.25,0,TRUE,1
+greg perry,Perry,Greg,Ag and Food,NA,NA,NA,1,2021,Tenured/Tenure Track,NA,TRUE,TRUE,NA,NA,NA,FALSE,NA,NA,TRUE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA,TRUE,NA,NA,NA,NA,TRUE,0
+greg perry,Perry,Greg,Ag and Food,NA,NA,NA,1,2022,Tenured/Tenure Track,NA,TRUE,TRUE,NA,NA,NA,FALSE,NA,NA,TRUE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA,TRUE,NA,NA,NA,NA,TRUE,0
+greg perry,Perry,Greg,Ag and Food,NA,NA,NA,1,2023,Tenured/Tenure Track,NA,TRUE,TRUE,NA,NA,NA,FALSE,NA,NA,TRUE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA,TRUE,NA,NA,NA,NA,TRUE,0
+greg perry,Perry,Greg,Ag and Food,NA,NA,NA,1,2024,Tenured/Tenure Track,NA,TRUE,TRUE,NA,NA,NA,FALSE,NA,NA,TRUE,roster.csv,Roster-only TT list approved for active years,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA,TRUE,NA,NA,NA,NA,TRUE,0
+john ritten,Ritten,John,Ag and Food,10,20,70,1,2022,Continuing,Professor,FALSE,TRUE,10,20,70,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,8,8,8,3,5,0,0,0,0,5,0,7,112,1.8666666666666667,0.1,FALSE,0.1,0,0.1,80,TRUE,0
+john ritten,Ritten,John,Ag and Food,10,20,70,1,2023,Continuing,Professor,FALSE,TRUE,10,20,70,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,0,2,15,4.8999999999999995,0.1,FALSE,0.1,0,0.1,20,TRUE,0
+john ritten,Ritten,John,Ag and Food,10,20,70,1,2024,Continuing,Professor,FALSE,TRUE,10,20,70,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,3,2,0,0,0,0,1,1,3,17,2.533333333333333,0.1,FALSE,0.1,0,0.1,50,TRUE,0
+john ritten,Ritten,John,Ag and Food,10,20,70,1,2025,Continuing,Professor,FALSE,TRUE,10,20,70,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,16,16,16,10,6,0,0,0,0,3,6,12,61,3.55,0.1,FALSE,0.1,0,0.1,160,TRUE,0
+john ritten,Ritten,John,Ag and Food,10,20,70,1,2026,Continuing,Professor,FALSE,TRUE,10,20,70,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,5,0,0,0,0,0,0,0,5,1,2.44,0.1,FALSE,0.1,0,0.1,50,TRUE,1
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,2,1,0,0,0,0,0,0,3,88,13.005,0.15,TRUE,0.15,0.15,0.15,20,TRUE,0
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,0,0,0,0,0,1,0,0,0,1,1,0,NA,0.15,TRUE,0.15,0.15,0.15,6.666666666666667,TRUE,0
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,1,1,0,0,0,0,0,0,2,32,8.5,0.15,TRUE,0.15,0.15,0.15,13.333333333333334,TRUE,0
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,56,4.699999999999999,0.15,TRUE,0.15,0.15,0.15,13.333333333333334,TRUE,0
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,0,1,0,0,0,0,1,1,0,NA,NA,0.15,TRUE,0.15,0.15,0.15,6.666666666666667,TRUE,0
+andrew seidl,Seidl,Andrew,ENRE,15,50,35,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,15,50,35,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,0.15,TRUE,0.15,0.15,0.15,0,TRUE,1
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,6,0,0,0,0,0,0,4,5,57,4.1005,0.5,TRUE,0.5,0.5,0.5,12,TRUE,0
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,4,0,0,0,0,0,2,1,4,46,3.7887500000000003,0.5,TRUE,0.5,0.5,0.5,8,TRUE,0
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,3,3,3,3,0,0,0,0,0,0,1,2,7,2.7,0.5,TRUE,0.5,0.5,0.5,6,TRUE,0
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,0,2,24,4.65,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,6,6,6,6,0,0,0,0,0,3,3,6,3,4.95,0.5,TRUE,0.5,0.5,0.5,12,TRUE,0
+jordan suter,Suter,Jordan,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,0,6.3,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2021,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,4,0,0,0,0,0,1,2,4,72,4.467499999999999,0.21,TRUE,0.21,0.21,0.21,19.047619047619047,TRUE,0
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2022,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,5,4,4,3,1,0,1,0,0,0,4,3,52,3.1999999999999997,0.21,TRUE,0.21,0.21,0.21,23.80952380952381,TRUE,0
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2023,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,4,4,4,2,2,0,0,0,0,3,2,2,19,3.45,0.21,TRUE,0.21,0.21,0.21,19.047619047619047,TRUE,0
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2024,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,5,5,5,4,1,0,0,0,0,0,2,5,3,3.2,0.21,TRUE,0.21,0.21,0.21,23.80952380952381,TRUE,0
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2025,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,1,0,2,2,2.8,0.21,TRUE,0.21,0.21,0.21,9.523809523809524,TRUE,0
+dawn thilmany,Thilmany,Dawn,Ag and Food,21,20,10,1,2026,Tenured/Tenure Track,Professor,TRUE,TRUE,21,20,10,TRUE,51,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,0,2.05,0.21,TRUE,0.21,0.21,0.21,9.523809523809524,TRUE,1
+anders van sandt,Van Sandt,Anders,Ag and Food,20,30,50,1,2025,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,20,30,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,1,1,0,0,0,0,0,0,2,0,3.9,0.2,TRUE,0.2,0.2,0.2,10,TRUE,0
+anders van sandt,Van Sandt,Anders,Ag and Food,20,30,50,1,2026,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,20,30,50,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,1,1,0,0,0,0,0,0,2,0,3.8,0.2,TRUE,0.2,0.2,0.2,10,TRUE,1
+matt woerman,Woerman,Matt,ENRE,50,40,10,1,2023,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,9,5.9,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+matt woerman,Woerman,Matt,ENRE,50,40,10,1,2024,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,10,3.2,0.5,TRUE,0.5,0.5,0.5,2,TRUE,0
+matt woerman,Woerman,Matt,ENRE,50,40,10,1,2025,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,2,2,2,2,0,0,0,0,0,0,0,2,35,13.5,0.5,TRUE,0.5,0.5,0.5,4,TRUE,0
+matt woerman,Woerman,Matt,ENRE,50,40,10,1,2026,Tenured/Tenure Track,Assistant Professor,TRUE,TRUE,50,40,10,TRUE,100,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,1,1,1,1,0,0,0,0,0,0,0,1,7,56.1,0.5,TRUE,0.5,0.5,0.5,2,TRUE,1

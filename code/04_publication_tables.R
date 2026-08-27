@@ -1,7 +1,7 @@
 # ==============================================================================
 # Script Name:  04_publication_tables.R
 # Author:       Lauren Chenarides
-# Last updated: July 2026
+# Last updated: August 2026
 #
 # Description:
 #   Produces the publication and disciplinary-influence tables for Section 4:
@@ -18,14 +18,14 @@
 #   3. Peer-reviewed publication totals exclude extension publications,
 #      reports, policy briefs, working papers, media contributions, and other
 #      non-peer-reviewed outputs.
-#   4. OpenAlex indexing is used as an operational indexing indicator:
-#        indexed     = a valid OpenAlex work ID was returned
-#        non-indexed = no valid OpenAlex work ID was returned
+#   4. Journal index class comes from the maintained impact-factor workbook:
+#        a = journal has at least one populated IF_2021-IF_2026 value
+#        b = journal is peer-reviewed but has no populated value in that list
 #
 # Inputs:
 #   output/pubs_analysis.csv
 #   output/faculty_year_panel.csv
-#   data/publications_faculty_doi_cleaned.csv
+#   data/publications_faculty_doi_updated.csv
 #
 # Optional input:
 #   data/publication_peer_benchmarks.csv
@@ -40,8 +40,6 @@
 #   output/publication_tables_D1_D4.xlsx
 # ==============================================================================
 
-rm(list = ls())
-
 library(dplyr)
 library(tidyr)
 library(stringr)
@@ -49,14 +47,32 @@ library(readr)
 library(purrr)
 library(openxlsx)
 
-setwd("C:/Users/lachenar/OneDrive - Colostate/CAS DARE Team-5 year Review - Documents/Research and Creative Artistry - LAUREN/dare_research")
+find_project_root <- function(start = getwd()) {
+  current <- normalizePath(start, winslash = "/", mustWork = TRUE)
 
-in_dir  <- "data"
-out_dir <- "output"
+  repeat {
+    if (
+      file.exists(file.path(current, "README.md")) &&
+      file.exists(file.path(current, "CODEBOOK.md"))
+    ) {
+      return(current)
+    }
+
+    parent <- dirname(current)
+    if (identical(parent, current)) {
+      stop("Could not locate the dare_research project root.", call. = FALSE)
+    }
+    current <- parent
+  }
+}
+
+PROJECT_ROOT <- find_project_root()
+in_dir  <- file.path(PROJECT_ROOT, "data")
+out_dir <- file.path(PROJECT_ROOT, "output")
 
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
-WINDOW <- 2021:2025
+WINDOW <- 2021:2026
 
 
 # ------------------------------------------------------------------------------
@@ -169,10 +185,10 @@ faculty_year_panel <- read_csv(
   show_col_types = FALSE
 )
 
-# This unfiltered source is needed for Table D3 because the OpenAlex enrichment
-# workflow retained journal articles only.
+# This source retains the curated rows plus any defensibly matched OpenAlex
+# discoveries and includes non-journal outputs needed for Table D3.
 all_outputs <- read_csv(
-  file.path(in_dir, "publications_faculty_doi_cleaned.csv"),
+  file.path(in_dir, "publications_faculty_doi_updated.csv"),
   show_col_types = FALSE
 )
 
@@ -195,8 +211,7 @@ faculty_publications <- pubs_analysis %>%
     
     area_standard = standardize_area(area),
     
-    # A returned OpenAlex work ID is used as the indexing indicator.
-    indexed_openalex = !is.na(oa_id) & str_squish(oa_id) != "",
+    indexed_if = index_class == "a",
     
     # All rows in pubs_analysis came from the JA subset of the curated CV file.
     peer_reviewed = type == "JA"
@@ -222,7 +237,13 @@ publication_level <- faculty_publications %>%
     
     venue = first(venue),
     
-    indexed_openalex = any(indexed_openalex),
+    index_class = case_when(
+      any(index_class == "a", na.rm = TRUE) ~ "a",
+      any(index_class == "b", na.rm = TRUE) ~ "b",
+      TRUE ~ NA_character_
+    ),
+
+    indexed_if = index_class == "a",
     
     cited_by_count = {
       x <- cited_by_count[!is.na(cited_by_count)]
@@ -350,10 +371,10 @@ unique_counts_by_year <- publication_level %>%
   group_by(year) %>%
   summarize(
     indexed_and_peer_reviewed_publications =
-      sum(indexed_openalex, na.rm = TRUE),
+      sum(indexed_if, na.rm = TRUE),
     
     peer_reviewed_but_nonindexed_publications =
-      sum(!indexed_openalex, na.rm = TRUE),
+      sum(!indexed_if, na.rm = TRUE),
     
     total_qualifying_publications = n(),
     
@@ -533,8 +554,8 @@ write_csv(
 )
 
 
-# Optional five-year-period version.
-table_D2_five_year <- table_D2 %>%
+# Optional six-year-period version.
+table_D2_six_year <- table_D2 %>%
   summarize(
     period = str_c(min(WINDOW), "-", max(WINDOW)),
     enre = sum(enre),
@@ -663,7 +684,7 @@ table_D3 <- table_D3_long %>%
     values_fill = 0
   ) %>%
   mutate(
-    five_year_total = rowSums(
+    six_year_total = rowSums(
       across(starts_with("Year_")),
       na.rm = TRUE
     )
@@ -1040,17 +1061,17 @@ setColWidths(
 )
 
 
-addWorksheet(wb, "Table D2 Five Year")
+addWorksheet(wb, "Table D2 Six Year")
 writeDataTable(
   wb,
-  "Table D2 Five Year",
-  table_D2_five_year,
+  "Table D2 Six Year",
+  table_D2_six_year,
   tableStyle = "TableStyleMedium2"
 )
 setColWidths(
   wb,
-  "Table D2 Five Year",
-  cols = 1:ncol(table_D2_five_year),
+  "Table D2 Six Year",
+  cols = 1:ncol(table_D2_six_year),
   widths = "auto"
 )
 
@@ -1170,8 +1191,8 @@ print(table_D1, n = Inf)
 cat("\nTABLE D2: ANNUAL\n")
 print(table_D2, n = Inf)
 
-cat("\nTABLE D2: FIVE-YEAR TOTAL\n")
-print(table_D2_five_year, n = Inf)
+cat("\nTABLE D2: SIX-YEAR TOTAL\n")
+print(table_D2_six_year, n = Inf)
 
 cat("\nTABLE D3\n")
 print(table_D3, n = Inf)
@@ -1436,9 +1457,9 @@ figure_D4_data <- table_D1 %>%
     index_status = recode(
       index_status,
       indexed_and_peer_reviewed_publications =
-        "Indexed in OpenAlex",
+        "Journal has an impact factor (class a)",
       peer_reviewed_but_nonindexed_publications =
-        "Not indexed in OpenAlex"
+        "Peer-reviewed without an impact factor (class b)"
     )
   )
 
@@ -1455,14 +1476,14 @@ figure_D4 <- ggplot(
     width = 0.72
   ) +
   labs(
-    title = "Peer-reviewed publications by OpenAlex indexing status",
+    title = "Peer-reviewed publications by journal index class",
     x = "Year",
     y = "Number of publications",
     fill = NULL,
     caption = paste(
-      "Indexing is defined operationally as having a matched OpenAlex work ID.",
-      "\nAbsence from OpenAlex does not necessarily mean that a publication",
-      "is absent from every bibliographic index."
+      "Class a journals have at least one populated impact-factor value",
+      "\nin journal_impact_factors_2021_2026.xlsx; other peer-reviewed",
+      "journals are class b."
     )
   ) +
   scale_y_continuous(

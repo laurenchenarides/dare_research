@@ -1,37 +1,37 @@
-last,candidate_name,faculty_type,faculty_rank,is_tt,pct_teaching,pct_research,pct_service,split_sum,split_sums_100,departed_flag,appt_source
-Bonanno,Alessandro Bonanno,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Countryman,Amanda Countryman,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Van Sandt,Anders Van Sandt,Tenured/Tenure Track,Assistant Professor,TRUE,30,20,50,100,TRUE,FALSE,appointment_splits.csv
-Seidl,Andrew Seidl,Tenured/Tenure Track,Professor,TRUE,50,15,35,100,TRUE,FALSE,appointment_splits.csv
-Goemans,Chris Goemans,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Hoag,Dana Hoag,Tenured/Tenure Track,Professor,TRUE,40,35,25,100,TRUE,FALSE,appointment_splits.csv
-Mooney,Daniel Mooney,Tenured/Tenure Track,Associate Professor,TRUE,35,25,40,100,TRUE,FALSE,appointment_splits.csv
-Thilmany,Dawn Thilmany,Tenured/Tenure Track,Professor,TRUE,20,21,10,51,FALSE,FALSE,appointment_splits.csv
-Watson,Dessa Watson,Continuing,Instructor,FALSE,70,0,30,100,TRUE,FALSE,appointment_splits.csv
-Graff,Gregory Graff,Tenured/Tenure Track,Professor,TRUE,40,35,25,100,TRUE,FALSE,appointment_splits.csv
-Bennett,Jenny Bennett,Tenured/Tenure Track,Assistant Professor,TRUE,50,25,15,90,FALSE,FALSE,appointment_splits.csv
-Burkhardt,Jesse Burkhardt,Tenured/Tenure Track,Associate Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Ritten,John Ritten,Continuing,Professor,FALSE,20,10,70,100,TRUE,FALSE,appointment_splits.csv
-Suter,Jordan Suter,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Berning,Joshua Berning,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Bayham,Jude Bayham,Tenured/Tenure Track,Associate Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Eshelman,Katharine Eshelman,Contract,Instructor,FALSE,40,0,60,100,TRUE,FALSE,appointment_splits.csv
-Riley,Kathie Riley,Continuing,Instructor,FALSE,90,0,10,100,TRUE,FALSE,appointment_splits.csv
-Enns,Kellie Enns,Tenured/Tenure Track,Professor,TRUE,70,0,30,100,TRUE,TRUE,appointment_splits.csv
-Charriez,Laston Charriez,Contract,Instructor,FALSE,25,0,75,100,TRUE,TRUE,appointment_splits.csv
-Chenarides,Lauren Chenarides,Tenured/Tenure Track,Assistant Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Lewis,Lynne Lewis,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Costanigro,MARCO Costanigro,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Woerman,Matt Woerman,Tenured/Tenure Track,Assistant Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Clark,Nathan Clark,Continuing,Master Instructor,FALSE,60,0,40,100,TRUE,FALSE,appointment_splits.csv
-Delay,Nathan DeLay,Tenured/Tenure Track,Assistant Professor,TRUE,40,40,20,100,TRUE,FALSE,appointment_splits.csv
-Magnan,Nicholas Magnan,Tenured/Tenure Track,Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Cleary,Rebecca Cleary,Tenured/Tenure Track,Associate Professor,TRUE,40,50,10,100,TRUE,FALSE,appointment_splits.csv
-Kroll,Stephan Kroll,Tenured/Tenure Track,Professor,TRUE,50,40,10,100,TRUE,FALSE,appointment_splits.csv
-Koontz,Stephen Koontz,Tenured/Tenure Track,Professor,TRUE,35,15,50,100,TRUE,FALSE,appointment_splits.csv
-Chouinard,Hayley Chouinard,Tenured/Tenure Track,NA,TRUE,NA,5,NA,NA,NA,TRUE,roster.csv (departed or not in appointment file)
-Frasier,Marshall Frasier,Tenured/Tenure Track,NA,TRUE,NA,NA,NA,NA,NA,TRUE,roster.csv (departed or not in appointment file)
-Hill,Alexandra Hill,Tenured/Tenure Track,NA,TRUE,40,50,10,100,TRUE,TRUE,roster.csv (departed or not in appointment file)
-Jablonski,Becca Jablonski,Tenured/Tenure Track,NA,TRUE,0,25,75,100,TRUE,TRUE,roster.csv (departed or not in appointment file)
-Manning,Dale Manning,Tenured/Tenure Track,NA,TRUE,40,50,10,100,TRUE,TRUE,roster.csv (departed or not in appointment file)
-Perry,Greg Perry,Tenured/Tenure Track,NA,TRUE,NA,NA,NA,NA,NA,TRUE,roster.csv (departed or not in appointment file)
+candidate_name,faculty_key,faculty_type,faculty_rank,pct_teaching,pct_research,pct_service,departed_flag,is_tt_as_listed,appointment_source,classification_source,split_complete,split_sum,split_sums_100,is_tt_if_ritten_tt
+Alessandro Bonanno,alessandro bonanno,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Alexandra Hill,alexandra hill,Tenured/Tenure Track,NA,40,50,10,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,TRUE,100,TRUE,TRUE
+Amanda Countryman,amanda countryman,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Anders Van Sandt,anders van sandt,Tenured/Tenure Track,Assistant Professor,30,20,50,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Andrew Seidl,andrew seidl,Tenured/Tenure Track,Professor,50,15,35,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Becca Jablonski,becca jablonski,Tenured/Tenure Track,NA,0,25,75,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,TRUE,100,TRUE,TRUE
+Chris Goemans,chris goemans,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Dale Manning,dale manning,Tenured/Tenure Track,NA,40,50,10,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,TRUE,100,TRUE,TRUE
+Dana Hoag,dana hoag,Tenured/Tenure Track,Professor,40,35,25,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Daniel Mooney,daniel mooney,Tenured/Tenure Track,Associate Professor,35,25,40,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Dawn Thilmany,dawn thilmany,Tenured/Tenure Track,Professor,20,21,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,51,FALSE,TRUE
+Dessa Watson,dessa watson,Continuing,Instructor,70,0,30,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,FALSE
+Greg Perry,greg perry,Tenured/Tenure Track,NA,NA,NA,NA,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,FALSE,NA,NA,TRUE
+Gregory Graff,gregory graff,Tenured/Tenure Track,Professor,40,35,25,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Hayley Chouinard,hayley chouinard,Tenured/Tenure Track,NA,NA,5,NA,FALSE,TRUE,roster.csv,Roster-only TT list approved for active years,FALSE,NA,NA,TRUE
+Jenny Bennett,jenny bennett,Tenured/Tenure Track,Assistant Professor,50,25,15,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,90,FALSE,TRUE
+Jesse Burkhardt,jesse burkhardt,Tenured/Tenure Track,Associate Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+John Ritten,john ritten,Continuing,Professor,20,10,70,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Jordan Suter,jordan suter,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Joshua Berning,joshua berning,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Jude Bayham,jude bayham,Tenured/Tenure Track,Associate Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Katharine Eshelman,katharine eshelman,Contract,Instructor,40,0,60,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,FALSE
+Kathie Riley,kathie riley,Continuing,Instructor,90,0,10,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,FALSE
+Kellie Enns,kellie enns,Tenured/Tenure Track,Professor,70,0,30,TRUE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Laston Charriez,laston charriez,Contract,Instructor,25,0,75,TRUE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,FALSE
+Lauren Chenarides,lauren chenarides,Tenured/Tenure Track,Assistant Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Lynne Lewis,lynne lewis,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+MARCO Costanigro,marco costanigro,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Marshall Frasier,marshall frasier,Tenured/Tenure Track,NA,NA,NA,NA,TRUE,TRUE,roster.csv,Roster-only TT list approved for active years,FALSE,NA,NA,TRUE
+Matt Woerman,matt woerman,Tenured/Tenure Track,Assistant Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Nathan Clark,nathan clark,Continuing,Master Instructor,60,0,40,FALSE,FALSE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,FALSE
+Nathan DeLay,nathan delay,Tenured/Tenure Track,Assistant Professor,40,40,20,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Nicholas Magnan,nicholas magnan,Tenured/Tenure Track,Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Rebecca Cleary,rebecca cleary,Tenured/Tenure Track,Associate Professor,40,50,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Stephan Kroll,stephan kroll,Tenured/Tenure Track,Professor,50,40,10,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE
+Stephen Koontz,stephen koontz,Tenured/Tenure Track,Professor,35,15,50,FALSE,TRUE,appointment_splits.csv,appointment_splits.csv,TRUE,100,TRUE,TRUE

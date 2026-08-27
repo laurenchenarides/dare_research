@@ -1,1 +1,26 @@
-publication_id,n_rows,n_years,n_titles,n_venues,years,titles,venues
+year,type,index_class,publication_count_status,n_faculty_publication_rows
+2021,BC,NA,Countable research output,4
+2021,JA,a,Countable research output,61
+2021,JA,b,Countable research output,8
+2021,RP,NA,Countable research output,2
+2021,JA,a,Outside active CSU affiliation,2
+2022,BC,NA,Countable research output,6
+2022,JA,a,Countable research output,44
+2022,JA,b,Countable research output,10
+2022,RP,NA,Countable research output,4
+2022,JA,a,Outside active CSU affiliation,1
+2023,JA,a,Countable research output,49
+2023,JA,b,Countable research output,6
+2024,BC,NA,Countable research output,4
+2024,JA,a,Countable research output,46
+2024,JA,b,Countable research output,13
+2024,RP,NA,Countable research output,5
+2025,BC,NA,Countable research output,1
+2025,CP,NA,Countable research output,1
+2025,JA,a,Countable research output,59
+2025,JA,b,Countable research output,18
+2025,RP,NA,Countable research output,1
+2025,WP,NA,Publication type not countable,4
+2026,JA,a,Countable research output,27
+2026,JA,b,Countable research output,6
+2026,WP,NA,Publication type not countable,4

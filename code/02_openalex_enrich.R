@@ -11,9 +11,10 @@
 # Required roster columns:
 #   last, first, area, orcid, openalex_author_id
 #
-# Publication windows:
-#   - 2021-2025: program-review reporting window
-#   - 2026: collected and flagged as edge_2026, but not part of the window
+# Publication window:
+#   - 2021-2026: program-review reporting window
+#   - 2026 is a partial year through the data-refresh date and is flagged
+#     edge_2026 so tables and narrative can identify it clearly.
 #
 # Important design rules:
 #   - data/publications_faculty_doi_cleaned.csv remains the curated baseline.
@@ -75,18 +76,34 @@ suppressPackageStartupMessages({
 # 0. Configuration
 # ==============================================================================
 
-REPORT_YEARS    <- 2021:2025
+REPORT_YEARS    <- 2021:2026
 DISCOVERY_YEARS <- 2021:2026
 
-# Discovery is refreshed by default because its purpose is to find new works.
-REFRESH_DISCOVERY <- TRUE
-
-# DOI enrichment uses a structured cache. Set TRUE to discard it and re-query.
-REFRESH_DOI_CACHE <- FALSE
+# Use cached API responses by default. Set the corresponding environment
+# variable to `true` for a deliberate refresh without editing this script.
+REFRESH_DISCOVERY <- identical(
+  str_to_lower(Sys.getenv("REFRESH_DISCOVERY", "false")),
+  "true"
+)
+REFRESH_DOI_CACHE <- identical(
+  str_to_lower(Sys.getenv("REFRESH_DOI_CACHE", "false")),
+  "true"
+)
 
 # When an exact journal-year impact factor is unavailable, use the closest
 # available year for that journal. Equal-distance ties use the earlier year.
 USE_NEAREST_IF_YEAR <- TRUE
+
+# Non-exact graduate-name matches approved by the project owner on 2026-08-27.
+# New probable matches remain pending until their OpenAlex author key is added
+# here after manual review.
+APPROVED_PROBABLE_GRAD_MATCH_KEYS <- c(
+  "A5035315099",
+  "A5112678107",
+  "A5050534384",
+  "A5098620561",
+  "A5120702958"
+)
 
 options(openalexR.mailto = "lauren.chenarides@colostate.edu")
 # Store the API key outside this script, for example in ~/.Rprofile:
@@ -1234,6 +1251,9 @@ updated_pubs <- bind_rows(pubs, new_publication_rows) %>%
     faculty_key = normalize_name(str_c(first, last, sep = " ")),
     doi_clean = clean_doi(doi),
     doi_clean = if_else(is_valid_doi(doi_clean), doi_clean, NA_character_),
+    # The exported DOI field contains only valid DOIs. Legacy placeholders
+    # such as `nodoi`, ISBNs, and literal `NA` become missing values.
+    doi = doi_clean,
     openalex_work_id = clean_openalex_work_id(openalex_work_id),
     title_year_key = make_title_year_key(title_short, year),
     publication_key = coalesce(
@@ -1585,16 +1605,44 @@ match_probable <- coauthor_people %>%
     relationship = "many-to-many"
   ) %>%
   anti_join(match_exact %>% distinct(au_key), by = "au_key") %>%
-  mutate(match_type = "Last name + first initial; review required")
+  mutate(
+    review_status = if_else(
+      au_key %in% APPROVED_PROBABLE_GRAD_MATCH_KEYS,
+      "Approved 2026-08-27",
+      "Pending review"
+    ),
+    match_type = if_else(
+      review_status == "Approved 2026-08-27",
+      "Last name + first initial; manually approved 2026-08-27",
+      "Last name + first initial; review required"
+    )
+  )
 
 write_csv(
   match_probable,
   file.path(out_dir, "coauthor_match_review.csv")
 )
 
+# All five non-exact candidates in the August 27, 2026 review file were
+# confirmed by the project owner. Retain the match type so downstream evidence
+# distinguishes exact normalized-name matches from manually reviewed matches.
+approved_grad_matches <- bind_rows(
+  match_exact,
+  match_probable %>% filter(review_status == "Approved 2026-08-27")
+) %>%
+  distinct(au_key, au_name_norm, .keep_all = TRUE)
+
+if (any(duplicated(approved_grad_matches$au_key))) {
+  stop(
+    "An approved OpenAlex coauthor maps to multiple graduate records. ",
+    "Review output/coauthor_match_review.csv.",
+    call. = FALSE
+  )
+}
+
 coauthor_grad_match <- coauthors_long %>%
   inner_join(
-    match_exact %>%
+    approved_grad_matches %>%
       select(
         au_key, au_name_norm, grad_last, grad_first,
         program, grad_year, n_degree_records, match_type
@@ -1721,6 +1769,27 @@ if_long <- if_long_raw %>%
     .groups = "drop"
   )
 
+# Classification is based on journal membership in the maintained workbook,
+# not on a row's previous index_class value and not on OpenAlex coverage. A
+# journal carries an impact factor when at least one IF_YYYY value is populated
+# anywhere in the 2021-2026 lookup. Publication-year IF matching below remains
+# a separate operation used to attach the numeric value.
+if_journal_status <- if_wide %>%
+  mutate(
+    journal_norm = normalize_journal(Journal),
+    journal_has_impact_factor = if_any(
+      all_of(if_columns),
+      ~ !is.na(.x)
+    )
+  ) %>%
+  filter(!is.na(journal_norm), journal_norm != "") %>%
+  group_by(journal_norm) %>%
+  summarize(
+    journal_in_if_workbook = TRUE,
+    journal_has_impact_factor = any(journal_has_impact_factor),
+    .groups = "drop"
+  )
+
 pubs_norm <- pubs %>%
   mutate(journal_norm = normalize_journal(venue))
 
@@ -1788,20 +1857,33 @@ if (nrow(publications_if) != nrow(pubs)) {
   stop("Impact-factor mapping changed the publication row count.")
 }
 
-# A journal article with a matched impact factor is verified as index class a.
-# No-match rows remain blank because class b requires separate peer-review and
-# indexing verification.
 publications_if <- publications_if %>%
-  mutate(
-    index_class_missing = is.na(index_class) |
-      str_squish(index_class) == "",
-    index_class = case_when(
-      !index_class_missing ~ index_class,
-      type == "JA" & !is.na(impact_factor) ~ "a",
-      TRUE ~ NA_character_
-    )
+  left_join(
+    if_journal_status,
+    by = "journal_norm",
+    relationship = "many-to-one"
   ) %>%
-  select(-index_class_missing)
+  mutate(
+    index_class = case_when(
+      type != "JA" ~ NA_character_,
+      coalesce(journal_has_impact_factor, FALSE) ~ "a",
+      type == "JA" ~ "b",
+      TRUE ~ NA_character_
+    ),
+    index_class_rule = case_when(
+      type != "JA" ~ "Not applicable",
+      index_class == "a" ~
+        "Journal has at least one populated IF_2021-IF_2026 value",
+      coalesce(journal_in_if_workbook, FALSE) ~
+        "Journal is listed but has no populated IF_2021-IF_2026 value",
+      TRUE ~ "Journal is absent from the impact-factor workbook"
+    ),
+    journal_in_if_workbook = coalesce(journal_in_if_workbook, FALSE),
+    journal_has_impact_factor = coalesce(
+      journal_has_impact_factor,
+      FALSE
+    )
+  )
 
 # The impact-factor joins preserve row order and have already been checked for
 # multiplication, so copy the verified index class back to the updated
@@ -1811,7 +1893,8 @@ pubs$index_class <- publications_if$index_class
 
 write_csv(
   updated_pubs %>% select(-doi_clean, -faculty_key, -title_year_key),
-  updated_publications_path
+  updated_publications_path,
+  na = ""
 )
 
 message(
@@ -1892,7 +1975,8 @@ if (nrow(publications_enriched) != nrow(pubs)) {
 
 journal_if_audit <- publications_enriched %>%
   count(
-    venue, journal_norm, type, if_match_rule,
+    venue, journal_norm, type, index_class, index_class_rule,
+    journal_in_if_workbook, journal_has_impact_factor, if_match_rule,
     name = "n_faculty_publication_rows"
   ) %>%
   arrange(if_match_rule, desc(n_faculty_publication_rows))
@@ -1927,7 +2011,8 @@ write_csv(
 write_csv(
   publications_enriched %>%
     select(-faculty_key, -title_year_key),
-  file.path(out_dir, "publications_enriched.csv")
+  file.path(out_dir, "publications_enriched.csv"),
+  na = ""
 )
 
 message(

@@ -1,37 +1,37 @@
-last,appt_source,faculty_type,in_publications,in_appointments,audit_note
-Charriez,appointment_splits.csv,Contract,FALSE,TRUE,"Appointment record, no publications in window"
-Eshelman,appointment_splits.csv,Contract,FALSE,TRUE,"Appointment record, no publications in window"
-Perry,roster.csv (departed or not in appointment file),Tenured/Tenure Track,FALSE,TRUE,"Appointment record, no publications in window"
-Riley,appointment_splits.csv,Continuing,FALSE,TRUE,"Appointment record, no publications in window"
-Watson,appointment_splits.csv,Continuing,FALSE,TRUE,"Appointment record, no publications in window"
-Bayham,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Bennett,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Berning,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Bonanno,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Burkhardt,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Chenarides,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Chouinard,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
-Clark,appointment_splits.csv,Continuing,TRUE,TRUE,Matched
-Cleary,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Costanigro,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Countryman,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Delay,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Enns,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Frasier,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
-Goemans,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Graff,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Hill,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
-Hoag,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Jablonski,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
-Koontz,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Kroll,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Lewis,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Magnan,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Manning,roster.csv (departed or not in appointment file),Tenured/Tenure Track,TRUE,TRUE,Matched
-Mooney,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Ritten,appointment_splits.csv,Continuing,TRUE,TRUE,Matched
-Seidl,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Suter,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Thilmany,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Van Sandt,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
-Woerman,appointment_splits.csv,Tenured/Tenure Track,TRUE,TRUE,Matched
+faculty_key,roster_last,roster_first,area,in_roster,candidate_name,faculty_type,appointment_source,classification_source,in_appointments,audit_note
+dessa watson,NA,NA,NA,FALSE,Dessa Watson,Continuing,appointment_splits.csv,appointment_splits.csv,TRUE,Appointment record outside analysis roster
+katharine eshelman,NA,NA,NA,FALSE,Katharine Eshelman,Contract,appointment_splits.csv,appointment_splits.csv,TRUE,Appointment record outside analysis roster
+kathie riley,NA,NA,NA,FALSE,Kathie Riley,Continuing,appointment_splits.csv,appointment_splits.csv,TRUE,Appointment record outside analysis roster
+laston charriez,NA,NA,NA,FALSE,Laston Charriez,Contract,appointment_splits.csv,appointment_splits.csv,TRUE,Appointment record outside analysis roster
+jude bayham,Bayham,Jude,ENRE,TRUE,Jude Bayham,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+jenny bennett,Bennett,Jenny,Ag Ed,TRUE,Jenny Bennett,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+joshua berning,Berning,Joshua,Ag and Food,TRUE,Joshua Berning,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+alessandro bonanno,Bonanno,Alessandro,Ag and Food,TRUE,Alessandro Bonanno,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+jesse burkhardt,Burkhardt,Jesse,ENRE,TRUE,Jesse Burkhardt,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+lauren chenarides,Chenarides,Lauren,Ag and Food,TRUE,Lauren Chenarides,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+hayley chouinard,Chouinard,Hayley,Ag and Food,TRUE,Hayley Chouinard,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+nathan clark,Clark,Nathan,Ag Ed,TRUE,Nathan Clark,Continuing,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+rebecca cleary,Cleary,Rebecca,Ag and Food,TRUE,Rebecca Cleary,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+marco costanigro,Costanigro,Marco,Ag and Food,TRUE,MARCO Costanigro,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+amanda countryman,Countryman,Amanda,Ag and Food,TRUE,Amanda Countryman,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+nathan delay,Delay,Nathan,Ag and Food,TRUE,Nathan DeLay,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+kellie enns,Enns,Kellie,Ag Ed,TRUE,Kellie Enns,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+marshall frasier,Frasier,Marshall,Ag and Food,TRUE,Marshall Frasier,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+chris goemans,Goemans,Chris,ENRE,TRUE,Chris Goemans,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+gregory graff,Graff,Gregory,Ag and Food,TRUE,Gregory Graff,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+alexandra hill,Hill,Alexandra,Ag and Food,TRUE,Alexandra Hill,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+dana hoag,Hoag,Dana,ENRE,TRUE,Dana Hoag,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+becca jablonski,Jablonski,Becca,Ag and Food,TRUE,Becca Jablonski,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+stephen koontz,Koontz,Stephen,Ag and Food,TRUE,Stephen Koontz,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+stephan kroll,Kroll,Stephan,ENRE,TRUE,Stephan Kroll,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+lynne lewis,Lewis,Lynne,ENRE,TRUE,Lynne Lewis,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+nicholas magnan,Magnan,Nicholas,Ag and Food,TRUE,Nicholas Magnan,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+dale manning,Manning,Dale,ENRE,TRUE,Dale Manning,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+daniel mooney,Mooney,Daniel,Ag and Food,TRUE,Daniel Mooney,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+greg perry,Perry,Greg,Ag and Food,TRUE,Greg Perry,Tenured/Tenure Track,roster.csv,Roster-only TT list approved for active years,TRUE,Matched
+john ritten,Ritten,John,Ag and Food,TRUE,John Ritten,Continuing,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+andrew seidl,Seidl,Andrew,ENRE,TRUE,Andrew Seidl,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+jordan suter,Suter,Jordan,ENRE,TRUE,Jordan Suter,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+dawn thilmany,Thilmany,Dawn,Ag and Food,TRUE,Dawn Thilmany,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+anders van sandt,Van Sandt,Anders,Ag and Food,TRUE,Anders Van Sandt,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched
+matt woerman,Woerman,Matt,ENRE,TRUE,Matt Woerman,Tenured/Tenure Track,appointment_splits.csv,appointment_splits.csv,TRUE,Matched

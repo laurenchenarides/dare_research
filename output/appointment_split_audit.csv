@@ -1,0 +1,6 @@
+last,first,faculty_key,roster_research_pct,appointment_research_pct,roster_teaching_pct,appointment_teaching_pct,roster_outreach_pct,appointment_service_pct,research_conflict,teaching_conflict,service_conflict,research_share_missing,split_complete,split_sum,split_sums_100,appointment_source,any_conflict
+Bennett,Jenny,jenny bennett,25,25,50,50,15,15,FALSE,FALSE,FALSE,FALSE,TRUE,90,FALSE,appointment_splits.csv,FALSE
+Chouinard,Hayley,hayley chouinard,5,5,NA,NA,NA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,NA,NA,roster.csv,FALSE
+Frasier,Marshall,marshall frasier,NA,NA,NA,NA,NA,NA,FALSE,FALSE,FALSE,TRUE,FALSE,NA,NA,roster.csv,FALSE
+Perry,Greg,greg perry,NA,NA,NA,NA,NA,NA,FALSE,FALSE,FALSE,TRUE,FALSE,NA,NA,roster.csv,FALSE
+Thilmany,Dawn,dawn thilmany,21,21,20,20,10,10,FALSE,FALSE,FALSE,FALSE,TRUE,51,FALSE,appointment_splits.csv,FALSE
