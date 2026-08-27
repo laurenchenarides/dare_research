@@ -1,0 +1,37 @@
+faculty_name,research_area,faculty_type,faculty_rank,teaching_percent,research_percent,service_percent,tenure_track_as_listed,tenure_track_if_ritten_included,departed_or_retired,first_active_year,last_active_year,active_years_in_window,appointment_source,classification_source
+Alessandro Bonanno,Ag and Food,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Alexandra Hill,Ag and Food,Tenured/Tenure Track,NA,40,50,10,TRUE,TRUE,TRUE,2021,2022,2,roster.csv,Roster-only TT list approved for active years
+Amanda Countryman,Ag and Food,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Anders Van Sandt,Ag and Food,Tenured/Tenure Track,Assistant Professor,30,20,50,TRUE,TRUE,FALSE,2025,2026,2,appointment_splits.csv,appointment_splits.csv
+Andrew Seidl,ENRE,Tenured/Tenure Track,Professor,50,15,35,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Becca Jablonski,Ag and Food,Tenured/Tenure Track,NA,0,25,75,TRUE,TRUE,TRUE,2021,2024,4,roster.csv,Roster-only TT list approved for active years
+Chris Goemans,ENRE,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Dale Manning,ENRE,Tenured/Tenure Track,NA,40,50,10,TRUE,TRUE,TRUE,2021,2024,4,roster.csv,Roster-only TT list approved for active years
+Dana Hoag,ENRE,Tenured/Tenure Track,Professor,40,35,25,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Daniel Mooney,Ag and Food,Tenured/Tenure Track,Associate Professor,35,25,40,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Dawn Thilmany,Ag and Food,Tenured/Tenure Track,Professor,20,21,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Dessa Watson,NA,Continuing,Instructor,70,0,30,FALSE,FALSE,FALSE,NA,NA,NA,appointment_splits.csv,appointment_splits.csv
+Greg Perry,Ag and Food,Tenured/Tenure Track,NA,NA,NA,NA,TRUE,TRUE,TRUE,2021,2024,4,roster.csv,Roster-only TT list approved for active years
+Gregory Graff,Ag and Food,Tenured/Tenure Track,Professor,40,35,25,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Hayley Chouinard,Ag and Food,Tenured/Tenure Track,NA,NA,5,NA,TRUE,TRUE,FALSE,2021,2026,6,roster.csv,Roster-only TT list approved for active years
+Jenny Bennett,Ag Ed,Tenured/Tenure Track,Assistant Professor,50,25,15,TRUE,TRUE,FALSE,2025,2026,2,appointment_splits.csv,appointment_splits.csv
+Jesse Burkhardt,ENRE,Tenured/Tenure Track,Associate Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+John Ritten,Ag and Food,Continuing,Professor,20,10,70,FALSE,TRUE,FALSE,2022,2026,5,appointment_splits.csv,appointment_splits.csv
+Jordan Suter,ENRE,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Joshua Berning,Ag and Food,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Jude Bayham,ENRE,Tenured/Tenure Track,Associate Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Katharine Eshelman,NA,Contract,Instructor,40,0,60,FALSE,FALSE,FALSE,NA,NA,NA,appointment_splits.csv,appointment_splits.csv
+Kathie Riley,NA,Continuing,Instructor,90,0,10,FALSE,FALSE,FALSE,NA,NA,NA,appointment_splits.csv,appointment_splits.csv
+Kellie Enns,Ag Ed,Tenured/Tenure Track,Professor,70,0,30,TRUE,TRUE,TRUE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Laston Charriez,NA,Contract,Instructor,25,0,75,FALSE,FALSE,TRUE,NA,NA,NA,appointment_splits.csv,appointment_splits.csv
+Lauren Chenarides,Ag and Food,Tenured/Tenure Track,Assistant Professor,40,50,10,TRUE,TRUE,FALSE,2023,2026,4,appointment_splits.csv,appointment_splits.csv
+Lynne Lewis,ENRE,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2024,2026,3,appointment_splits.csv,appointment_splits.csv
+MARCO Costanigro,Ag and Food,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Marshall Frasier,Ag and Food,Tenured/Tenure Track,NA,NA,NA,NA,TRUE,TRUE,TRUE,2021,2021,1,roster.csv,Roster-only TT list approved for active years
+Matt Woerman,ENRE,Tenured/Tenure Track,Assistant Professor,40,50,10,TRUE,TRUE,FALSE,2023,2026,4,appointment_splits.csv,appointment_splits.csv
+Nathan Clark,Ag Ed,Continuing,Master Instructor,60,0,40,FALSE,FALSE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Nathan DeLay,Ag and Food,Tenured/Tenure Track,Assistant Professor,40,40,20,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Nicholas Magnan,Ag and Food,Tenured/Tenure Track,Professor,40,50,10,TRUE,TRUE,FALSE,2023,2026,4,appointment_splits.csv,appointment_splits.csv
+Rebecca Cleary,Ag and Food,Tenured/Tenure Track,Associate Professor,40,50,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Stephan Kroll,ENRE,Tenured/Tenure Track,Professor,50,40,10,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv
+Stephen Koontz,Ag and Food,Tenured/Tenure Track,Professor,35,15,50,TRUE,TRUE,FALSE,2021,2026,6,appointment_splits.csv,appointment_splits.csv

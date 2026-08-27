@@ -1,0 +1,375 @@
+collaborating_institution_or_partner,partner_type,country_code,coauthored_publications,sponsored_projects,multistate_project_involvement,research_area,years_active,relationship_basis
+Resource (United States),Industry,US,63,0,NA,Ag and Food; Ag and Food; ENRE; ENRE,2021; 2022; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+University of Wyoming,University/education,US,24,0,NA,Ag and Food; ENRE,2021; 2022; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Agricultural & Applied Economics Association,Foundation/nonprofit,US,13,0,NA,Ag and Food; ENRE,2022; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Agricultural Research Service,Government,US,11,0,NA,Ag Ed; Ag and Food; Ag and Food; ENRE,2022; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Economic Research Service,Government,US,10,0,NA,Ag and Food; ENRE,2021; 2022; 2024; 2025,OpenAlex coauthor affiliation
+United States Department of Agriculture,Government,US,9,0,NA,Ag Ed; Ag and Food; Ag and Food; Ag and Food; ENRE; ENRE,2021; 2022; 2023; 2025; 2026,OpenAlex coauthor affiliation
+Agricultural Research Service - Plains Area,Government,US,8,0,NA,Ag and Food,2022; 2025; 2026,OpenAlex coauthor affiliation
+Appalachian State University,University/education,US,8,0,NA,ENRE,2021; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Cornell University,University/education,US,8,0,NA,Ag and Food; ENRE,2021; 2022; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Kansas State University,University/education,US,8,0,NA,Ag and Food; ENRE,2021; 2022; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Rocky Mountain Research Station,Government,US,8,0,NA,ENRE,2021; 2022; 2023; 2024; 2025,OpenAlex coauthor affiliation
+Texas A&M University,University/education,US,8,0,NA,Ag and Food; ENRE,2022; 2025; 2026,OpenAlex coauthor affiliation
+Michigan State University,University/education,US,7,0,NA,Ag and Food; ENRE,2022; 2025; 2026,OpenAlex coauthor affiliation
+University of Georgia,University/education,US,7,0,NA,Ag and Food; ENRE,2021; 2023; 2024; 2025,OpenAlex coauthor affiliation
+University of Idaho,University/education,US,7,0,NA,Ag and Food; ENRE,2022; 2024; 2025; 2026,OpenAlex coauthor affiliation
+CICERO Center for International Climate Research,facility,NO,6,0,NA,ENRE,2021; 2023; 2024; 2026,OpenAlex coauthor affiliation
+Oklahoma State University,University/education,US,6,0,NA,Ag and Food; Ag and Food; ENRE; ENRE,2022; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+Purdue University West Lafayette,University/education,US,6,0,NA,Ag and Food,2021; 2022; 2023; 2024,OpenAlex coauthor affiliation
+University of Minnesota,University/education,US,6,0,NA,Ag and Food; ENRE,2022; 2023; 2026,OpenAlex coauthor affiliation
+Yale University,University/education,US,6,0,NA,ENRE,2021; 2023; 2024,OpenAlex coauthor affiliation
+Arizona State University,University/education,US,5,0,NA,Ag and Food,2022; 2023; 2025; 2026,OpenAlex coauthor affiliation
+"University of California, Davis",University/education,US,5,0,NA,Ag and Food; ENRE,2021; 2022; 2024; 2026,OpenAlex coauthor affiliation
+University of Missouri,University/education,US,5,0,NA,Ag and Food; ENRE,2021; 2022; 2025,OpenAlex coauthor affiliation
+University of Nebraska–Lincoln,University/education,US,5,0,NA,Ag and Food; ENRE,2021; 2023; 2024; 2025; 2026,OpenAlex coauthor affiliation
+University of Tennessee at Knoxville,University/education,US,5,0,NA,Ag and Food; ENRE,2021; 2025; 2026,OpenAlex coauthor affiliation
+University of Wisconsin–Madison,University/education,US,5,0,NA,Ag and Food; ENRE,2022; 2023; 2024; 2026,OpenAlex coauthor affiliation
+Washington State University,University/education,US,5,0,NA,Ag and Food; ENRE,2022; 2024; 2025,OpenAlex coauthor affiliation
+Center for Agricultural Resources Research,facility,US,4,0,NA,Ag and Food; ENRE,2025; 2026,OpenAlex coauthor affiliation
+University of Delaware,University/education,US,4,0,NA,Ag and Food; ENRE,2022,OpenAlex coauthor affiliation
+University of Florida,University/education,US,4,0,NA,Ag and Food; Ag and Food; ENRE; ENRE,2022; 2023; 2025,OpenAlex coauthor affiliation
+Western EcoSystems Technology (United States),Industry,US,4,0,NA,Ag Ed; Ag and Food; Ag and Food,2025; 2026,OpenAlex coauthor affiliation
+Animal and Plant Health Inspection Service,Government,US,3,0,NA,Ag and Food; ENRE,2023; 2025,OpenAlex coauthor affiliation
+Clemson University,University/education,US,3,0,NA,ENRE,2021; 2025,OpenAlex coauthor affiliation
+George Washington University,University/education,US,3,0,NA,ENRE,2022; 2024; 2026,OpenAlex coauthor affiliation
+International Food Policy Research Institute,Foundation/nonprofit,US,3,0,NA,Ag and Food; ENRE,2024; 2026,OpenAlex coauthor affiliation
+Johann Heinrich von Thünen-Institut,Government,DE,3,0,NA,Ag and Food,2024; 2025,OpenAlex coauthor affiliation
+Johns Hopkins University,University/education,US,3,0,NA,Ag and Food; ENRE,2021; 2022; 2024,OpenAlex coauthor affiliation
+Life Services (United States),Industry,US,3,0,NA,ENRE,2022; 2025; 2026,OpenAlex coauthor affiliation
+National Park Service,Government,US,3,0,NA,ENRE,2024; 2026,OpenAlex coauthor affiliation
+National Wildlife Research Center,facility,NA,3,0,NA,ENRE,2022; 2023; 2025,OpenAlex coauthor affiliation
+Pacific Northwest Research Station,Government,US,3,0,NA,Ag and Food; ENRE,2022; 2025,OpenAlex coauthor affiliation
+Pacific Southwest Research Station,Government,US,3,0,NA,ENRE,2021; 2022; 2025,OpenAlex coauthor affiliation
+Pennsylvania State University,University/education,US,3,0,NA,Ag and Food,2022; 2024; 2025,OpenAlex coauthor affiliation
+South Dakota State University,University/education,US,3,0,NA,Ag and Food; Ag and Food; ENRE; ENRE,2022; 2024,OpenAlex coauthor affiliation
+Texas College,University/education,US,3,0,NA,Ag and Food; ENRE,2025; 2026,OpenAlex coauthor affiliation
+The Nature Conservancy,Foundation/nonprofit,US,3,0,NA,Ag and Food,2022; 2025,OpenAlex coauthor affiliation
+United Nations Development Programme,other,US,3,0,NA,ENRE,2021; 2023; 2024,OpenAlex coauthor affiliation
+Universidade de São Paulo,University/education,BR,3,0,NA,Ag and Food,2022; 2023; 2026,OpenAlex coauthor affiliation
+"University of California, Berkeley",University/education,US,3,0,NA,Ag and Food; ENRE,2024; 2025; 2026,OpenAlex coauthor affiliation
+Utah State University,University/education,US,3,0,NA,Ag Ed; Ag and Food,2022; 2025; 2026,OpenAlex coauthor affiliation
+Beltsville Agricultural Research Center,facility,US,2,0,NA,Ag and Food,2025; 2026,OpenAlex coauthor affiliation
+Business Roundtable,other,US,2,0,NA,Ag and Food; ENRE,2023,OpenAlex coauthor affiliation
+Carleton University,University/education,CA,2,0,NA,Ag and Food; ENRE,2024; 2026,OpenAlex coauthor affiliation
+Centre National de la Recherche Scientifique,Government,FR,2,0,NA,ENRE,2025; 2026,OpenAlex coauthor affiliation
+Colorado Parks and Wildlife,other,US,2,0,NA,ENRE,2022; 2026,OpenAlex coauthor affiliation
+Colorado School of Public Health,University/education,US,2,0,NA,ENRE,2021; 2022,OpenAlex coauthor affiliation
+Dartmouth College,University/education,US,2,0,NA,ENRE,2023; 2024,OpenAlex coauthor affiliation
+Iowa State University,University/education,US,2,0,NA,Ag Ed; Ag and Food,2022; 2025,OpenAlex coauthor affiliation
+Milken Institute,Foundation/nonprofit,US,2,0,NA,ENRE,2022; 2024,OpenAlex coauthor affiliation
+Montana State University,University/education,US,2,0,NA,Ag and Food,2025; 2026,OpenAlex coauthor affiliation
+National Water Research Center,facility,EG,2,0,NA,ENRE,2023; 2024,OpenAlex coauthor affiliation
+Natural Resources Conservation Service,Government,US,2,0,NA,Ag and Food; ENRE,2022; 2025,OpenAlex coauthor affiliation
+North Carolina State University,University/education,US,2,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Oregon State University,University/education,US,2,0,NA,Ag and Food,2024; 2026,OpenAlex coauthor affiliation
+Rocky Mountain Research (United States),Industry,US,2,0,NA,ENRE,2022; 2023,OpenAlex coauthor affiliation
+Roman L. Hruska U.S. Meat Animal Research Center,facility,US,2,0,NA,Ag Ed; Ag and Food; Ag and Food,2022; 2025,OpenAlex coauthor affiliation
+Springfield College,University/education,US,2,0,NA,ENRE,2022; 2025,OpenAlex coauthor affiliation
+Synkera Technologies (United States),Industry,US,2,0,NA,ENRE,2021; 2022,OpenAlex coauthor affiliation
+Texas Tech University,University/education,US,2,0,NA,Ag and Food; ENRE,2024; 2026,OpenAlex coauthor affiliation
+The Ohio State University,University/education,US,2,0,NA,Ag and Food; ENRE,2021; 2025,OpenAlex coauthor affiliation
+The University of Queensland,University/education,AU,2,0,NA,Ag and Food; ENRE,2025; 2026,OpenAlex coauthor affiliation
+Toto (Japan),Industry,JP,2,0,NA,Ag and Food; ENRE,2021; 2022,OpenAlex coauthor affiliation
+US Forest Service,Government,US,2,0,NA,ENRE,2021; 2023,OpenAlex coauthor affiliation
+United Arab Emirates University,University/education,AE,2,0,NA,ENRE,2024; 2025,OpenAlex coauthor affiliation
+United States Geological Survey,Government,US,2,0,NA,ENRE,2022; 2026,OpenAlex coauthor affiliation
+University of Colorado Denver,University/education,US,2,0,NA,ENRE,2021; 2022,OpenAlex coauthor affiliation
+University of Illinois Urbana-Champaign,University/education,US,2,0,NA,Ag and Food,2023; 2026,OpenAlex coauthor affiliation
+University of Kassel,University/education,DE,2,0,NA,Ag and Food; ENRE,2024; 2026,OpenAlex coauthor affiliation
+University of Michigan,University/education,US,2,0,NA,ENRE,2021; 2026,OpenAlex coauthor affiliation
+University of Oxford,University/education,GB,2,0,NA,Ag and Food; ENRE,2025; 2026,OpenAlex coauthor affiliation
+University of Pittsburgh at Johnstown,University/education,US,2,0,NA,Ag Ed; Ag and Food; Ag and Food,2025,OpenAlex coauthor affiliation
+University of Rhode Island,University/education,US,2,0,NA,ENRE,2023; 2025,OpenAlex coauthor affiliation
+Università Cattolica del Sacro Cuore,University/education,IT,2,0,NA,Ag and Food,2021; 2026,OpenAlex coauthor affiliation
+Abu Dhabi Health Services,Industry,AE,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Abu Dhabi University,University/education,AE,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Albany State University,University/education,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+Allegheny College,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Amarillo College,University/education,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+American University of Armenia,University/education,AM,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Animal Welfare Institute,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Archbold Biological Station,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Auburn University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Bank of America,other,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Bank of Spain,other,ES,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Battelle,Foundation/nonprofit,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+Beijing Normal University,University/education,CN,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Berlin School of Economics and Law,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Biohaven Pharmaceuticals (United States),Industry,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+Bird Conservancy of the Rockies,Foundation/nonprofit,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Bloomfield College,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Bordeaux Sciences Économiques,facility,FR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Brock University,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Bureau of Land Management,Government,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+California Air Resources Board,Government,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+California Energy Commission,Government,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+Center for Epidemiology and Animal Health,Government,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+Center for Food Safety and Applied Nutrition,facility,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+Centro de Investigación y Tecnología Agroalimentaria de Aragón,facility,ES,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Charles University,University/education,CZ,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Christian-Albrechts-Universität zu Kiel,University/education,DE,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Colleges of Medicine of South Africa,University/education,ZA,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Colorado Department of Public Health and Environment,Government,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+Columbia University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Commodity Futures Trading Commission,Government,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+Commonwealth Scientific and Industrial Research Organisation,Government,AU,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+"Czech Academy of Sciences, Institute of Information Theory and Automation",facility,CZ,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Deakin University,University/education,AU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Digital Science (United Kingdom),Industry,GB,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Dongbei University of Finance and Economics,University/education,CN,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Drake University,University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Duke University,University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Durham University,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+East Texas A&M University,University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Ecolab (United States),Industry,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Economie Publique,facility,FR,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Ecosystem Sciences,facility,AU,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Education Trust,Foundation/nonprofit,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Egerton University,University/education,KE,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Eletrobras (Brazil),Industry,BR,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Environmental Defense Fund,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Environmental Protection Agency,Government,GH,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Environmental Protection Agency,Government,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Equilibrium Research,facility,GB,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+European University Institute,University/education,IT,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Family Beginnings,healthcare,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Federal Reserve Board of Governors,Government,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+Federal Urdu University,University/education,PK,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Food and Agriculture Organization of the United Nations,Government,IT,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+Fort Collins Science Center,facility,NA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Georgetown University in Qatar,University/education,QA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Global Environment Facility,other,US,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Google (United States),Industry,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+"Grassland, Soil and Water Research Laboratory",facility,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Grinnell College,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Hasselt University,University/education,BE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Heidelberg University,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Heifer International,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Ifo Institute for Economic Research,facility,DE,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+"Institut National de Recherche pour l'Agriculture, l'Alimentation et l'Environnement",Government,FR,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Institut de Recherche pour le Développement,Government,FR,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Institute for Environmental Management,Foundation/nonprofit,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+Instituto Nacional de Investigaciones Agropecuarias,facility,EC,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Instituto de Estudios Sociales Avanzados,facility,ES,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+International Union for Conservation of Nature,Foundation/nonprofit,CH,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Iringa Mercy Organization,Foundation/nonprofit,TZ,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+JBS International (United States),Industry,US,1,0,NA,Ag and Food,2021,OpenAlex coauthor affiliation
+Jackson College,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Jackson Memorial Hospital,healthcare,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Karlstad University,University/education,SE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Kent State University,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Kentucky State University,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Kyiv School of Economics,University/education,UA,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+LMU Klinikum,healthcare,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Laboratoire d'Economie Appliquée de Grenoble,facility,FR,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Lancaster University,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Langley Research Center,facility,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Louisiana State University Agricultural Center,University/education,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+Ludwig-Maximilians-Universität München,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Luxembourg Institute of Socio-Economic Research,Foundation/nonprofit,LU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Magna Graecia University,University/education,IT,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Maison des Sciences de l'Homme,facility,FR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Masaryk University,University/education,CZ,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Massachusetts Institute of Technology,University/education,US,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+Meridian Institute,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Michigan Technological University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Microsoft (United States),Industry,US,1,0,NA,Ag and Food,2021,OpenAlex coauthor affiliation
+Middle East Studies Association of North America,other,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Mississippi State University,University/education,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Missouri College,University/education,US,1,0,NA,Ag and Food,2021,OpenAlex coauthor affiliation
+Monash University,University/education,AU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+National Agricultural Library,archive,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+National Cattlemen's Beef Association,Foundation/nonprofit,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+National Center for Environmental Assessment (EPA),facility,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+National Jewish Health,healthcare,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+National Soil Erosion Research Laboratory,facility,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Nazarbayev University,University/education,KZ,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Netherlands Interdisciplinary Demographic Institute,facility,NL,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+New Mexico State University,University/education,US,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+New York University,University/education,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+New York University Abu Dhabi,University/education,AE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Noble Research Institute,Foundation/nonprofit,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+North Central Climate Adaptation Science Center,facility,NA,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+Northern Arizona University,University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Northern Great Plains Research Laboratory,facility,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Northwest Irrigation and Soils Research Laboratory,facility,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+Northwest Watershed Research Center,facility,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Northwestern University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Nottingham Biomedical Research Centre,facility,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Oak Ridge Associated Universities,University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Oak Ridge Institute for Science and Education,University/education,NA,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Office of the Chief Scientist,Government,IL,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Oklahoma State University Oklahoma City,University/education,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+Oldham Council,Government,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Panthera Corporation,Foundation/nonprofit,US,1,0,NA,Ag and Food; ENRE,2025,OpenAlex coauthor affiliation
+Peninsula College of Medicine and Dentistry,University/education,GB,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Pontificia Universidad Católica de Chile,University/education,CL,1,0,NA,Ag and Food; ENRE,2025,OpenAlex coauthor affiliation
+Queen Mary University of London,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Queen's University,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+RMIT University,University/education,AU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+RTI International,funder,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+RWI – Leibniz Institute for Economic Research,facility,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Rainforest Alliance,Foundation/nonprofit,US,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Roslin Institute,facility,GB,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Rothamsted Research,facility,GB,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+SUNY Morrisville,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Salisbury University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Secretaria de Agricultura e Abastecimento,Government,BR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Sheridan College,University/education,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+Skin and Cancer Foundation,Foundation/nonprofit,AU,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Smithsonian Environmental Research Center,facility,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Society For Range Management,other,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+South African Institute of International Affairs,facility,ZA,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Southeastern Baptist College,University/education,US,1,0,NA,Ag Ed,2025,OpenAlex coauthor affiliation
+Stanford Medicine,healthcare,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Stanford University,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Stockholm School of Economics,University/education,SE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Swedish Institute for Health Economics,facility,SE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Tampere University,Other/unknown,FI,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Technische Universität Berlin,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Teknoloji Arastirma ve Gelistirme Endustriyel Urunler Bilisim Teknolojileri San Tic,Industry,TR,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Tennessee State University,University/education,US,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+Texas A&M University System,University/education,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+The Land Institute,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+The Nature Conservancy,Foundation/nonprofit,CO,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+The University of Melbourne,University/education,AU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Tilburg University,University/education,NL,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+United States Department of the Treasury,Government,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+United States Patent and Trademark Office,Government,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Universidad Mayor de San Simón,University/education,BO,1,0,NA,Ag and Food; ENRE,2025,OpenAlex coauthor affiliation
+Universitat Autònoma de Barcelona,University/education,ES,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University College Dublin,University/education,IE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University College London,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University for Development Studies,University/education,GH,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+University of Arizona,University/education,US,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+University of Arkansas at Fayetteville,University/education,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+University of Belize,University/education,BZ,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+University of Bologna,University/education,IT,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Bonn,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Bremen,University/education,DE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Brighton,University/education,GB,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+University of Bristol,University/education,GB,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+University of Calgary,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of California San Diego,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+"University of California, Irvine",University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+"University of California, Los Angeles",University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+"University of California, Merced",University/education,US,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+University of Cape Town,University/education,ZA,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Colorado Anschutz Medical Campus,University/education,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+University of Colorado Boulder,University/education,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+University of Connecticut,University/education,US,1,0,NA,Ag and Food,2021,OpenAlex coauthor affiliation
+University of Copenhagen,University/education,DK,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+University of East Anglia,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Florence,University/education,IT,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Foggia,University/education,IT,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+University of Fribourg,University/education,CH,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Gothenburg,University/education,SE,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Guelph,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Göttingen,University/education,DE,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Hawaii System,University/education,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+University of Hawaiʻi at Mānoa,University/education,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+University of Illinois System,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Jyväskylä,University/education,FI,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+University of Kentucky,University/education,US,1,0,NA,Ag and Food,2023,OpenAlex coauthor affiliation
+University of Leeds,University/education,GB,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+University of Liverpool,University/education,GB,1,0,NA,Ag and Food,2024,OpenAlex coauthor affiliation
+University of Maine,University/education,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+"University of Maryland, Baltimore",University/education,US,1,0,NA,ENRE,2021,OpenAlex coauthor affiliation
+"University of Maryland, College Park",University/education,US,1,0,NA,ENRE,2022,OpenAlex coauthor affiliation
+University of Massachusetts Amherst,University/education,US,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+University of Missouri–St. Louis,University/education,US,1,0,NA,Ag and Food,2021,OpenAlex coauthor affiliation
+"University of Nevada, Reno",University/education,US,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+University of Northern Iowa,University/education,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+University of Notre Dame,University/education,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+University of Nottingham,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Oslo,University/education,NO,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Ottawa,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Pennsylvania,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Southampton,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Stirling,University/education,GB,1,0,NA,ENRE,2024,OpenAlex coauthor affiliation
+University of Strathclyde,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Tasmania,University/education,AU,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Technology Sydney,University/education,AU,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Toronto,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Trans-Disciplinary Health Sciences and Technology,University/education,IN,1,0,NA,Ag and Food; ENRE,2025,OpenAlex coauthor affiliation
+University of Utah,University/education,US,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+University of Verona,University/education,IT,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+"University of Veterinary Medicine Hannover, Foundation",University/education,DE,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of Victoria,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Warwick,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+University of Waterloo,University/education,CA,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+University of Wisconsin–Extension,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+University of York,University/education,GB,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Universität Innsbruck,University/education,AT,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Université Bourgogne Franche-Comté,University/education,FR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Université Grenoble Alpes,University/education,FR,1,0,NA,ENRE,2025,OpenAlex coauthor affiliation
+Université Laval,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Université Paris Dauphine-PSL,University/education,FR,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Université Paris Sciences et Lettres,University/education,FR,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Université de Bordeaux,University/education,FR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Université de Bourgogne,University/education,FR,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Université de Montréal,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Université du Québec à Montréal,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Vinci (France),Industry,FR,1,0,NA,Ag and Food,2026,OpenAlex coauthor affiliation
+Virginia Tech,University/education,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Wageningen University & Research,University/education,NL,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Wilfrid Laurier University,University/education,CA,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+Woodwell Climate Research Center,other,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+World Bank,other,US,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+World Health Organization,Government,CH,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+World Health Organization - Pakistan,Government,PK,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+World Resources Institute,Foundation/nonprofit,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+World Wildlife Fund,Foundation/nonprofit,US,1,0,NA,ENRE,2023,OpenAlex coauthor affiliation
+Wyoming Department of Education,Government,US,1,0,NA,Ag and Food,2025,OpenAlex coauthor affiliation
+Wyoming State Department of Health,Government,US,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Wyoming Wildlife and Natural Resource Trust,Government,NA,1,0,NA,Ag and Food,2022,OpenAlex coauthor affiliation
+Zhejiang University,University/education,CN,1,0,NA,ENRE,2026,OpenAlex coauthor affiliation
+USDA-ERS-Economic Research Service,Government,NA,0,7,NA,NA,2021; 2022; 2024,Direct sponsor on funded DARE-led award
+USDA-NIFA-National Institute of Food and Agriculture,Government,NA,0,6,NA,NA,2021; 2022; 2024; 2025,Direct sponsor on funded DARE-led award
+USDA-USFS-Rocky Mtn. Rsrch Station - CO,Government,NA,0,6,NA,NA,2021; 2023; 2024; 2025,Direct sponsor on funded DARE-led award
+USDA-APHIS-Animal Plant Health Insp Srvc,Government,NA,0,4,NA,NA,2021; 2023; 2024,Direct sponsor on funded DARE-led award
+Texas A and M University,University/education,NA,0,3,NA,NA,2022; 2024; 2025,Direct sponsor on funded DARE-led award
+USDA-AMS-Agricultural Marketing Service,Government,NA,0,3,NA,NA,2021; 2023; 2025,Direct sponsor on funded DARE-led award
+USDA-USFS-Pacific NW Exp Statn,Government,NA,0,3,NA,NA,2022; 2024; 2026,Direct sponsor on funded DARE-led award
+University of Colorado at Denver,University/education,NA,0,3,NA,NA,2022; 2023; 2024,Direct sponsor on funded DARE-led award
+University of Minnesota,University/education,NA,0,3,NA,NA,2021; 2023; 2024,Direct sponsor on funded DARE-led award
+Washington State University,University/education,NA,0,3,NA,NA,2021; 2022; 2023,Direct sponsor on funded DARE-led award
+Arizona State University,University/education,NA,0,2,NA,NA,2023,Direct sponsor on funded DARE-led award
+Colorado Department of Agriculture,Government,NA,0,2,NA,NA,2023,Direct sponsor on funded DARE-led award
+Conscience Bay Research,Industry,NA,0,2,NA,NA,2023; 2024,Direct sponsor on funded DARE-led award
+DOI-NPS-National Park Service,Government,NA,0,2,NA,NA,2022; 2024,Direct sponsor on funded DARE-led award
+Resources for the Future,Foundation/nonprofit,NA,0,2,NA,NA,2024; 2026,Direct sponsor on funded DARE-led award
+University of Wyoming,University/education,NA,0,2,NA,NA,2021; 2025,Direct sponsor on funded DARE-led award
+Bird Conservancy of the Rockies,Foundation/nonprofit,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Colorado School of Public Health Center for Global Health,University/education,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Cornell University,University/education,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+DOC-NOAA-Natl Oceanic and Atmospheric Admn,Government,NA,0,1,NA,NA,2023,Direct sponsor on funded DARE-led award
+DOI-BLM-Bureau of Land Management,Government,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Environmental Defense Fund,Foundation/nonprofit,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Foundation for Food & Agriculture Research,Foundation/nonprofit,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Gretchen Swanson Center for Nutrition,Government,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Kansas State University,University/education,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+NASA-National Aeronautics and Space Administration,Government,NA,0,1,NA,NA,2025,Direct sponsor on funded DARE-led award
+National Cattlemens Beef Association,Foundation/nonprofit,NA,0,1,NA,NA,2023,Direct sponsor on funded DARE-led award
+New York University,University/education,NA,0,1,NA,NA,2023,Direct sponsor on funded DARE-led award
+Nourish Colorado,Government,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Purdue University,University/education,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Robert Wood Johnson Foundation,Foundation/nonprofit,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Rockefeller Foundation,Foundation/nonprofit,NA,0,1,NA,NA,2023,Direct sponsor on funded DARE-led award
+The Beacon Fund,Industry,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+The Nature Conservancy,Foundation/nonprofit,NA,0,1,NA,NA,2025,Direct sponsor on funded DARE-led award
+The Ohio State University,University/education,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+USDA-APHIS-National Wildlife Research Center,Government,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+USDA-NRCS-Natural Resources Consvtn Srv,Government,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+University of Idaho,University/education,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+University of Idaho,University/education,NA,0,1,NA,NA,2025,Direct sponsor on funded DARE-led award
+University of Kentucky,University/education,NA,0,1,NA,NA,2024,Direct sponsor on funded DARE-led award
+University of Maryland,University/education,NA,0,1,NA,NA,2023,Direct sponsor on funded DARE-led award
+University of Nevada Reno,University/education,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+University of Tennessee,University/education,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+University of Tennessee,University/education,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Urban School Food Alliance,Foundation/nonprofit,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Utah State University,University/education,NA,0,1,NA,NA,2021,Direct sponsor on funded DARE-led award
+Valley Food Partnership,Government,NA,0,1,NA,NA,2022,Direct sponsor on funded DARE-led award
+Washington University in St. Louis,University/education,NA,0,1,NA,NA,2024,Direct sponsor on funded DARE-led award
