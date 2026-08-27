@@ -2,6 +2,8 @@
 
 Source of truth for every publication counting rule. `data/publications_faculty_doi_cleaned.csv` is the curated baseline. `code/02_openalex_enrich.R` applies the rules below and generates the authoritative downstream file, `data/publications_faculty_doi_updated.csv`. Any rule change requires rerunning the affected pipeline stages and documenting the change here.
 
+Sponsored-project rules are maintained separately in `GRANTS-CODEBOOK.md`.
+
 ## Window
 
 2021–2026 inclusive. The 2026 observations are partial through the latest refresh, currently August 27, 2026. They are included in publication tables and flagged `edge_2026 = 1`; comparisons must label 2026 as incomplete. Publications count regardless of institutional affiliation at the time of publication, subject to the faculty-activity rule applied in stage 03. Some 2026 entries come from Google Scholar or OpenAlex because CVs often have incomplete current-year coverage.

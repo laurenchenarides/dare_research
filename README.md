@@ -28,6 +28,7 @@ data/        input CSVs and the generated faculty-level files
   publications_faculty_doi_updated.csv   stage 02 publication output; baseline
                                           plus accepted OpenAlex discoveries
   grants.csv                             one row per grant
+  grants_cas.xlsx                        CAS proposal/award export used by stage 05
   presentations.csv                      one row per faculty-year-talk
   roster.csv                             per-year active flags, appointment splits
   appointment_splits.csv                 effort distribution, faculty type, rank
@@ -43,6 +44,7 @@ code/
   04_publication_tables.R               Produces the publication and disciplinary-influence tables
 output/      generated analysis files (see script headers); safe to delete/regen
 CODEBOOK.md  the authoritative rule set — consult before changing any counting logic
+GRANTS-CODEBOOK.md  authoritative sponsored-project rules and limitations
 README.md    this file
 ```
 
@@ -52,6 +54,7 @@ README.md    this file
 2. **`code/02_openalex_enrich.R`** — Starts from `publications_faculty_doi_cleaned.csv`, discovers potentially missing works using verified roster identifiers, enriches valid DOIs with OpenAlex metadata, matches graduate coauthors, and reassigns journal index classes from the impact-factor workbook. It writes `data/publications_faculty_doi_updated.csv` and `output/publications_enriched.csv`. API caches are used by default. Set the environment variable `REFRESH_DISCOVERY=true` to rerun author-based discovery or `REFRESH_DOI_CACHE=true` to discard and rebuild the DOI cache for a run.
 3. **`code/03_build_analysis_file.R`** — Joins appointment and roster information to `output/publications_enriched.csv`, applies the counting rules, and builds faculty-publication, publication-level, faculty-year, and department-year analysis files.
 4. **`code/04_publication_tables.R`** — Produces Tables D1–D4, publication audits, figures, and the combined publication workbook from the stage 03 outputs and `publications_faculty_doi_updated.csv`.
+5. **`code/05_grant_tables.R`** — Cleans `grants_cas.xlsx`, parses investigator roles and units, matches DARE faculty to the roster, and produces supported Tables C1–C3 plus CAS award comparisons, sponsor concentration, F&A, collaboration, and data-availability audits.
 
 The pipeline is numbered. Run stages in order. Later stages read earlier outputs.
 
@@ -69,7 +72,7 @@ The pipeline is numbered. Run stages in order. Later stages read earlier outputs
 - **Index class:** Stage 02 reassigns every journal article from `journal_impact_factors_2021_2026.xlsx`. Class `a` means the normalized journal title has at least one populated `IF_2021`–`IF_2026` value in the workbook. Class `b` means the item is a journal article but the workbook supplies no populated impact-factor value for that journal. Non-journal outputs have a blank index class. OpenAlex coverage is not used to assign `a` or `b`.
 - **Student coauthor (union rule):** a CV-coded `Y` is authoritative and is never downgraded; a registrar match adds `Y` where the CV did not claim one. `student_evidence` records which source supports each `Y`. A CV-only `Y` that the registrar can't corroborate is expected — the registrar file covers only AREC graduates, not undergraduates, other departments, or other institutions.
 - **Cross-population (fallback only):** a co-authored paper is added to a DARE co-author's list only if it is absent from their own CV. If already present, their own entry stands — no propagated duplicate. Per-faculty counts therefore exceed the department distinct-paper count by the volume of internal collaboration; that gap is the interdisciplinary-collaboration evidence, not double counting. Department totals dedupe on DOI (title+year where no DOI).
-- **Grants:** the intended reporting window is 2021–2026, with 2026 labeled as partial. Include any award active during that window regardless of start year. Keep funded, submitted, under review, and pending; exclude only not-funded/declined. On shared grants keep the PI's figure. Award amounts were retrieved from the [OVPR](https://vprweb.research.colostate.edu/Proposal-Award-History-Search/Proposal.aspx) where `Date Submitted Between: 01/01/2021 and 08/01/2026` and `Lead Unit = Agricultural + Resource Economics (1172)`. Confirm and encode the final grant-window details when the grants stage begins.
+- **Grants:** reporting covers 2021–2026 submission cohorts, with 2026 labeled partial. `Status = Funded` identifies awards; blank status means not funded or still in progress and is not counted as an award. `Amount*` is awarded dollars only on funded rows. Counts and dollars use each unique `Key ID` once in its `Date Sent` year, so full multi-year awards are not repeated. DARE totals use lead unit 1172. Faculty PI/co-PI participation uses rostered unit-1172 investigators across all CAS-led records. Prime sponsor is reported whenever present, including university pass-through subawards; direct sponsor is the fallback. Outputs now show collaboration in both directions—other CAS faculty on DARE-led projects and DARE faculty on projects led by other CAS departments. Separate outputs summarize pass-through institutions and F&A-rate distributions, with pass-through institutions separated from ordinary direct-sponsor categories. See `GRANTS-CODEBOOK.md` for sponsor classification and limitations.
 - **Presentations:** one row per faculty-year-talk. Each venue is its own row (a paper presented at three venues is three rows). Typed conference / invited / other; posters flagged.
 - **Appointment splits** are held constant across the window. Chouinard is 5% research. Weighting uses the research share itself, so splits that don't total 100 (Thilmany, Bennett) do not distort research FTE.
 - **Departed/retired faculty scope** (Hill, Manning, Jablonski, and Perry who left before the window). Count them for the years they were active, consistent with partial-window treatment of faculty hired after 2021.

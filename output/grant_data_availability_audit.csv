@@ -1,0 +1,9 @@
+requested_output,status,source_or_blocker
+Table C1: activity by year,Supported with qualification,Awards are grouped by Date Sent submission cohort because award date is absent.
+Table C2: awards by funding source,Supported with qualification,"Uses prime sponsor/type when present, otherwise direct sponsor/type; year is Date Sent cohort."
+Table C3: awards by sponsor/program,Partially supported,Sponsor is available; no explicit program field. Direct pass-through sponsors and derived DARE research areas are retained.
+Table C4: proposal and award success,Not supported for reporting,Blank status combines not-funded and in-progress records; funded requested dollars are not separately available.
+Table C5: sponsored expenditures,Not supported,No expenditure or fiscal-year expenditure fields are present.
+Table C6: CAS expenditure comparison,Not supported,No expenditure data or faculty denominators for other CAS departments are present; an award/proposal comparison is produced instead.
+Active sponsored projects,Not currently supported,Seventy-two End Date values have an apparent 1900/2000 century error that must be corrected before active-project counts are reliable.
+F&A sponsor analysis,Supported with qualification,"Rates are compared with F&A Type retained because TDC, MTDC, S&W, and no-indirect-cost bases differ."

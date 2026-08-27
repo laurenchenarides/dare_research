@@ -1,0 +1,7 @@
+year,active_faculty,proposals_submitted,awards_received,total_awarded_dollars,average_award_amount,faculty_serving_as_pi,faculty_serving_as_copi,faculty_serving_as_pi_or_copi,share_active_faculty_pi_or_copi,partial_year,year_basis
+2021,25,27,19,3275393.3,172389.12,10,11,15,0.6,FALSE,Date Sent (proposal submission cohort)
+2022,25,36,23,5168809.17,224730.83,15,7,16,0.64,FALSE,Date Sent (proposal submission cohort)
+2023,27,30,17,52740418.15,3102377.54,12,8,15,0.5556,FALSE,Date Sent (proposal submission cohort)
+2024,28,34,16,1031587.11,64474.19,14,7,16,0.5714,FALSE,Date Sent (proposal submission cohort)
+2025,27,20,8,1082917.96,135364.74,9,6,12,0.4444,FALSE,Date Sent (proposal submission cohort)
+2026,27,6,2,124000.41,62000.21,5,3,7,0.2593,TRUE,Date Sent (proposal submission cohort)
