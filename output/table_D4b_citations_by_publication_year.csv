@@ -1,7 +1,7 @@
-year,unique_qualifying_publications,publications_with_openalex_citation_data,total_citations,mean_citations_per_publication,median_citations_per_publication,percentage_of_publications_cited,partial_year
-2021,49,44,1304,29.64,12.5,87.76,FALSE
-2022,44,40,595,14.88,10.5,86.36,FALSE
-2023,39,32,336,10.5,7,74.36,FALSE
-2024,48,37,316,8.54,6,70.83,FALSE
-2025,57,52,181,3.48,1,63.16,FALSE
-2026,28,26,13,0.5,0,25,TRUE
+year,peer_reviewed_journal_publications,publications_with_google_scholar_citation_data,publication_weighted_average_journal_impact_factor,total_google_scholar_citations,mean_google_scholar_citations_per_publication,median_google_scholar_citations_per_publication,percentage_of_publications_cited_in_google_scholar,partial_year
+2021,48,48,6.57,1989,41.44,20,97.92,FALSE
+2022,44,44,4.17,1188,27,17.5,93.18,FALSE
+2023,39,39,4.16,539,13.82,9,97.44,FALSE
+2024,48,48,3.32,593,12.35,6.5,85.42,FALSE
+2025,57,57,5.9,286,5.02,3,77.19,FALSE
+2026,28,28,6.32,54,1.93,1,53.57,TRUE

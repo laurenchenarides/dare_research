@@ -50,7 +50,7 @@ Higher-education pass-through awards with a federal prime sponsor are Federal, n
 
 F&A analysis groups funded awards by direct sponsor because the direct sponsor issued the award to CSU. It reports F&A rate together with `F&A Type`; rates based on TDC, MTDC, salaries and wages, or no-indirect-cost rules are not assumed to be directly comparable.
 
-The F&A distribution assigns higher-education direct sponsors with a populated prime sponsor to a separate `Pass-through institution` category. Remaining records use the broad direct-sponsor categories Federal, State, CSU/Internal, Foundation/nonprofit, Industry, or Other. The plot is faceted into DARE-led and other-CAS-led awards, and its companion row-level CSV retains the direct sponsor, originating sponsor, and F&A basis.
+The F&A distribution assigns higher-education direct sponsors with a populated prime sponsor to a separate `Pass-through institution` category. Remaining records use the broad direct-sponsor categories Federal, State, CSU/Internal, Foundation/nonprofit, Industry, or Other. The plot is faceted into DARE-led and other-CAS-led awards, labels each displayed category with the number of funded awards having a reported F&A rate, and omits the heterogeneous `Other` category from the visual while reporting its excluded count in the caption. The companion row-level CSV retains all categories, including `Other`, together with the direct sponsor, originating sponsor, and F&A basis.
 
 The low-F&A audit uses a transparent threshold of 10 percent or less and separately identifies zero-rate awards. This is a screening tool, not a claim that a sponsor always imposes a low rate.
 

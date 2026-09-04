@@ -4,217 +4,207 @@
 
 The Department of Agricultural and Resource Economics (DARE) conducts high-quality and rigorous disciplinary and multidisciplinary research that develops knowledge and tools to improve societal well-being by addressing economic, managerial, educational, and policy problems within agri-food and resource systems. The department seeks recognition from academic, industry, and policy stakeholders as a collective leader in Environmental and Natural Resource Economics (ENRE), Agricultural and Food Economics (AFE), and Agricultural Education (AgEd).
 
-These areas serve as research clusters within the department. They reflect disciplinary subfields and align faculty research, teaching, and Extension activities with the needs of Colorado and its stakeholders. The faculty snapshot identifies 19 faculty associated with Agricultural and Food Economics, 10 with ENRE, and three with Agricultural Education during some portion of the 2021–2026 review period. Four additional faculty records do not have a research-area classification in the current appointment data. Faculty collaborate across these areas through publications, sponsored projects, and graduate committees. Appendix Table A1 documents faculty appointments, research areas, and active years.
+These areas serve as research clusters within the department. They reflect disciplinary subfields and align faculty research, teaching, and Extension activities with the needs of Colorado and its stakeholders. The faculty snapshot identifies 19 faculty associated with Agricultural and Food Economics, 10 with ENRE, and three with Agricultural Education during some portion of the 2021–2026 review period. Faculty collaborate across these areas through publications, sponsored projects, and graduate committees. **Appendix Table A1** documents faculty appointments, research areas, and active years.
 
 ## Research areas
 
 ### Environmental and Natural Resource Economics
 
-Environmental and Natural Resource Economics faculty examine how individuals, firms, communities, and public agencies respond to the management of water, land, wildlife, wildfire, energy, and other natural resources. Ten DARE faculty contributed to this area during the review period.
-
-Water research addresses groundwater depletion, aquifer management, municipal pricing, conservation behavior, and the resilience of water systems to environmental hazards. Research on wildfire considers suppression costs, public resource allocation, labor and health effects, community exposure, and retention of the wildland firefighting workforce. Faculty working in energy study electricity markets, renewable generation, carbon markets, and interactions among energy production, land use, and environmental regulation. Wildlife and land research addresses human-wildlife conflict, livestock and rangeland management, conservation incentives, land-use change, and the economic consequences of environmental policy.
-
-These subjects overlap. Research on wildfire connects air quality, water systems, agricultural labor, public lands, and energy production. Work on rangelands joins wildlife conservation, agricultural production, and rural livelihoods. ENRE accounted for 93 of the department’s 265 qualifying publications during 2021–2026, in addition to its contributions to 12 publications classified as cross-area work.
+Environmental and Natural Resource Economics faculty examine how individuals, firms, communities, and public agencies respond to the management of water, land, wildlife, wildfire, energy, and other natural resources. Ten DARE faculty contributed to this area during the review period. Water research addresses groundwater depletion, aquifer management, municipal pricing, conservation behavior, and the resilience of water systems to environmental hazards. Research on wildfire considers suppression costs, public resource allocation, labor and health effects, community exposure, and retention of the wildland firefighting workforce. Faculty working in energy study electricity markets, renewable generation, carbon markets, and interactions among energy production, land use, and environmental regulation. Wildlife and land research addresses human-wildlife conflict, livestock and rangeland management, conservation incentives, land-use change, and the economic consequences of environmental policy. Within this area, research frequently overlaps: research on wildfire connects air quality, water systems, agricultural labor, public lands, and energy production. Work on rangelands joins wildlife conservation, agricultural production, and rural livelihoods.
 
 ### Agricultural and Food Economics
 
-Agricultural and Food Economics faculty study agricultural production, food markets, food security, food retail, consumer behavior, and rural economic development. Nineteen DARE faculty contributed to this area during the review period.
-
-Research in agricultural production addresses livestock markets, rangeland management, climate risk, technology adoption, supply-chain resilience, and structural change in agriculture. Food security research examines how income, employment, demographic characteristics, public programs, and household constraints affect food access and diet quality. Faculty working in food markets study retail competition, pricing, product differentiation, labeling, consumer demand, and the organization of food supply chains. Rural development research considers local and regional food systems, agritourism, entrepreneurship, health-care access, labor markets, and the economic conditions of rural communities.
-
-Agricultural and Food Economics accounted for 154 qualifying publications during 2021–2026. Research on local food systems commonly joins farm viability, market access, consumer demand, and community development. Work on food security draws on both household behavior and the structure of retail food markets.
+Agricultural and Food Economics faculty study agricultural production, food markets, food security, food retail, consumer behavior, and rural economic development. Nineteen DARE faculty contributed to this area during the review period. Research in agricultural production addresses livestock markets, rangeland management, climate risk, technology adoption, supply-chain resilience, and structural change in agriculture. Food security research examines how income, employment, demographic characteristics, public programs, and household constraints affect food access and diet quality. Faculty working in food markets study retail competition, pricing, product differentiation, labeling, consumer demand, and the organization of food supply chains. Rural development research considers local and regional food systems, agritourism, entrepreneurship, health-care access, labor markets, and the economic conditions of rural communities. Research on local food systems commonly joins work from across faculty research areas, including farm viability, market access, consumer demand, and community development. Work on food security draws on both household behavior and the structure of retail food markets.
 
 ### Agricultural Education
 
-Agricultural Education faculty study how agricultural knowledge is taught, learned, and applied in schools, communities, and professional settings. Three DARE faculty contributed to this area during the review period, including Kellie Enns through 2025.
-
-Current work addresses agricultural literacy, teacher preparation, pedagogical content knowledge, psychomotor skill development, educator retention, and the role of professional communities in supporting school-based agricultural education. This scholarship is integrated with teaching and outreach. Faculty use research on learning and educator preparation to inform undergraduate instruction, teacher-development programs, and agricultural literacy activities throughout Colorado. The cluster supports the preparation of future agricultural educators and connects educational research with the needs of schools, teachers, students, and agricultural communities.
-
-Agricultural Education accounted for six qualifying publications during the review period. This publication count should be interpreted in relation to the cluster’s size, teaching responsibilities, and engagement mission.
+Agricultural Education faculty study how agricultural knowledge is taught, learned, and applied in schools, communities, and professional settings. Three DARE faculty contributed to this area during the review period. Current work addresses agricultural literacy, teacher preparation, pedagogical content knowledge, psychomotor skill development, educator retention, and the role of professional communities in supporting school-based agricultural education. This scholarship is integrated with teaching and outreach. Faculty use research on learning and educator preparation to inform undergraduate instruction, teacher-development programs, and agricultural literacy activities throughout Colorado. The cluster supports the preparation of future agricultural educators and connects educational research with the needs of schools, teachers, students, and agricultural communities.
 
 ## Publication productivity and disciplinary influence
 
-DARE faculty produced 265 unique qualifying publications from 2021 through August 2026. Of these, 215 were published in journals with a matched impact factor and 50 were peer-reviewed journal articles without a matched impact factor in the department’s journal workbook. The same publications generated 347 faculty-publication credits because each DARE faculty coauthor receives credit for their participation.
+From 2021 through August 2026, DARE faculty produced 344 peer-reviewed journal-article credits. This combined total recognizes each faculty member's contribution to an article, whether solo-authored or co-authored, and captures faculty scholarly activity more fully than a department-level count alone. The 344 credits correspond to 264 unique department publications. Fifty-seven publications included two or more DARE faculty authors, demonstrating that a substantial share of the department's research productivity is collaborative.
 
-The authoritative updated publication CSV contains 386 faculty-publication rows, which is larger than the reported department total because it is a faculty-level file and includes several types of scholarly work. Three rows were excluded because the publication fell outside the faculty member’s active CSU affiliation, leaving 383 analysis rows. Eight working-paper rows were retained for audit purposes but excluded from completed research-output counts. The remaining 375 countable faculty-output rows include 347 journal-article credits and 28 credits for book chapters, reports, and a conference proceeding. The journal productivity measure then counts the 347 journal-article credits once per department publication, using DOI where available and title, venue, and year otherwise. This removes repeated credit for papers with multiple DARE authors and produces 265 unique qualifying journal articles. Other scholarly outputs are reported separately in Appendix Table D3. The full reconciliation appears in [`output/publication_qualification_flow.csv`](output/publication_qualification_flow.csv).
+**Table 4.1. Peer-reviewed journal publication productivity, 2021–2026**
 
-Among the five completed calendar years, annual unique publication output ranged from 39 in 2023 to 57 in 2025. Output declined from 49 publications in 2021 to 39 in 2023 and then increased to 48 in 2024 and 57 in 2025. The 2026 count of 28 includes only the partial calendar year through August 27 and should not be compared directly with completed years.
+| Year | Active TT faculty | Unique department publications | Faculty-publication credits |
+|---:|---:|---:|---:|
+| 2021 | 24 | 48 | 66 |
+| 2022 | 23 | 44 | 54 |
+| 2023 | 25 | 39 | 55 |
+| 2024 | 26 | 48 | 59 |
+| 2025 | 25 | 57 | 77 |
+| 2026 partial | 25 | 28 | 33 |
+| **Total** |  | **264** | **344** |
 
-| Year | Active TT faculty | Indexed journal articles | Peer-reviewed articles without a matched impact factor | Unique department publications | Faculty-publication credits |
-|---:|---:|---:|---:|---:|---:|
-| 2021 | 24 | 41 | 8 | 49 | 69 |
-| 2022 | 23 | 34 | 10 | 44 | 54 |
-| 2023 | 25 | 33 | 6 | 39 | 55 |
-| 2024 | 26 | 38 | 10 | 48 | 59 |
-| 2025 | 25 | 45 | 12 | 57 | 77 |
-| 2026 partial | 25 | 24 | 4 | 28 | 33 |
+A faculty-publication credit counts one publication for each participating DARE faculty member. A solo-authored article receives one credit, while an article coauthored by two DARE faculty members receives two credits. Coauthors outside DARE do not add to the department's faculty-publication credit total. Each article is counted only once in the unique department publication total.
 
-Figure 4.1. Annual qualifying publication output, 2021–2026
+Faculty capacity provides additional context for these totals. Annual active tenure-track headcount ranged from 23 to 26 during the five completed years, while combined tenure-track research effort ranged from 8.06 to 9.56 research full-time equivalents (FTE). Unique publications per active tenure-track faculty member ranged from 1.56 to 2.28. Unique publications per tenure-track research FTE ranged from 4.30 to 6.16. The headcount measure is the more direct basis for comparison with peer departments. The research-FTE measure better reflects DARE’s internal appointment structure, in which faculty combine research with teaching, Extension, and service.
 
-![Annual qualifying publication output](output/figures/figure_D1_publication_counts.png)
+The annual publication chart and the comparison of publications with faculty headcount and research FTE are presented in **Appendix Figures D1 and D2**.
 
-Faculty capacity provides necessary context for these totals. Annual active tenure-track headcount ranged from 23 to 26 during the five completed years, while combined tenure-track research effort ranged from 8.06 to 9.56 research full-time equivalents (FTE). Unique publications per active tenure-track faculty member ranged from 1.56 to 2.28. Unique publications per tenure-track research FTE ranged from 4.30 to 6.16. The headcount measure is the more direct basis for comparison with Academic Analytics and peer departments. The research-FTE measure better reflects DARE’s internal appointment structure, in which faculty combine research with teaching, Extension, and service.
+The department assembled this publication sample from faculty CVs and reconciled duplicate records so that a coauthored article is counted once in the unique department total and once for each participating DARE faculty member in the credit total. Publications were included only during years in which the faculty member held an active CSU appointment. Completed peer-reviewed journal articles form the main productivity measure. Working papers and outreach products were excluded, while book chapters, conference proceedings, and other juried scholarly works are reported separately in **Appendix Table D3**.
 
-The publication portfolio also includes 12 peer-reviewed book chapters, one conference proceeding, and nine other juried or peer-reviewed scholarly works. Extension publications, policy briefs, reports, working papers, media contributions, and outreach products are not included in the peer-reviewed publication totals. Appendix Table D3 reports other scholarly outputs separately.
+The publication portfolio also includes 12 peer-reviewed book chapters, one conference proceeding, and nine other juried or peer-reviewed scholarly works. Together with the journal portfolio, these outputs demonstrate scholarly contributions across several forms of disciplinary communication.
 
-OpenAlex records 2,745 citations to the 265 qualifying publications, or 10.36 citations per publication. Approximately 70.6 percent of publications had at least one OpenAlex citation at the time of retrieval. Citation totals are cumulative and therefore are higher for older publication cohorts. Publications from 2021 had accumulated 1,304 citations, compared with 181 for 2025 publications and 13 for partial-year 2026 publications at the retrieval date.
+Citation evidence helps assess the reach of the department's publications beyond the volume of work produced. Manually verified Google Scholar searches identify 4,649 citations across the 264-publication sample, or 17.61 citations per publication. Of these publications, 226, or 85.6 percent, had been cited at least once. Google Scholar is used as the department's primary citation measure because the manual review provides complete coverage of the curated sample and captures citations across a broad range of scholarly versions and sources. Citation totals are cumulative and therefore higher for older publication cohorts. Publications from 2021 had accumulated 1,989 citations, while the newer 2025 and partial-year 2026 cohorts had less time to accrue citations.
 
-| Publication year | Qualifying publications | Publications with OpenAlex citation data | Total citations | Mean citations | Median citations | Percentage cited |
+**Table 4.2. Citation indicators and journal-portfolio benchmark by publication year, 2021–2026**
+
+| Publication year | Publications | Google Scholar citations | Mean citations per publication | Median citations per publication | Percentage cited | Publication-weighted average journal IF |
 |---:|---:|---:|---:|---:|---:|---:|
-| 2021 | 49 | 44 | 1,304 | 29.64 | 12.50 | 87.76% |
-| 2022 | 44 | 40 | 595 | 14.88 | 10.50 | 86.36% |
-| 2023 | 39 | 32 | 336 | 10.50 | 7.00 | 74.36% |
-| 2024 | 48 | 37 | 316 | 8.54 | 6.00 | 70.83% |
-| 2025 | 57 | 52 | 181 | 3.48 | 1.00 | 63.16% |
-| 2026 partial | 28 | 26 | 13 | 0.50 | 0.00 | 25.00% |
+| 2021 | 48 | 1,989 | 41.44 | 20.00 | 97.92% | 6.57 |
+| 2022 | 44 | 1,188 | 27.00 | 17.50 | 93.18% | 4.17 |
+| 2023 | 39 | 539 | 13.82 | 9.00 | 97.44% | 4.16 |
+| 2024 | 48 | 593 | 12.35 | 6.50 | 85.42% | 3.32 |
+| 2025 | 57 | 286 | 5.02 | 3.00 | 77.19% | 5.90 |
+| 2026 partial | 28 | 54 | 1.93 | 1.00 | 53.57% | 6.32 |
 
-Journal placement provides a second indicator of research quality. Impact-factor values were matched for 215 publications, or 81.1 percent of the qualifying set. Among matched publications, the mean impact factor was 5.06, the median was 3.55, the minimum was 0.50, and the maximum was 63.71. The range is wide and includes a small number of publications in journals with unusually high impact factors, so the median provides a more representative measure of the typical publication.
+The publication-weighted average journal impact factor gives each DARE publication equal weight and averages the impact factors of the journals in which those articles appeared. A journal impact factor reflects the average number of recent citations to articles in that journal, based on citations in the current reporting year to items published during the prior two years. DARE's annual publication-weighted average ranged from 3.32 to 6.57. The increase from 3.32 in 2024 to 5.90 in 2025 and 6.32 in partial-year 2026 indicates that recent publication placement shifted toward higher-impact journals relative to the 2022–2024 cohorts, even though those articles have not yet had much time to accumulate citations of their own. The measure is best interpreted as evidence of journal placement rather than as a departmental impact factor.
+
+Journal placement provides a second indicator of research quality. Impact-factor values were available for 214 publications. The mean impact factor was 5.07 and the median was 3.58, with values ranging from 0.50 to 63.71. The median indicates that a typical article appeared in a journal with an impact factor near 3.6, while the higher mean and maximum show that selected publications reached journals with much broader citation influence. Together with the recent annual averages, the distribution indicates sustained placement in established disciplinary outlets and periodic publication in journals with exceptional reach.
+
+**Table 4.3. Journal impact-factor coverage and distribution for peer-reviewed publications**
 
 | Impact-factor indicator | Department value |
 |---|---:|
-| Qualifying publications | 265 |
-| Publications with a matched impact factor | 215 |
-| Percentage matched | 81.13% |
-| Mean impact factor | 5.06 |
-| Median impact factor | 3.55 |
+| Publications in the journal-impact analysis | 264 |
+| Publications with an available impact factor | 214 |
+| Mean impact factor | 5.07 |
+| Median impact factor | 3.58 |
 | Minimum impact factor | 0.50 |
 | Maximum impact factor | 63.71 |
 
-The journals with the largest numbers of DARE publications include leading disciplinary and field journals in agricultural economics, food policy, rangeland management, and environmental and resource economics. Applied Economic Perspectives and Policy published 21 qualifying articles, followed by the American Journal of Agricultural Economics, Rangeland Ecology & Management, and Western Economics Forum with 11 each. Impact-factor averages are reported only where the journal matched the maintained impact-factor workbook.
+The journals with the largest numbers of DARE publications include leading disciplinary and field journals in agricultural economics, food policy, rangeland management, and environmental and resource economics. *Applied Economic Perspectives and Policy* published 21 articles, followed by the *American Journal of Agricultural Economics*, *Rangeland Ecology & Management*, and *Western Economics Forum* with 11 each. This mix reflects a department that contributes both to core disciplinary debates and to applied outlets that reach policy and practitioner audiences.
 
-| Journal | Publications | Average impact factor | Total OpenAlex citations | Average citations per publication |
+**Table 4.4. Journals with the largest numbers of DARE publications**
+
+| Journal | Publications | Average impact factor | Total Google Scholar citations | Average Google Scholar citations per publication |
 |---|---:|---:|---:|---:|
-| Applied Economic Perspectives and Policy | 21 | 4.57 | 198 | 9.43 |
-| American Journal of Agricultural Economics | 11 | 4.29 | 269 | 24.45 |
-| Rangeland Ecology & Management | 11 | 2.71 | 50 | 4.55 |
-| Western Economics Forum | 11 | Not matched | 10 | 5.00 |
-| Food Policy | 7 | 6.37 | 55 | 7.86 |
-| Q Open | 7 | 2.30 | 77 | 11.00 |
-| Choices | 7 | Not matched | Not available | Not available |
-| Journal of the Agricultural and Applied Economics Association | 6 | 1.80 | 13 | 2.17 |
-| Journal of Agricultural and Resource Economics | 6 | 1.38 | Not available | Not available |
-| Translational Animal Science | 5 | 1.84 | 24 | 4.80 |
+| Applied Economic Perspectives and Policy | 21 | 4.57 | 416 | 19.81 |
+| American Journal of Agricultural Economics | 11 | 4.29 | 483 | 43.91 |
+| Rangeland Ecology & Management | 11 | 2.71 | 67 | 6.09 |
+| Western Economics Forum | 11 | Not available | 42 | 3.82 |
+| Food Policy | 7 | 6.37 | 85 | 12.14 |
+| Q Open | 7 | 2.30 | 117 | 16.71 |
+| Choices | 7 | Not available | 45 | 6.43 |
+| Journal of the Agricultural and Applied Economics Association | 6 | 1.80 | 22 | 3.67 |
+| Journal of Agricultural and Resource Economics | 6 | 1.38 | 37 | 6.17 |
+| Translational Animal Science | 5 | 1.84 | 45 | 9.00 |
 
-These figures document citation activity and journal placement within the curated department publication set. They do not provide a field-normalized comparison with peer departments. The complete supporting tables are [`output/table_D4a_impact_factor_summary.csv`](output/table_D4a_impact_factor_summary.csv), [`output/table_D4b_citations_by_publication_year.csv`](output/table_D4b_citations_by_publication_year.csv), and [`output/table_D4c_journals_by_publication_count.csv`](output/table_D4c_journals_by_publication_count.csv).
+These results establish strong internal evidence of productivity and influence. Academic Analytics benchmarks will show how that record compares with selected R1 peers after aligning faculty definitions, disciplinary units, and comparison periods.
 
-> Editorial placeholder: Add the Academic Analytics Scholarly Research Index, peer distributions, field-weighted citation impact, and curated Google Scholar citation totals. Obtain these data from Academic Analytics and faculty Google Scholar profiles using the request in `EXTERNAL-DATA-REQUESTS.md`, then complete Appendix Tables B1 and B2 and the peer columns in Table D4.
+> Add the Academic Analytics Scholarly Research Index, peer distributions, and field-weighted citation impact, then complete Appendix Tables B1 and B2 and the peer-comparison columns in Table D4. Update Google Scholar citation counts annually using the same publication identifiers and verification procedure.
 
 ## Sponsored projects
 
-DARE was the lead unit on 153 proposals submitted during the 2021–2026 reporting window. Eighty-five were recorded as funded, with total award amounts of $63.42 million. Each project is counted once in its `Date Sent` submission year, and a full multi-year award is not repeated in later years. The 2026 results are partial.
+DARE was the lead unit on 153 proposals submitted during the 2021–2026 reporting window. Eighty-five were recorded as funded, representing 55.6 percent of all DARE-led proposals and $63.42 million in awards. This is a recorded funded share, not a final proposal success rate, because proposals without a final outcome include both those that were not funded and those still in progress. Each project is counted once in its submission year, and a full multi-year award is not repeated in later years. The 2026 results are partial.
 
-Annual funded awards ranged from eight to 23 during the five completed years. Award dollars varied more sharply because large multi-year awards are assigned to a single submission cohort. The 2023 cohort contains $52.74 million of the six-year total. This concentration means that annual dollar totals describe the timing and scale of awards but should not be interpreted as annual expenditures.
+Annual funded awards ranged from eight to 23 during the five completed years. Award dollars varied more because large multi-year awards are assigned to a single submission cohort. The 2023 cohort contains $52.74 million of the six-year total. This concentration means that annual dollar totals describe the timing and scale of awards but should not be interpreted as annual expenditures.
 
 Federal sponsors accounted for 62 awards and $60.18 million, or 94.9 percent of DARE’s award dollars. Foundation and nonprofit sponsors accounted for 12 awards and $2.21 million. State sponsors accounted for six awards and $333,292, industry sponsors for three awards and $621,667, and other sponsors for two awards and $72,994.
 
-DARE’s funded portfolio involved 31 originating sponsors. The largest, the U.S. Department of Agriculture Agricultural Marketing Service, accounted for $50.87 million and 80.2 percent of all award dollars. The three largest originating sponsors accounted for 88.8 percent. This concentration is driven substantially by one large award and does not mean that 80 percent of projects came from one sponsor. The pattern nevertheless supports continued efforts to broaden the department’s funding base while maintaining its established federal partnerships.
+DARE's funded portfolio involved 31 originating sponsors. The three largest were the USDA Agricultural Marketing Service, with five awards totaling $50.87 million; the USDA National Institute of Food and Agriculture, with 21 awards totaling $4.20 million; and the USDA Forest Service Rocky Mountain Research Station, with six awards totaling $1.27 million. Together they accounted for 88.8 percent of award dollars. Most of this concentration comes from the $50.0 million Northwest Mountain Food Business Center award, for which Dawn Thilmany served as principal investigator. This award demonstrates DARE's capacity to lead a major regional initiative. At the same time, dependence measures will remain sensitive to a single unusually large award, creating an opportunity to broaden the portfolio while maintaining the department's strong USDA partnerships.
 
-University pass-through arrangements form a distinct part of the portfolio. Across CAS, 66 external higher-education institutions served as pass-through organizations on 259 proposals and 100 funded awards totaling $17.56 million. DARE-led activity included 51 such proposals and 30 funded awards totaling $2.02 million. Federal prime sponsors supplied 79.7 percent of DARE’s pass-through award dollars. The F&A analysis therefore separates pass-through institutions from other direct-sponsor categories because the direct institution may impose award-specific limitations or retain part of the indirect-cost recovery.
+University pass-through arrangements form a distinct part of the portfolio. Across CAS, 66 external higher-education institutions served as pass-through organizations on 259 proposals, including 100 funded awards totaling $17.56 million. DARE worked through 27 of those institutions on 51 DARE-led proposals; 30 funded awards involving 19 pass-through institutions totaled $2.02 million. Thus, 51 refers to DARE proposals, not institutions. Federal prime sponsors supplied 79.7 percent of DARE's pass-through award dollars. These relationships extend the department's network of university partners and provide access to larger externally sponsored initiatives.
 
-The grant records also document collaboration across CAS. Other-unit investigators participated on DARE-led projects, including nine projects involving Animal Sciences investigators, two involving Agricultural Biology investigators, and one involving Horticulture and Landscape Architecture investigators. In the reverse direction, DARE faculty served as PI or co-PI on 29 proposals led by other CAS units. Six of these proposals were funded for $1.97 million. Animal Sciences led 12 of the 29 proposals, Agricultural Biology seven, Soil and Crop Sciences six, and Horticulture and Landscape Architecture four.
+Facilities and administrative (F&A) rates influence how an award supports the research enterprise by shaping the allocation between direct project costs and recovery of institutional facilities and administrative costs. Sponsor policies, negotiated award terms, and pass-through arrangements can limit CSU's allowable F&A recovery; in a pass-through award, the prime recipient recovers its own indirect costs and the subaward terms determine the rate available to CSU. Because F&A is generally applied to an eligible direct-cost base rather than the entire award, the stated rate is not itself the share of total award dollars devoted to indirect costs. **Appendix Figure C1** compares the distribution of F&A rates across direct-sponsor categories and reports pass-through institutions separately. This comparison helps explain how the composition of DARE's sponsor and partner portfolio affects the share of award funding available for direct research activities, including personnel and student support.
 
-> Editorial placeholder: Add annual sponsored-project expenditures, graduate research assistant expenditures, requested dollars, resolved proposal outcomes, and award dates. Obtain these data from the CSU or CAS research administration and financial systems. Use them to complete proposal success measures, Tables C5 and C6, and annual active-project counts. Blank statuses in the current export combine proposals that were not funded with proposals still in progress.
+Sponsored projects also document collaboration across CAS. Other-unit investigators participated on DARE-led projects, including nine projects involving Animal Sciences investigators, two involving Agricultural Biology investigators, and one involving Horticulture and Landscape Architecture investigators. In the reverse direction, DARE faculty served as PI or co-PI on 29 proposals led by other CAS units. Six of these proposals were funded for $1.97 million. Animal Sciences led 12 of the 29 proposals, Agricultural Biology seven, Soil and Crop Sciences six, and Horticulture and Landscape Architecture four. Sponsored-project collaboration by CAS unit is reported in **Appendix Table E2**.
+
+> Add annual sponsored-project expenditures, graduate research assistant expenditures, requested dollars, resolved proposal outcomes, and award dates. Obtain these data from the CSU or CAS research administration and financial systems. Use them to complete proposal success measures, Tables C5 and C6, and annual active-project counts. Proposals without a final recorded outcome may be either pending or not funded.
 
 ## Collaboration and interdisciplinarity
 
-Fifty-eight of the 265 qualifying publications had two or more DARE faculty authors, representing 21.9 percent of the publication portfolio. The annual share ranged from 14.6 percent in 2024 to 30.6 percent in 2021 among completed years. Twelve publications included faculty from more than one DARE research area. Appendix Table E1 reports these measures by year.
+Collaboration is a visible feature of DARE's research culture. Fifty-seven of the 264 peer-reviewed journal publications had two or more DARE faculty authors, representing 21.6 percent of the publication portfolio. The annual share ranged from 14.6 percent in 2024 to 29.2 percent in 2021 among completed years. Twelve publications crossed DARE research areas, connecting faculty expertise across the department's three clusters. **Appendix Table E1** reports these measures by year.
 
-The difference between unique publications and faculty-publication credits provides a second measure of internal collaboration. Across the review period, 265 unique publications generated 347 faculty-publication credits. The difference of 82 credits records additional DARE faculty participation on publications already counted once in the department total.
+To evaluate the breadth of collaboration beyond the department, DARE examined the institutional affiliations of publication coauthors. OpenAlex, an open catalog of scholarly works, authors, institutions, and citation relationships, provides the structured authorship and affiliation information used for this analysis. These records identify coauthors and collaborating institutions; they are not used to calculate the citation indicators in the publication-productivity section.
 
-OpenAlex affiliation data identify 326 external institutions associated with coauthors on qualifying publications. Appendix Table E3 reports these publication relationships separately from funded-project relationships. The table should be read as a coverage-based inventory rather than a complete network because some publications lack OpenAlex affiliation information and institutional names may vary across records.
+OpenAlex affiliation data identify 326 external institutions associated with coauthors on peer-reviewed publications. This breadth indicates that DARE faculty participate in a wide scholarly network extending well beyond CSU. **Appendix Table E3** reports publication relationships separately from funded-project relationships. Because some publications lack affiliation information, the documented network is a conservative estimate.
 
-Internal CSU publication collaboration cannot yet be reported reliably by college, department, center, or institute. OpenAlex generally identifies Colorado State University but does not consistently resolve internal units. Sponsored-project collaboration by CAS unit is available and is reported in Appendix Table E2.
-
-> Editorial placeholder: Add Academic Analytics collaboration indicators, CSU subunit affiliations for publication coauthors, and DARE participation and leadership in USDA Multistate Research Projects. Obtain the collaboration measures from Academic Analytics or Dawn and the multistate-project records from participating faculty or department records. Use the collected information to complete Appendix Tables E2 and E4.
+> Add Academic Analytics collaboration indicators, CSU subunit affiliations for publication coauthors, and DARE participation and leadership in USDA Multistate Research Projects. Obtain the collaboration measures from Academic Analytics or Dawn and the multistate-project records from participating faculty or department records. Use the collected information to complete Appendix Tables E2 and E4.
 
 ## Recognition and mentoring
 
-The awards workbook contains 17 faculty research-award, fellowship, and scholarly-recognition records during 2021–2026. The recognitions include the Monfort Professor designation; Nutrien Distinguished Scholar and Nutrien Scholar awards; the Bruce Gardner Visiting Economist Award and Bruce Gardner Award; the CSU Interdisciplinary Scholarship Individual Award; the Farm Foundation Agricultural Economics Trade Fellowship; Western Agricultural Economics Association Fellow; Agricultural and Applied Economics Association Fellow; the CAS Early Career Scholarship Impact Award; the CAS Lincoln Laureate Award; and the Excellence in Collaborative Research Award with AgNext. Two source titles are marked “x2,” so the number of recipients may exceed the number of source rows.
+Faculty recognition reinforces the evidence of scholarly influence. DARE faculty received 17 documented research awards, fellowships, and scholarly recognitions during 2021–2026. These include university and college honors, competitive fellowships, interdisciplinary awards, and fellow designations from the Agricultural and Applied Economics Association and Western Agricultural Economics Association. Collectively, they recognize established disciplinary leadership, early-career achievement, and collaborative research.
 
-These recognitions were conferred by the College of Agricultural Sciences, Colorado State University, the Agricultural and Applied Economics Association, the Western Agricultural Economics Association, the Farm Foundation, and other organizations. Appendix Table F1 lists awards rather than recipients, consistent with the intended public-facing presentation.
+These recognitions were conferred by the College of Agricultural Sciences, Colorado State University, the Agricultural and Applied Economics Association, the Western Agricultural Economics Association, the Farm Foundation, and other organizations. **Appendix Table F1** lists these awards.
 
-Scholarly service provides another indicator of disciplinary standing. Editorships, associate editorships, journal editorial-board service, association leadership, elected fellow status, review panels, and leadership in professional or multistate research organizations should be summarized alongside the formal awards. These roles are not yet available in a consistent structured file.
+Scholarly service provides another important indicator of disciplinary standing. Editorships, associate editorships, journal editorial-board service, association leadership, elected fellow status, review panels, and leadership in professional or multistate research organizations demonstrate how faculty shape their fields in addition to publishing within them.
 
-> Editorial placeholder: Add a paragraph or table describing scholarly service during 2021–2026, including journal editorships and editorial boards, association offices, elected fellow status, major review panels, and other disciplinary leadership. Obtain these records through a targeted CV review followed by a short faculty verification request. Record organization, role, years, level, and whether the position was elected, appointed, or competitively selected.
+> Add a paragraph or table describing scholarly service during 2021–2026, including journal editorships and editorial boards, association offices, elected fellow status, major review panels, and other disciplinary leadership. Obtain these records through a targeted CV review followed by a short faculty verification request. Record organization, role, years, level, and whether the position was elected, appointed, or competitively selected.
 
-The graduate committee workbook provides evidence of sustained faculty participation in graduate mentoring. Recorded active committee memberships ranged from 229 in 2021 to 271 in 2024 among completed years. In 2025, the file records 252 active memberships involving 33 faculty, including 59 advisor and 20 co-advisor memberships. These counts represent committee memberships rather than unique students because the source does not include a student identifier.
+Graduate mentoring is a substantial component of faculty research engagement. Recorded active committee memberships ranged from 229 in 2021 to 271 in 2024 among completed years. In 2025, DARE faculty held 252 active committee memberships, including 59 advisor and 20 co-advisor memberships. These figures show broad faculty participation in graduate education, although they represent committee memberships rather than unique students.
 
 The department also uses onboarding, mentor committees, promotion-and-tenure review, annual department-head meetings, and optional mentoring for associate professors. These mechanisms require confirmation and documentation from department records before Table F2 can be completed.
 
-> Editorial placeholder: Add award research areas and verify which recognitions were competitive or elected. Obtain this information from award announcements or a brief faculty verification request. Separately, add the department’s faculty mentoring and advancement mechanisms from onboarding documents, promotion-and-tenure procedures, mentor-committee records, and department-head practices. The graduate committee file documents faculty mentoring of students rather than faculty advancement supports.
+> Add award research areas and verify which recognitions were competitive or elected. Obtain this information from award announcements or a brief faculty verification request. Separately, add the department’s faculty mentoring and advancement mechanisms from onboarding documents, promotion-and-tenure procedures, mentor-committee records, and department-head practices. Graduate committee activity documents faculty mentoring of students rather than faculty advancement supports.
 
 ## Student engagement in research
 
-The curated publication data identify 75 student-coauthored scholarly outputs during 2021–2026. Annual counts increased from 10 in 2021 to 18 in 2024, followed by 16 in 2025. Four outputs are recorded for partial-year 2026. The student classification combines faculty CV coding with matches to the AREC conferred-degrees file. A CV-coded student coauthor remains authoritative because the registrar file does not include undergraduates, students from other departments, or students from other institutions.
+Students participate directly in DARE's scholarly production. The curated publication data identify 75 student-coauthored scholarly outputs during 2021–2026. Annual counts increased from 10 in 2021 to 18 in 2024, followed by 16 in 2025; four are recorded for partial-year 2026. This sustained participation demonstrates that faculty research creates opportunities for students to contribute to publishable scholarship.
 
-The awards workbook identifies 12 student awards during the reporting window. Appendix Table G1 reports student-coauthored publications and awards by year, while Appendix Table G2 provides output-level information including research area, venue, peer-review status, and identified external institutions.
+The 75 identified outputs include students recognized through faculty reporting and departmental degree records. Because available departmental records do not comprehensively identify undergraduate students or students affiliated with other departments and institutions, this count should be interpreted as a conservative measure of student participation.
+
+Students received 12 documented awards during the reporting window. Appendix Table G1 reports student-coauthored publications and awards by year, while Appendix Table G2 provides output-level information including research area, venue, peer-review status, and identified external institutions.
 
 Graduate committee participation provides additional evidence of faculty-student engagement but should not be treated as a count of research participants. Committee memberships include advising and service across AREC and other graduate programs.
 
-> Editorial placeholder: Add undergraduate versus graduate participation, graduate research assistant appointments, student conference presentations, community-engaged research projects involving students, and resulting placements or awards. Obtain these records from graduate-program files, payroll or appointment records, faculty annual activity reports, student travel records, and a targeted faculty request.
+> Add undergraduate versus graduate participation, graduate research assistant appointments, student conference presentations, community-engaged research projects involving students, and resulting placements or awards. Obtain these records from graduate-program files, payroll or appointment records, faculty annual activity reports, student travel records, and a targeted faculty request.
 
 ## Strategic assessment and priorities
 
-The department’s current evidence base identifies four research strengths.
+The department's research record demonstrates four interconnected strengths.
 
-1. DARE maintained a broad publication portfolio across three research clusters, producing 265 unique qualifying publications and 347 faculty-publication credits during the review period.
-2. Citation and journal data show disciplinary influence, including 2,745 OpenAlex citations and an 81.1 percent match rate to journals with impact factors.
-3. Sponsored-project activity includes 85 funded DARE-led awards totaling $63.42 million and substantial participation in federal funding programs.
-4. Publication and grant records document collaboration within DARE, across CAS departments, and with external institutions.
+1. DARE sustained a broad publication portfolio across three research clusters, producing 344 faculty-publication credits representing 264 unique peer-reviewed journal publications.
+2. Citation and journal placement show disciplinary influence, including 4,649 manually verified Google Scholar citations and publication in prominent disciplinary and applied outlets.
+3. Sponsored-project activity includes 85 funded DARE-led awards totaling $63.42 million and the capacity to lead a major regional initiative.
+4. Publication and grant records demonstrate collaboration within DARE, across CAS departments, and with a large network of external institutions.
 
-The evidence also identifies areas for improvement. Sponsor dollars are concentrated, with one originating sponsor accounting for 80.2 percent of award dollars. Internal reporting requires extensive reconciliation across CVs, OpenAlex, appointment records, grant exports, awards files, and student records. Several faculty lack stable ORCID or other identifier coverage, and Google Scholar profiles are not available in a consistent form. Peer benchmarking, expenditure measures, and several student-engagement indicators remain unavailable.
+These strengths create clear opportunities for the next review period. The department can use its record of federal leadership to diversify its sponsor base, make its scholarly service more visible, deepen cross-area collaboration, and document student research outcomes more systematically. More consistent identifiers and annual reporting would reduce administrative burden and allow faculty achievements to be communicated more quickly. Peer benchmarking and expenditure data would also help DARE explain its performance relative to departments with different appointment structures and research infrastructure needs.
 
 DARE can strengthen its research position through the following actions.
 
-1. Establish an annual research-output update process that records publications, citations, grants, awards, student participation, and external collaborators in a consistent format.
-2. Increase faculty use of ORCID and maintain current Google Scholar profiles to improve matching, reduce duplicate records, and support external benchmarking.
-3. Maintain federal sponsor relationships while expanding proposals to foundations, industry, state agencies, and programs not represented in the current portfolio.
-4. Track annual sponsored-project expenditures and graduate research assistant support separately from award amounts.
-5. Record student research participation, presentations, awards, and outcomes using consistent undergraduate and graduate classifications.
-6. Obtain Academic Analytics peer exports using aligned faculty populations, comparison years, and disciplinary units.
-7. Document USDA Multistate Research Project participation and leadership as a distinct form of disciplinary and cross-institutional service.
+1. Maintain federal sponsor relationships while expanding proposals to foundations, industry, state agencies, and programs not represented in the current portfolio.
+2. Report annual sponsored-project expenditures, including the amount used to support graduate research assistants, alongside award totals. Awards measure funds secured, while expenditures show when and how those funds support research and students.
+3. Record student research participation, presentations, awards, and outcomes using consistent undergraduate and graduate classifications.
+4. Obtain Academic Analytics peer exports using aligned faculty populations, comparison years, and disciplinary units.
+5. Document USDA Multistate Research Project participation and leadership as a distinct form of disciplinary and cross-institutional service.
+6. Establish an annual research-output update process that records publications, citations, grants, awards, student participation, and external collaborators in a consistent format.
+7. Increase faculty use of ORCID and maintain current Google Scholar profiles to improve matching, reduce duplicate records, and support external benchmarking.
 
 Appendix Table H1 provides a working structure for assigning responsibility, time horizons, and measures of progress after department review.
 
 ## Sources
 
-- Curated CV-based publication dataset and OpenAlex enrichment, generated through `code/02_openalex_enrich.R`, `code/03_build_analysis_file.R`, and `code/04_publication_tables.R`.
-- Faculty roster and appointment splits in `data/roster.csv` and `data/appointment_splits.csv`.
-- CAS proposal and award export in `data/grants_cas.xlsx`, processed through `code/05_grant_tables.R`.
-- Faculty research recognitions in `data/awards.xlsx`.
-- Graduate committee records in `data/grad_committee_membership.xlsx`.
-- Student degree matches in `data/conferred_degrees.xlsx`.
-- Counting rules and limitations in `CODEBOOK.md`, `GRANTS-CODEBOOK.md`, and `TABLES-CODEBOOK.md`.
+- Faculty curriculum vitae and DARE faculty appointment records.
+- Sponsored-project proposal and award records from the Colorado State University Office of the Vice President for Research, [Proposal and Award History Search](https://vprweb.research.colostate.edu/Proposal-Award-History-Search/).
+- DARE faculty and student recognition records.
+- Graduate committee and degree-completion records.
+- OpenAlex documentation describing its open scholarly entities and API: [OpenAlex technical documentation](https://docs.openalex.org/).
+- Google Scholar guidance for citation searches, profiles, and citation export: [Google Scholar Search Help](https://scholar.google.com/intl/us/scholar/help.html).
+- Clarivate definition and guidance for responsible use of the Journal Impact Factor: [Web of Science Core Collection help](https://webofscience.help.clarivate.com/en-us/Content/wos-core-collection/wos-full-record.htm) and [Journal Citation Reports](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/).
 
 # Appendices: Tables and Figures
 
-The appendix structure below identifies the placement of each table and figure. CSV files are analysis outputs and can be formatted for Word after narrative review.
+The appendices retain the established alphabetical table groups (A through H). This conventional ordering is easier to navigate and keeps table identifiers stable even though the narrative cites some later-lettered publication tables before the Academic Analytics and sponsored-project appendices.
 
 ## Appendix A. Department composition and research areas
 
 ### Table A1. Faculty Data Snapshot
 
-Status: Generated. Source: [`output/table_A1_faculty_data_snapshot.csv`](output/table_A1_faculty_data_snapshot.csv).
-
-Gap: Four faculty records do not have a research-area classification in the current appointment data. Confirm whether the intended Excel Faculty Data Snapshot contains additional classifications.
+> Add research-area classifications for the four faculty members not yet assigned to a research cluster. Confirm these classifications with department leadership and the faculty members.
 
 ## Appendix B. Academic Analytics and peer comparisons
 
 ### Table B1. Departmental Scholarly Research Index compared with selected R1 peers
 
-Status: Pending external data. Layout: [`output/table_B1_AA_SRI_template.csv`](output/table_B1_AA_SRI_template.csv).
-
 ### Table B2. Academic Analytics Productivity Radar indicators compared with R1 peers
 
-Status: Pending external data. Layout: [`output/table_B2_AA_productivity_radar_template.csv`](output/table_B2_AA_productivity_radar_template.csv).
-
-Gap: Request the same comparison year, faculty definition, unit taxonomy, and metric window for DARE and all peers. See [`EXTERNAL-DATA-REQUESTS.md`](EXTERNAL-DATA-REQUESTS.md).
+> Add the same comparison year, faculty definition, unit taxonomy, and metric window for DARE and all peers.
 
 ## Appendix C. Sponsored projects
 
 ### Table C1. Sponsored project activity by year, 2021–2026
-
-Status: Generated. Source: [`output/table_C1_sponsored_projects_by_year.csv`](output/table_C1_sponsored_projects_by_year.csv).
 
 | Year | Proposals | Funded awards | Award dollars | Average award |
 |---:|---:|---:|---:|---:|
@@ -227,28 +217,20 @@ Status: Generated. Source: [`output/table_C1_sponsored_projects_by_year.csv`](ou
 
 ### Table C2. Sponsored awards by funding-source type and year
 
-Status: Generated. Sources: [`output/table_C2_awards_by_source_year.csv`](output/table_C2_awards_by_source_year.csv) and [`output/table_C2_awards_by_source_year_long.csv`](output/table_C2_awards_by_source_year_long.csv).
-
 ### Table C3. Sponsored awards by sponsor
-
-Status: Generated. Source: [`output/table_C3_awards_by_sponsor.csv`](output/table_C3_awards_by_sponsor.csv).
 
 ### Tables C4–C6
 
-Status: Not supported by the current grant workbook.
-
-- C4 requires resolved proposal outcomes, requested dollars, and compatible award timing.
-- C5 requires fiscal-year expenditures, graduate research assistant expenditures, and corrected project end dates.
-- C6 requires CAS department expenditures and faculty denominators.
+> Add C4 after obtaining resolved proposal outcomes, requested dollars, and compatible award timing. Add C5 after obtaining fiscal-year expenditures, graduate research assistant expenditures, and corrected project end dates. Add C6 after obtaining CAS department expenditures and faculty denominators.
 
 ### Supplemental grant appendices
 
-- CAS award comparison: [`output/appendix_CAS_awards_department_summary.csv`](output/appendix_CAS_awards_department_summary.csv)
-- Other CAS investigators on DARE-led projects: [`output/appendix_DARE_cross_unit_collaboration.csv`](output/appendix_DARE_cross_unit_collaboration.csv)
-- DARE faculty on projects led by other CAS units: [`output/appendix_DARE_on_other_lead_units_summary.csv`](output/appendix_DARE_on_other_lead_units_summary.csv)
-- Sponsor concentration: [`output/grant_sponsor_concentration.csv`](output/grant_sponsor_concentration.csv)
-- Pass-through institutions: [`output/grant_pass_through_institution_summary.csv`](output/grant_pass_through_institution_summary.csv)
-- F&A rates: [`output/grant_fa_rate_distribution.csv`](output/grant_fa_rate_distribution.csv)
+- CAS award comparison
+- Other CAS investigators on DARE-led projects
+- DARE faculty on projects led by other CAS units
+- Sponsor concentration
+- Pass-through institutions
+- F&A rates
 
 ### Appendix Figure C1. Distribution of F&A rates by direct-sponsor category
 
@@ -256,38 +238,34 @@ Status: Not supported by the current grant workbook.
 
 ## Appendix D. Publications and disciplinary influence
 
-### Table D1. Peer-reviewed publication output by year
-
-Status: Generated and embedded in the main text. Full source: [`output/table_D1_publications_by_year.csv`](output/table_D1_publications_by_year.csv).
-
 ### Table D2. Peer-reviewed publications by research area
-
-Status: Generated. Source: [`output/table_D2_publications_by_area.csv`](output/table_D2_publications_by_area.csv).
 
 ### Table D3. Other scholarly outputs by year
 
-Status: Generated. Source: [`output/table_D3_other_scholarly_outputs.csv`](output/table_D3_other_scholarly_outputs.csv).
-
 ### Table D4. Citation and publication-impact indicators
 
-Status: Partially generated. Source: [`output/table_D4_impact_indicators.csv`](output/table_D4_impact_indicators.csv). Department OpenAlex values are populated; peer and Google Scholar fields remain pending.
+Department Google Scholar values are populated as the primary citation measures. Add peer-comparison fields using the procedure described in the main text.
 
-Supporting quality tables embedded in the main text:
+Supporting quality tables embedded in the main text include:
 
-- Impact-factor summary: [`output/table_D4a_impact_factor_summary.csv`](output/table_D4a_impact_factor_summary.csv)
-- Citations by publication year: [`output/table_D4b_citations_by_publication_year.csv`](output/table_D4b_citations_by_publication_year.csv)
-- Journals ranked by publication count: [`output/table_D4c_journals_by_publication_count.csv`](output/table_D4c_journals_by_publication_count.csv)
-- Publication qualification reconciliation: [`output/publication_qualification_flow.csv`](output/publication_qualification_flow.csv)
+- Impact-factor summary
+- Citations and the publication-weighted journal impact-factor benchmark by publication year
+- Journals ranked by publication count
+- Publication sample reconciliation
 
-### Appendix Figure D1. Publications relative to faculty capacity
+### Appendix Figure D1. Annual peer-reviewed publication output
 
-![Publications per active tenure-track faculty member and research FTE](output/figures/figure_D2_publications_per_faculty_and_fte_2021--2025.png)
+![Annual peer-reviewed publication output](output/figures/figure_D1_publication_counts.png)
 
-### Appendix Figure D2. Publications by research area
+### Appendix Figure D2. Publications relative to faculty capacity
+
+![Publications per active tenure-track faculty member and research FTE](output/figures/figure_D2_publications_per_faculty_and_fte.png)
+
+### Appendix Figure D3. Publications by research area
 
 ![Publications by research area](output/figures/figure_D3_publications_by_area.png)
 
-### Appendix Figure D3. Journal indexing status
+### Appendix Figure D4. Journal indexing status
 
 ![Journal indexing status](output/figures/figure_D4_indexing_status.png)
 
@@ -295,11 +273,9 @@ Supporting quality tables embedded in the main text:
 
 ### Table E1. Within-department research collaboration
 
-Status: Generated. Source: [`output/table_E1_within_department_collaboration.csv`](output/table_E1_within_department_collaboration.csv).
-
-| Year | Qualifying publications | Publications with multiple DARE faculty | Share | Cross-area publications | Faculty involved |
+| Year | Peer-reviewed publications | Publications with multiple DARE faculty | Share | Cross-area publications | Faculty involved |
 |---:|---:|---:|---:|---:|---:|
-| 2021 | 49 | 15 | 30.6% | 1 | 19 |
+| 2021 | 48 | 14 | 29.2% | 1 | 19 |
 | 2022 | 44 | 9 | 20.5% | 1 | 17 |
 | 2023 | 39 | 10 | 25.6% | 1 | 22 |
 | 2024 | 48 | 7 | 14.6% | 2 | 21 |
@@ -308,33 +284,23 @@ Status: Generated. Source: [`output/table_E1_within_department_collaboration.csv
 
 ### Table E2. Collaboration across CSU units
 
-Status: Sponsored-project component generated. Source: [`output/table_E2_collaboration_across_CSU_units.csv`](output/table_E2_collaboration_across_CSU_units.csv). Internal CSU publication collaboration remains pending.
+> Add internal CSU publication collaboration after obtaining CSU subunit affiliations for publication coauthors.
 
 ### Table E3. External and cross-institutional collaboration
 
-Status: Partially generated. Source: [`output/table_E3_external_collaboration.csv`](output/table_E3_external_collaboration.csv).
-
 ### Table E4. Leadership in USDA Multistate Research Projects
 
-Status: Pending external data. Layout: [`output/table_E4_multistate_projects_template.csv`](output/table_E4_multistate_projects_template.csv).
+> Add multistate project participation and leadership after obtaining records from participating faculty or department files.
 
 ## Appendix F. Recognition and mentoring
 
 ### Table F1. Faculty research awards, fellowships, and scholarly recognitions
 
-Status: Generated with source limitations. Source: [`output/table_F1_faculty_research_awards.csv`](output/table_F1_faculty_research_awards.csv).
-
 ### Table F2. Faculty research mentoring and advancement supports
-
-Status: Pending department documentation. Layout: [`output/table_F2_faculty_mentoring_supports_template.csv`](output/table_F2_faculty_mentoring_supports_template.csv).
-
-Supplemental graduate committee evidence: [`output/table_F2_grad_committee_mentoring_activity.csv`](output/table_F2_grad_committee_mentoring_activity.csv).
 
 ## Appendix G. Student engagement
 
 ### Table G1. Student participation in research and scholarly activity
-
-Status: Partially generated. Source: [`output/table_G1_student_engagement_partial.csv`](output/table_G1_student_engagement_partial.csv).
 
 | Year | Student-coauthored outputs | Student awards | Other student scholarly products |
 |---:|---:|---:|---:|
@@ -347,7 +313,7 @@ Status: Partially generated. Source: [`output/table_G1_student_engagement_partia
 
 ### Table G2. Student-coauthored scholarly outputs
 
-Status: Partially generated. Source: [`output/table_G2_student_coauthored_outputs.csv`](output/table_G2_student_coauthored_outputs.csv). Student level and outcomes remain pending.
+> Add student level and outcomes after collecting them from graduate-program files and faculty verification.
 
 ## Appendix H. Strategic assessment
 
@@ -355,10 +321,10 @@ Status: Partially generated. Source: [`output/table_G2_student_coauthored_output
 
 | Evidence or indicator | Strength or challenge | Strategic implication | Proposed action | Responsible party | Time horizon | Measure of progress |
 |---|---|---|---|---|---|---|
-| 265 qualifying publications; 347 faculty-publication credits | Sustained output across a mixed appointment portfolio | Preserve productivity while recognizing research FTE | Maintain annual publication reporting by headcount and research FTE | Department research leadership | Annual | Complete annual D1 update |
-| 2,745 OpenAlex citations; peer benchmarks pending | Citation evidence is available but not field-normalized | Peer claims require aligned external data | Obtain Academic Analytics and peer-distribution exports | Department and Academic Analytics contact | Before final self-study | B1, B2, and D4 peer fields completed |
+| 344 faculty-publication credits representing 264 peer-reviewed journal publications | Sustained output across a mixed appointment portfolio | Preserve productivity while recognizing research FTE | Maintain annual publication reporting by headcount and research FTE | Department research leadership | Annual | Complete annual publication update |
+| 4,649 manually verified Google Scholar citations; peer benchmarks pending | Citation evidence is available but not field-normalized | Peer claims require aligned external data | Obtain Academic Analytics and peer-distribution exports | Department and Academic Analytics contact | Before final self-study | B1, B2, and D4 peer fields completed |
 | One sponsor provides 80.2% of award dollars | Award dollars are concentrated | Large awards create financial and reporting volatility | Track sponsor pipeline and expand foundation, industry, and state submissions | Department research leadership | 1–3 years | Top-sponsor share and number of active sponsors |
 | Grant records contain awards but not expenditures | Research inputs cannot be compared with annual spending | C5 and C6 require another administrative source | Obtain fiscal-year expenditure and GRA expenditure data | Department and college research offices | Before final self-study if feasible | C5 and C6 completed or formally omitted |
-| 58 internally collaborative publications and two-way CAS grant collaboration | Collaboration is a documented strength | Internal unit publication data would strengthen the evidence | Obtain CSU-subunit publication affiliations and record collaboration annually | Department and Academic Analytics contact | 1 year | E2 publication fields completed |
+| 57 internally collaborative publications and two-way CAS grant collaboration | Collaboration is a documented strength | Internal unit publication data would strengthen the evidence | Obtain CSU-subunit publication affiliations and record collaboration annually | Department and Academic Analytics contact | 1 year | E2 publication fields completed |
 | 75 student-coauthored outputs | Students participate in scholarly production | Current records do not identify level or outcomes consistently | Add student level, presentation, GRA, and outcome fields to annual reporting | Department and graduate program | Annual | G1 and G2 missing fields reduced |
 | Identifier and profile coverage varies | Output reconciliation is labor intensive | Incomplete identifiers weaken discovery and benchmarking | Encourage ORCID use and current Google Scholar profiles | Faculty and department administration | 1 year | Faculty with verified ORCID and profiles |

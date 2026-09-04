@@ -1,5 +1,5 @@
 year,unique_qualifying_publications,publications_with_two_or_more_department_faculty,share_with_multiple_department_faculty,cross_area_publications,faculty_involved,partial_year
-2021,49,15,0.3061,1,19,FALSE
+2021,48,14,0.2917,1,19,FALSE
 2022,44,9,0.2045,1,17,FALSE
 2023,39,10,0.2564,1,22,FALSE
 2024,48,7,0.1458,2,21,FALSE

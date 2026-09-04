@@ -1,11 +1,9 @@
 indicator,department_value,peer_median,peer_75th_percentile,department_percentile,data_source,coverage_period,notes
-Unique peer-reviewed department publications,265,NA,NA,NA,Curated CV publication dataset,2021-2026,Each publication counted once across DARE faculty authors.
-Total OpenAlex citations,2745,NA,NA,NA,OpenAlex,2021-2026,Current cumulative citation count at date of OpenAlex retrieval.
-OpenAlex citations per publication,10.36,NA,NA,NA,OpenAlex and curated CV publication dataset,2021-2026,Total citations divided by unique department publications.
-Percentage of publications cited,70.57,NA,NA,NA,OpenAlex and curated CV publication dataset,2021-2026,Share of unique publications with at least one OpenAlex citation.
+Unique peer-reviewed department publications,264,NA,NA,NA,Curated CV publication dataset,2021-2026,Each publication counted once across DARE faculty authors.
+Total Google Scholar citations,4649,NA,NA,NA,Manually verified Google Scholar citation supplement,2021-2026,Current cumulative citation count at the recorded Google Scholar retrieval date.
+Google Scholar citations per publication,17.61,NA,NA,NA,Google Scholar and curated CV publication dataset,2021-2026,Total citations divided by unique department publications.
+Percentage of publications cited in Google Scholar,85.61,NA,NA,NA,Google Scholar and curated CV publication dataset,2021-2026,Share of unique publications with at least one Google Scholar citation.
 Field-weighted citation impact,NA,NA,NA,NA,Not available in current dataset,2021-2026,Requires a field-normalized bibliometric source.
-Highly cited publications: internal top 10 percent,25,NA,NA,NA,OpenAlex; department-internal citation distribution,2021-2026,Count at or above the department's 90th percentile citation threshold: 27. This is not a peer or field-normalized highly cited indicator.
-Google Scholar citations,NA,NA,NA,NA,Not yet supplied,2021-2026,Populate after faculty-level Google Scholar data are curated.
-Percentage with matched journal impact factor,81.13,NA,NA,NA,Curated journal impact-factor lookup,2021-2026,Share of unique publications with a matched impact factor.
-Mean journal impact factor,5.06,NA,NA,NA,Curated journal impact-factor lookup,2021-2026,Mean across unique publications with a matched impact factor.
-Median journal impact factor,3.55,NA,NA,NA,Curated journal impact-factor lookup,2021-2026,Median across unique publications with a matched impact factor.
+Highly cited publications: internal top 10 percent,27,NA,NA,NA,Google Scholar; department-internal citation distribution,2021-2026,Count at or above the department's 90th percentile citation threshold: 38.4. This is not a peer or field-normalized highly cited indicator.
+Mean journal impact factor,5.07,NA,NA,NA,Curated journal impact-factor lookup,2021-2026,Mean across unique publications with an available impact factor.
+Median journal impact factor,3.58,NA,NA,NA,Curated journal impact-factor lookup,2021-2026,Median across unique publications with an available impact factor.

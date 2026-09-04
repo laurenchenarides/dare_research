@@ -197,7 +197,9 @@ safe_divide <- function(numerator, denominator) {
 PROJECT_ROOT <- find_project_root()
 in_dir <- file.path(PROJECT_ROOT, "data")
 out_dir <- file.path(PROJECT_ROOT, "output")
+figure_dir <- file.path(out_dir, "figures")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+dir.create(figure_dir, showWarnings = FALSE, recursive = TRUE)
 
 
 # ==============================================================================
@@ -737,13 +739,27 @@ fa_rate_distribution <- fa_rate_distribution %>%
     )
   )
 
-fa_violin_data <- fa_rate_distribution %>%
+fa_plot_other_n <- fa_rate_distribution %>%
+  filter(as.character(fa_sponsor_category) == "Other") %>%
+  nrow()
+
+fa_plot_data <- fa_rate_distribution %>%
+  filter(as.character(fa_sponsor_category) != "Other") %>%
+  mutate(fa_sponsor_category = droplevels(fa_sponsor_category)) %>%
   add_count(lead_group, fa_sponsor_category, name = "category_panel_n") %>%
+  mutate(
+    fa_sponsor_category_label = paste0(
+      as.character(fa_sponsor_category),
+      " (n = ", category_panel_n, ")"
+    )
+  )
+
+fa_violin_data <- fa_plot_data %>%
   filter(category_panel_n >= 2)
 
 fa_distribution_plot <- ggplot(
-  fa_rate_distribution,
-  aes(x = fa_rate, y = fa_sponsor_category)
+  fa_plot_data,
+  aes(x = fa_rate, y = fa_sponsor_category_label)
 ) +
   geom_violin(
     data = fa_violin_data,
@@ -763,7 +779,7 @@ fa_distribution_plot <- ggplot(
     xintercept = LOW_FA_THRESHOLD,
     linetype = "dashed", color = "#C69214", linewidth = 0.55
   ) +
-  facet_wrap(vars(lead_group), ncol = 1) +
+  facet_wrap(vars(lead_group), ncol = 1, scales = "free_y") +
   scale_x_continuous(
     breaks = seq(0, 60, 10),
     limits = c(0, 60),
@@ -777,9 +793,13 @@ fa_distribution_plot <- ggplot(
     ),
     x = "F&A rate (%)",
     y = "Direct-sponsor category",
-    caption = paste(
-      "Dashed line marks the 10% low-rate screening threshold.",
-      "F&A bases (MTDC, TDC, S&W, or no indirect cost) differ;",
+    caption = paste0(
+      "Dashed line marks the 10% low-rate screening threshold. ",
+      "Labels show funded awards with reported F&A rates.\n",
+      "The Other category is omitted from the figure (n = ",
+      fa_plot_other_n,
+      ") but retained in the companion CSV.\n",
+      "F&A bases (MTDC, TDC, S&W, or no indirect cost) differ; ",
       "see the companion CSV. 2026 is partial."
     )
   ) +
@@ -799,7 +819,7 @@ write_csv(
   file.path(out_dir, "grant_fa_rate_distribution.csv")
 )
 ggsave(
-  filename = file.path(out_dir, "figure_grant_fa_rate_by_sponsor_type.png"),
+  filename = file.path(figure_dir, "figure_grant_fa_rate_by_sponsor_type.png"),
   plot = fa_distribution_plot,
   width = 11,
   height = 8,

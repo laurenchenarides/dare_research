@@ -39,6 +39,7 @@
 #   output/table_D4a_impact_factor_summary.csv
 #   output/table_D4b_citations_by_publication_year.csv
 #   output/table_D4c_journals_by_publication_count.csv
+#   output/google_scholar_citations_manual_template.csv
 #   output/publication_qualification_flow.csv
 #   output/publication_id_integrity_audit.csv
 #   output/publication_tables_D1_D4.xlsx
@@ -196,6 +197,71 @@ pubs_analysis <- read_csv(
   show_col_types = FALSE
 )
 
+# Optional, manually curated Google Scholar citation supplement. Keep this in
+# data/ so it is never overwritten by generated output files. One row should
+# be supplied per publication_key. OpenAlex and Google Scholar counts remain
+# separate because their source coverage and version matching differ.
+google_scholar_path <- file.path(
+  in_dir,
+  "google_scholar_citations_manual.csv"
+)
+
+if (file.exists(google_scholar_path)) {
+  google_scholar_manual <- read_csv(
+    google_scholar_path,
+    show_col_types = FALSE
+  )
+
+  required_google_scholar_columns <- c(
+    "publication_key",
+    "google_scholar_citations",
+    "google_scholar_retrieved_date",
+    "google_scholar_source_url",
+    "google_scholar_match_notes"
+  )
+
+  missing_google_scholar_columns <- setdiff(
+    required_google_scholar_columns,
+    names(google_scholar_manual)
+  )
+
+  if (length(missing_google_scholar_columns) > 0) {
+    stop(
+      "data/google_scholar_citations_manual.csv is missing: ",
+      paste(missing_google_scholar_columns, collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  if (anyDuplicated(google_scholar_manual$publication_key)) {
+    stop(
+      "Google Scholar citation input must contain one row per publication_key.",
+      call. = FALSE
+    )
+  }
+
+  pubs_analysis <- pubs_analysis %>%
+    left_join(
+      google_scholar_manual %>%
+        mutate(
+          google_scholar_citations = suppressWarnings(
+            as.numeric(google_scholar_citations)
+          )
+        ) %>%
+        select(all_of(required_google_scholar_columns)),
+      by = "publication_key",
+      relationship = "many-to-one"
+    )
+} else {
+  pubs_analysis <- pubs_analysis %>%
+    mutate(
+      google_scholar_citations = NA_real_,
+      google_scholar_retrieved_date = NA_character_,
+      google_scholar_source_url = NA_character_,
+      google_scholar_match_notes = NA_character_
+    )
+}
+
 faculty_year_panel <- read_csv(
   file.path(out_dir, "faculty_year_panel.csv"),
   show_col_types = FALSE
@@ -246,6 +312,8 @@ publication_level <- faculty_publications %>%
   group_by(publication_id) %>%
   summarize(
     year = first(year),
+
+    publication_key = first(publication_key),
     
     doi_clean = first(na.omit(doi_clean)),
     
@@ -263,6 +331,11 @@ publication_level <- faculty_publications %>%
     
     cited_by_count = {
       x <- cited_by_count[!is.na(cited_by_count)]
+      if (length(x) == 0) NA_real_ else first(x)
+    },
+
+    google_scholar_citations = {
+      x <- google_scholar_citations[!is.na(google_scholar_citations)]
       if (length(x) == 0) NA_real_ else first(x)
     },
     
@@ -747,33 +820,38 @@ total_citations_openalex <- sum_or_na(
   impact_base$cited_by_count
 )
 
+total_citations_google_scholar <- sum_or_na(
+  impact_base$google_scholar_citations
+)
+
 citations_per_publication <- if_else(
   n_unique_publications > 0,
-  total_citations_openalex / n_unique_publications,
+  total_citations_google_scholar / n_unique_publications,
   NA_real_
 )
 
 percentage_publications_cited <- if_else(
   n_unique_publications > 0,
   100 * mean(
-    !is.na(impact_base$cited_by_count) &
-      impact_base$cited_by_count > 0
+    !is.na(impact_base$google_scholar_citations) &
+      impact_base$google_scholar_citations > 0
   ),
   NA_real_
 )
 
 
 # Define "highly cited" using the top 10% of the department's own citation
-# distribution. This is not a field-normalized benchmark; it is included only
-# as a transparent internal descriptive indicator.
+# distribution using the primary Google Scholar citation measure. This is not
+# a field-normalized benchmark; it is included only as a transparent internal
+# descriptive indicator.
 citation_90th_percentile <- if (
-  all(is.na(impact_base$cited_by_count))
+  all(is.na(impact_base$google_scholar_citations))
 ) {
   NA_real_
 } else {
   as.numeric(
     quantile(
-      impact_base$cited_by_count,
+      impact_base$google_scholar_citations,
       probs = 0.90,
       na.rm = TRUE,
       names = FALSE
@@ -786,16 +864,9 @@ n_highly_cited_internal <- if_else(
   is.na(citation_90th_percentile),
   NA_real_,
   sum(
-    impact_base$cited_by_count >= citation_90th_percentile,
+    impact_base$google_scholar_citations >= citation_90th_percentile,
     na.rm = TRUE
   )
-)
-
-
-percentage_with_impact_factor <- if_else(
-  n_unique_publications > 0,
-  100 * mean(!is.na(impact_base$impact_factor)),
-  NA_real_
 )
 
 
@@ -819,39 +890,33 @@ median_journal_impact_factor <- if (
 table_D4_department <- tibble(
   indicator = c(
     "Unique peer-reviewed department publications",
-    "Total OpenAlex citations",
-    "OpenAlex citations per publication",
-    "Percentage of publications cited",
+    "Total Google Scholar citations",
+    "Google Scholar citations per publication",
+    "Percentage of publications cited in Google Scholar",
     "Field-weighted citation impact",
     "Highly cited publications: internal top 10 percent",
-    "Google Scholar citations",
-    "Percentage with matched journal impact factor",
     "Mean journal impact factor",
     "Median journal impact factor"
   ),
   
   department_value = c(
     n_unique_publications,
-    total_citations_openalex,
+    total_citations_google_scholar,
     citations_per_publication,
     percentage_publications_cited,
     NA_real_,
     n_highly_cited_internal,
-    NA_real_,
-    percentage_with_impact_factor,
     mean_journal_impact_factor,
     median_journal_impact_factor
   ),
   
   data_source = c(
     "Curated CV publication dataset",
-    "OpenAlex",
-    "OpenAlex and curated CV publication dataset",
-    "OpenAlex and curated CV publication dataset",
+    "Manually verified Google Scholar citation supplement",
+    "Google Scholar and curated CV publication dataset",
+    "Google Scholar and curated CV publication dataset",
     "Not available in current dataset",
-    "OpenAlex; department-internal citation distribution",
-    "Not yet supplied",
-    "Curated journal impact-factor lookup",
+    "Google Scholar; department-internal citation distribution",
     "Curated journal impact-factor lookup",
     "Curated journal impact-factor lookup"
   ),
@@ -864,19 +929,17 @@ table_D4_department <- tibble(
   
   notes = c(
     "Each publication counted once across DARE faculty authors.",
-    "Current cumulative citation count at date of OpenAlex retrieval.",
+    "Current cumulative citation count at the recorded Google Scholar retrieval date.",
     "Total citations divided by unique department publications.",
-    "Share of unique publications with at least one OpenAlex citation.",
+    "Share of unique publications with at least one Google Scholar citation.",
     "Requires a field-normalized bibliometric source.",
     str_c(
       "Count at or above the department's 90th percentile citation threshold: ",
       round(citation_90th_percentile, 1),
       ". This is not a peer or field-normalized highly cited indicator."
     ),
-    "Populate after faculty-level Google Scholar data are curated.",
-    "Share of unique publications with a matched impact factor.",
-    "Mean across unique publications with a matched impact factor.",
-    "Median across unique publications with a matched impact factor."
+    "Mean across unique publications with an available impact factor.",
+    "Median across unique publications with an available impact factor."
   )
 )
 
@@ -969,11 +1032,8 @@ write_csv(
 # Supporting quality tables for narrative and appendix use.
 table_D4a_impact_factor_summary <- impact_base %>%
   summarise(
-    unique_qualifying_publications = n(),
-    publications_with_matched_impact_factor = sum(!is.na(impact_factor)),
-    percent_with_matched_impact_factor =
-      100 * publications_with_matched_impact_factor /
-      unique_qualifying_publications,
+    peer_reviewed_journal_publications = n(),
+    publications_with_available_impact_factor = sum(!is.na(impact_factor)),
     mean_impact_factor = mean_or_na(impact_factor),
     median_impact_factor = median_or_na(impact_factor),
     minimum_impact_factor = min_or_na(impact_factor),
@@ -984,21 +1044,30 @@ table_D4a_impact_factor_summary <- impact_base %>%
 table_D4b_citations_by_publication_year <- impact_base %>%
   group_by(year) %>%
   summarise(
-    unique_qualifying_publications = n(),
-    publications_with_openalex_citation_data = sum(!is.na(cited_by_count)),
-    total_citations = sum_or_na(cited_by_count),
-    mean_citations_per_publication = mean_or_na(cited_by_count),
-    median_citations_per_publication = median_or_na(cited_by_count),
-    percentage_of_publications_cited =
-      100 * mean(!is.na(cited_by_count) & cited_by_count > 0),
+    peer_reviewed_journal_publications = n(),
+    publications_with_google_scholar_citation_data =
+      sum(!is.na(google_scholar_citations)),
+    publication_weighted_average_journal_impact_factor =
+      mean_or_na(impact_factor),
+    total_google_scholar_citations =
+      sum_or_na(google_scholar_citations),
+    mean_google_scholar_citations_per_publication =
+      mean_or_na(google_scholar_citations),
+    median_google_scholar_citations_per_publication =
+      median_or_na(google_scholar_citations),
+    percentage_of_publications_cited_in_google_scholar =
+      100 * mean(
+        !is.na(google_scholar_citations) & google_scholar_citations > 0
+      ),
     partial_year = first(year) == max(WINDOW),
     .groups = "drop"
   ) %>%
   mutate(
     across(
-      c(mean_citations_per_publication,
-        median_citations_per_publication,
-        percentage_of_publications_cited),
+      c(mean_google_scholar_citations_per_publication,
+        median_google_scholar_citations_per_publication,
+        publication_weighted_average_journal_impact_factor,
+        percentage_of_publications_cited_in_google_scholar),
       ~ round(.x, 2)
     )
   ) %>%
@@ -1009,13 +1078,14 @@ table_D4c_journals_by_publication_count <- impact_base %>%
   group_by(journal) %>%
   summarise(
     publication_count = n(),
-    publications_with_matched_impact_factor = sum(!is.na(impact_factor)),
+    publications_with_available_impact_factor = sum(!is.na(impact_factor)),
     average_impact_factor = mean_or_na(impact_factor),
     median_impact_factor = median_or_na(impact_factor),
     minimum_impact_factor = min_or_na(impact_factor),
     maximum_impact_factor = max_or_na(impact_factor),
-    total_openalex_citations = sum_or_na(cited_by_count),
-    average_openalex_citations_per_publication = mean_or_na(cited_by_count),
+    total_google_scholar_citations = sum_or_na(google_scholar_citations),
+    average_google_scholar_citations_per_publication =
+      mean_or_na(google_scholar_citations),
     years_represented = paste(sort(unique(year)), collapse = "; "),
     .groups = "drop"
   ) %>%
@@ -1023,7 +1093,7 @@ table_D4c_journals_by_publication_count <- impact_base %>%
     across(
       c(average_impact_factor, median_impact_factor,
         minimum_impact_factor, maximum_impact_factor,
-        average_openalex_citations_per_publication),
+        average_google_scholar_citations_per_publication),
       ~ round(.x, 2)
     ),
     publication_rank = min_rank(desc(publication_count))
@@ -1058,6 +1128,27 @@ publication_qualification_flow <- tibble(
     "Restricts the productivity measure to peer-reviewed journal articles; books, chapters, proceedings, and other works are reported separately.",
     "Deduplicates shared DARE publications by DOI, with a title-venue-year fallback when DOI is unavailable."
   )
+)
+
+google_scholar_template <- publication_level %>%
+  transmute(
+    publication_key,
+    year,
+    title_short,
+    venue,
+    doi = doi_clean,
+    openalex_citations = cited_by_count,
+    google_scholar_citations = NA_real_,
+    google_scholar_retrieved_date = NA_character_,
+    google_scholar_source_url = NA_character_,
+    google_scholar_match_notes = NA_character_
+  ) %>%
+  arrange(year, title_short)
+
+write_csv(
+  google_scholar_template,
+  file.path(out_dir, "google_scholar_citations_manual_template.csv"),
+  na = ""
 )
 
 write_csv(
@@ -1364,6 +1455,13 @@ cat(
 library(ggplot2)
 library(scales)
 
+# Restrained CSU-aligned palette for print and Word export.
+color_csu_green <- "#1E4D2B"
+color_slate <- "#59636E"
+color_sage <- "#6F8173"
+color_warm_gray <- "#A7A8AA"
+color_gold <- "#C69214"
+
 figure_dir <- file.path(out_dir, "figures")
 
 dir.create(
@@ -1412,11 +1510,7 @@ figure_D1 <- ggplot(
   ) +
   labs(
     title = "Peer-reviewed publication output",
-    subtitle = paste0(
-      min(WINDOW),
-      "–",
-      max(WINDOW)
-    ),
+    subtitle = "Annual department totals and faculty-publication credits",
     x = "Year",
     y = "Number of publications",
     fill = NULL,
@@ -1429,6 +1523,12 @@ figure_D1 <- ggplot(
   scale_y_continuous(
     breaks = pretty_breaks(),
     expand = expansion(mult = c(0, 0.08))
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Unique department publications" = color_csu_green,
+      "Faculty-publication count" = color_slate
+    )
   ) +
   theme_minimal(base_size = 11) +
   theme(
@@ -1502,6 +1602,12 @@ figure_D2 <- ggplot(
     breaks = pretty_breaks(),
     expand = expansion(mult = c(0, 0.08))
   ) +
+  scale_fill_manual(
+    values = c(
+      "Per active TT faculty member" = color_csu_green,
+      "Per TT research FTE" = color_gold
+    )
+  ) +
   theme_minimal(base_size = 11) +
   theme(
     legend.position = "bottom",
@@ -1529,15 +1635,13 @@ figure_D3_data <- table_D2_long %>%
   filter(
     area_category != "Unclassified"
   ) %>%
+  add_count(area_category, wt = n_publications, name = "area_total") %>%
   mutate(
     area_category = factor(
       area_category,
-      levels = c(
-        "ENRE",
-        "Agricultural and Food Economics",
-        "Agricultural Education",
-        "Cross-area publications"
-      )
+      # ggplot stacks in reverse factor order, so ascending totals place the
+      # most densely populated series at the bottom of each bar.
+      levels = unique(area_category[order(area_total)])
     )
   )
 
@@ -1567,6 +1671,14 @@ figure_D3 <- ggplot(
   scale_y_continuous(
     breaks = pretty_breaks(),
     expand = expansion(mult = c(0, 0.08))
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Agricultural and Food Economics" = color_csu_green,
+      "ENRE" = color_slate,
+      "Cross-area publications" = color_sage,
+      "Agricultural Education" = color_gold
+    )
   ) +
   theme_minimal(base_size = 11) +
   theme(
@@ -1606,9 +1718,16 @@ figure_D4_data <- table_D1 %>%
     index_status = recode(
       index_status,
       indexed_and_peer_reviewed_publications =
-        "Journal has an impact factor (class a)",
+        "Journal with a matched impact factor",
       peer_reviewed_but_nonindexed_publications =
-        "Peer-reviewed without an impact factor (class b)"
+        "Peer-reviewed journal without a matched impact factor"
+    ),
+    index_status = factor(
+      index_status,
+      levels = c(
+        "Peer-reviewed journal without a matched impact factor",
+        "Journal with a matched impact factor"
+      )
     )
   )
 
@@ -1625,19 +1744,24 @@ figure_D4 <- ggplot(
     width = 0.72
   ) +
   labs(
-    title = "Peer-reviewed publications by journal index class",
+    title = "Peer-reviewed publications by journal impact-factor availability",
     x = "Year",
     y = "Number of publications",
     fill = NULL,
     caption = paste(
-      "Class a journals have at least one populated impact-factor value",
-      "\nin journal_impact_factors_2021_2026.xlsx; other peer-reviewed",
-      "journals are class b."
+      "A journal is shown as matched when journal_impact_factors_2021_2026.xlsx",
+      "contains at least one populated impact-factor value."
     )
   ) +
   scale_y_continuous(
     breaks = pretty_breaks(),
     expand = expansion(mult = c(0, 0.08))
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Journal with a matched impact factor" = color_csu_green,
+      "Peer-reviewed journal without a matched impact factor" = color_warm_gray
+    )
   ) +
   theme_minimal(base_size = 11) +
   theme(
