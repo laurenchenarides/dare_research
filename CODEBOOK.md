@@ -6,7 +6,18 @@ Sponsored-project rules are maintained separately in `GRANTS-CODEBOOK.md`.
 
 ## Window
 
-2021–2026 inclusive. The 2026 observations are partial through the latest refresh, currently August 27, 2026. They are included in publication tables and flagged `edge_2026 = 1`; comparisons must label 2026 as incomplete. Publications count regardless of institutional affiliation at the time of publication, subject to the faculty-activity rule applied in stage 03. Some 2026 entries come from Google Scholar or OpenAlex because CVs often have incomplete current-year coverage.
+2021–2026 inclusive. The 2026 observations are partial through the latest refresh, currently August 27, 2026. They are included in publication tables and flagged `edge_2026 = 1`; comparisons must label 2026 as incomplete. Publications are included only for years in which the faculty member held an active CSU appointment. A publication's listed institutional affiliations do not independently override that active-year rule. Some 2026 entries come from Google Scholar or OpenAlex because CVs often have incomplete current-year coverage.
+
+## Publication analysis sample and counting units
+
+The publication analysis begins with faculty CV records and applies the following rules before producing department totals:
+
+1. Publications are retained only for years in which the faculty member held an active CSU appointment.
+2. Completed peer-reviewed journal articles form the primary publication-productivity measure. Working papers and outreach products are excluded from that measure. Book chapters, conference proceedings, and other juried or peer-reviewed outputs are reported separately.
+3. A shared article is counted once in the unique department publication total, using DOI when available and a normalized title, venue, and year key otherwise.
+4. A faculty-publication credit is assigned to each participating DARE faculty member. A solo-authored article receives one credit; an article with two DARE faculty authors receives two credits. External coauthors do not add DARE faculty-publication credits.
+
+The active tenure-track headcount and research FTE are related but distinct denominators. Headcount counts each active tenure-track faculty member once. Individual research FTE equals the faculty member's documented research appointment percentage divided by 100; for example, a 40 percent research appointment contributes 0.40 research FTE. Annual tenure-track research FTE is the sum of those individual research shares across active tenure-track faculty. Thus, 23 to 26 faculty members can collectively represent 8.06 to 9.56 full-time-equivalent research appointments because their remaining appointment effort is assigned to teaching, Extension, and service.
 
 ## Core schema — publication files
 

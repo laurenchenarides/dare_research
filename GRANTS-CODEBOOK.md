@@ -50,7 +50,9 @@ Higher-education pass-through awards with a federal prime sponsor are Federal, n
 
 F&A analysis groups funded awards by direct sponsor because the direct sponsor issued the award to CSU. It reports F&A rate together with `F&A Type`; rates based on TDC, MTDC, salaries and wages, or no-indirect-cost rules are not assumed to be directly comparable.
 
-The F&A distribution assigns higher-education direct sponsors with a populated prime sponsor to a separate `Pass-through institution` category. Remaining records use the broad direct-sponsor categories Federal, State, CSU/Internal, Foundation/nonprofit, Industry, or Other. The plot is faceted into DARE-led and other-CAS-led awards, labels each displayed category with the number of funded awards having a reported F&A rate, and omits the heterogeneous `Other` category from the visual while reporting its excluded count in the caption. The companion row-level CSV retains all categories, including `Other`, together with the direct sponsor, originating sponsor, and F&A basis.
+The F&A distribution assigns higher-education direct sponsors with a populated prime sponsor to a separate `Pass-through institution` category. Remaining records use the broad direct-sponsor categories Federal, State, CSU/Internal, Foundation/nonprofit, Industry, or Other. The plot is faceted into DARE-led awards and awards led by the other CAS academic departments. The Dean's office is excluded from this department comparison. The plot labels each displayed category with the number of funded awards having a reported F&A rate and omits the heterogeneous `Other` category from the visual while reporting its excluded count in the caption. The companion row-level CSV retains all included categories, including `Other`, together with the direct sponsor, originating sponsor, and F&A basis.
+
+`grant_fa_comparison_summary.csv` provides reproducible DARE-versus-other-CAS comparisons overall and by direct-sponsor category. It reports award count, mean, median, minimum and maximum F&A rate, zero-rate count, and the number and share at or below the 10 percent screening threshold. These are comparisons of stated rates, not comparisons of the share of total award dollars devoted to F&A, because the applicable bases differ.
 
 The low-F&A audit uses a transparent threshold of 10 percent or less and separately identifies zero-rate awards. This is a screening tool, not a claim that a sponsor always imposes a low rate.
 
@@ -59,12 +61,13 @@ The low-F&A audit uses a transparent threshold of 10 percent or less and separat
 - **Table C1:** DARE-led proposal and funded-award counts/dollars by `Date Sent` year. Faculty PI/co-PI counts cover rostered DARE faculty participating anywhere in the CAS project file.
 - **Table C2:** DARE-led funded awards by originating funding-source category and `Date Sent` year.
 - **Table C3:** DARE-led funded awards by originating sponsor, with `direct_pass_through_sponsors`, DARE faculty involvement, derived research-area coverage, and years represented.
-- **CAS appendix:** proposal and award comparisons by CAS lead unit. These are not expenditure or per-capita comparisons.
+- **CAS appendix:** proposal and award comparisons by CAS lead unit. The department summary includes recorded funded share and ranks for proposals, funded awards, award dollars, average award amount, and funded share among the five academic departments represented in the extract. The Dean's unit is retained but excluded from academic-department ranks. These are not expenditure or per-capita comparisons.
 - **Sponsor concentration:** shares of DARE award dollars and HHI across originating sponsors.
 - **F&A appendix:** direct-sponsor award volume, rates, bases, DARE involvement, and DARE-unique sponsors.
 - **Cross-unit appendix:** non-1172 investigators on DARE-led projects. Award dollars can appear under more than one collaborating unit and must not be summed across units.
 - **Reverse cross-unit appendix:** rostered DARE faculty serving as PI or co-PI on projects led by another CAS department, supplied both as unique project records and a lead-department summary. Each project and its award dollars count once even if multiple DARE faculty participated.
 - **F&A distribution:** row-level plot data and a violin/box/point plot of funded-award F&A rates by direct-sponsor category, with pass-through institutions separated and DARE-led awards shown apart from other CAS-led awards.
+- **F&A comparison summary:** overall and sponsor-category rate comparisons between DARE-led and other-CAS-led funded awards.
 - **Pass-through institution summary:** proposal and funded-award activity by direct higher-education institution, including originating-sponsor diversity, federal funding share, years represented, and DARE-specific counts and dollars.
 - **Pass-through institution by year:** the same activity by direct institution and `Date Sent` year. The observed funded share is descriptive only because blank statuses combine not-funded and in-progress proposals.
 

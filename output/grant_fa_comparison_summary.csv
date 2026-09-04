@@ -1,0 +1,16 @@
+lead_group,fa_sponsor_category,funded_awards_with_reported_fa_rate,mean_fa_rate,median_fa_rate,minimum_fa_rate,maximum_fa_rate,zero_fa_awards,low_fa_awards,low_fa_award_share
+DARE-led,All categories,85,20.53,15,0,54,17,33,0.3882
+DARE-led,Federal,36,13.76,10,0,54,13,21,0.5833
+DARE-led,Foundation/nonprofit,13,17.11,12,0,52,1,2,0.1538
+DARE-led,Industry,3,21.33,15,15,34,0,0,0
+DARE-led,Other,1,0,0,0,0,1,1,1
+DARE-led,Pass-through institution,30,31.6,35,0,54,2,7,0.2333
+DARE-led,State,2,7.63,7.63,5.26,10,0,2,1
+Other CAS departments,All categories,663,13.91,10,0,54,310,417,0.629
+Other CAS departments,CSU/Internal,8,13.12,15,0,15,1,1,0.125
+Other CAS departments,Federal,193,15.59,10,0,54,80,116,0.601
+Other CAS departments,Foundation/nonprofit,208,5.8,0,0,54,142,167,0.8029
+Other CAS departments,Industry,99,23.14,15,0,54,42,47,0.4747
+Other CAS departments,Other,12,12.59,10,0,35,3,8,0.6667
+Other CAS departments,Pass-through institution,69,25.22,11.11,0,54,11,28,0.4058
+Other CAS departments,State,74,9.74,4.8,0,52,31,50,0.6757

@@ -39,6 +39,8 @@ Project proposals include funded and blank-status records. Blank status means no
 
 Publication partners are external institutions associated with OpenAlex coauthors on qualifying publications. Sponsored-project partners are direct sponsors on funded DARE-led awards. These are different relationship types and are identified in `relationship_basis`. Missing OpenAlex affiliation data should not be interpreted as no external collaboration.
 
+`table_E3_publication_partner_summary.csv` summarizes the publication network overall, by OpenAlex institution type, and by country code. Institution counts are distinct affiliation entities. Coauthored-publication links may count one publication more than once when its coauthors represent multiple external institutions, so those links must not be interpreted as unique publication totals.
+
 ## Table E4: USDA Multistate Research Projects
 
 The current files do not contain reliable project-membership or leadership fields. A schema-valid template and external request are provided.

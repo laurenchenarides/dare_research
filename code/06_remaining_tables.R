@@ -244,6 +244,65 @@ publication_partners <- publication_partner_rows %>%
     relationship_basis = "OpenAlex coauthor affiliation"
   )
 
+publication_partner_overall_summary <- tibble(
+  summary_group = "Overall",
+  category = c(
+    "All external institutions",
+    "United States institutions",
+    "Institutions outside the United States",
+    "Countries represented",
+    "Publications with at least one external institutional affiliation"
+  ),
+  institution_count = c(
+    nrow(publication_partners),
+    sum(publication_partners$country_code == "US", na.rm = TRUE),
+    sum(
+      !is.na(publication_partners$country_code) &
+        publication_partners$country_code != "US"
+    ),
+    n_distinct(publication_partners$country_code, na.rm = TRUE),
+    NA_integer_
+  ),
+  coauthored_publication_links = c(
+    NA_integer_, NA_integer_, NA_integer_, NA_integer_,
+    n_distinct(publication_partner_rows$publication_key)
+  )
+)
+
+publication_partner_type_summary <- publication_partners %>%
+  group_by(category = partner_type) %>%
+  summarise(
+    institution_count = n(),
+    coauthored_publication_links = sum(coauthored_publications),
+    .groups = "drop"
+  ) %>%
+  mutate(summary_group = "Partner type", .before = category)
+
+publication_partner_country_summary <- publication_partners %>%
+  group_by(category = country_code) %>%
+  summarise(
+    institution_count = n(),
+    coauthored_publication_links = sum(coauthored_publications),
+    .groups = "drop"
+  ) %>%
+  mutate(summary_group = "Country code", .before = category)
+
+table_e3_publication_partner_summary <- bind_rows(
+  publication_partner_overall_summary,
+  publication_partner_type_summary,
+  publication_partner_country_summary
+) %>%
+  arrange(
+    factor(summary_group, levels = c("Overall", "Partner type", "Country code")),
+    desc(institution_count),
+    category
+  )
+
+write_csv(
+  table_e3_publication_partner_summary,
+  file.path(out_dir, "table_E3_publication_partner_summary.csv")
+)
+
 grant_partners <- grant_projects %>%
   filter(dare_lead, funded, !is.na(direct_sponsor), direct_sponsor != "") %>%
   group_by(direct_sponsor, direct_sponsor_type, funding_source_type) %>%

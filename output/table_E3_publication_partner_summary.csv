@@ -1,0 +1,58 @@
+summary_group,category,institution_count,coauthored_publication_links
+Overall,All external institutions,326,NA
+Overall,United States institutions,180,NA
+Overall,Institutions outside the United States,141,NA
+Overall,Countries represented,41,NA
+Overall,Publications with at least one external institutional affiliation,NA,192
+Partner type,University/education,195,356
+Partner type,Government,37,92
+Partner type,facility,35,48
+Partner type,Foundation/nonprofit,25,42
+Partner type,Industry,16,86
+Partner type,other,10,14
+Partner type,healthcare,5,5
+Partner type,Other/unknown,1,1
+Partner type,archive,1,1
+Partner type,funder,1,1
+Country code,US,180,480
+Country code,GB,23,24
+Country code,DE,14,17
+Country code,FR,14,15
+Country code,CA,13,14
+Country code,AU,10,11
+Country code,IT,8,9
+Country code,NA,5,7
+Country code,AE,4,5
+Country code,ES,4,4
+Country code,SE,4,4
+Country code,BR,3,5
+Country code,CH,3,3
+Country code,CN,3,3
+Country code,CZ,3,3
+Country code,NL,3,3
+Country code,ZA,3,3
+Country code,FI,2,2
+Country code,GH,2,2
+Country code,NO,2,7
+Country code,PK,2,2
+Country code,AM,1,1
+Country code,AT,1,1
+Country code,BE,1,1
+Country code,BO,1,1
+Country code,BZ,1,1
+Country code,CL,1,1
+Country code,CO,1,1
+Country code,DK,1,1
+Country code,EC,1,1
+Country code,EG,1,2
+Country code,IE,1,1
+Country code,IL,1,1
+Country code,IN,1,1
+Country code,JP,1,2
+Country code,KE,1,1
+Country code,KZ,1,1
+Country code,LU,1,1
+Country code,QA,1,1
+Country code,TR,1,1
+Country code,TZ,1,1
+Country code,UA,1,1

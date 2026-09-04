@@ -1,7 +1,7 @@
-lead_unit_code,lead_unit_name,proposals_submitted_2021_2026,awards_received_2021_2026,total_awarded_dollars_2021_2026,average_award_amount
-1170,Soil + Crop Sciences,401,224,96577947.22,431151.55
-1172,Agricultural + Resource Economics,153,85,63423126.1,746154.42
-1177,Agricultural Biology,416,224,36428214.84,162625.96
-1171,Animal Sciences,281,121,17603736.51,145485.43
-1173,Horticulture + Landscape Architecture,241,95,11214957.57,118052.18
-1101,Dean of Agricultural Sciences,8,3,583565.13,194521.71
+lead_unit_code,lead_unit_name,proposals_submitted_2021_2026,awards_received_2021_2026,total_awarded_dollars_2021_2026,average_award_amount,recorded_funded_share,proposal_count_rank_among_cas_departments,funded_award_count_rank_among_cas_departments,award_dollars_rank_among_cas_departments,average_award_rank_among_cas_departments,funded_share_rank_among_cas_departments,cas_academic_departments_in_comparison
+1170,Soil + Crop Sciences,401,224,96577947.22,431151.55,0.5586,2,1,1,2,1,5
+1172,Agricultural + Resource Economics,153,85,63423126.1,746154.42,0.5556,5,5,2,1,2,5
+1177,Agricultural Biology,416,224,36428214.84,162625.96,0.5385,1,1,3,3,3,5
+1171,Animal Sciences,281,121,17603736.51,145485.43,0.4306,3,3,4,4,4,5
+1173,Horticulture + Landscape Architecture,241,95,11214957.57,118052.18,0.3942,4,4,5,5,5,5
+1101,Dean of Agricultural Sciences,8,3,583565.13,194521.71,0.375,NA,NA,NA,NA,NA,NA

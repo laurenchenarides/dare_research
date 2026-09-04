@@ -31,11 +31,23 @@ For every indicator, please include the exact definition, source database, publi
 
 For the peer-comparison fields in **Table D4**, please provide peer median, peer 75th percentile, and CSU percentile for total citations, citations per publication, percentage of publications cited, field-weighted citation impact, and highly cited publications. If Google Scholar values are available, they should be supplied separately and not substituted for curated publication counts.
 
-The empty layouts are in:
+The working layouts are in:
 
 - `output/table_B1_AA_SRI_template.csv`
 - `output/table_B2_AA_productivity_radar_template.csv`
-- `output/table_D4_impact_indicators.csv` (existing CSU/OpenAlex values with peer fields blank)
+- `output/table_D4_impact_indicators.csv` (existing CSU Google Scholar values with peer fields blank)
+
+## Sponsored-project outcomes, expenditures, and student support request: Tables C4–C6
+
+Please provide sponsored-project data needed to distinguish proposals, awards, and expenditures for 2021–2026. The current proposal and award records do not contain final outcomes for all proposals, requested dollars, award dates, or fiscal-year expenditures.
+
+For **Table C4**, please provide project identifier, submission date, final proposal outcome, dollars requested, award date, and dollars awarded. Please distinguish proposals still pending from proposals not funded and identify supplements, continuations, and resubmissions so they are not treated as independent outcomes without review.
+
+For **Table C5**, please provide fiscal-year expenditures by project, including total sponsored expenditures, direct costs, applicable F&A base, F&A recovered, graduate research assistant wages, graduate tuition or fee support, and project start and end dates. These fields will allow the department to report how sponsored funding supports research activity and graduate students rather than treating award amounts as expenditures.
+
+For **Table C6**, please provide the same fiscal-year expenditure measures for each CAS academic department, together with annual active tenure-track faculty counts and, if available, research FTE. Please identify major laboratory, experimental-facility, field-station, and equipment costs or provide a consistent research-infrastructure category to support appropriate interpretation across departments.
+
+For the F&A analysis, please also provide the negotiated or sponsor-limited rate, the applicable base (such as modified total direct costs, total direct costs, or salaries and wages), actual F&A recovered, direct sponsor, prime sponsor, and pass-through terms. A stated F&A rate alone cannot determine the share of total award dollars available for direct project activities.
 
 ## CSU-unit publication collaboration request: Table E2
 

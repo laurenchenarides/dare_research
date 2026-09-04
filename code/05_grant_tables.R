@@ -37,6 +37,7 @@
 #   output/grant_sponsor_concentration.csv
 #   output/grant_fa_sponsor_summary.csv
 #   output/grant_fa_rate_distribution.csv
+#   output/grant_fa_comparison_summary.csv
 #   output/figure_grant_fa_rate_by_sponsor_type.png
 #   output/grant_data_availability_audit.csv
 #   output/grant_investigator_parse_audit.csv
@@ -699,7 +700,9 @@ write_csv(
 )
 
 fa_rate_distribution <- projects %>%
-  filter(funded, !is.na(fa_rate)) %>%
+  # Unit 1101 is the Dean's office rather than an academic department and is
+  # excluded from the department-to-department F&A comparison.
+  filter(funded, !is.na(fa_rate), lead_unit_code != "1101") %>%
   mutate(
     fa_sponsor_category = if_else(
       university_direct_with_prime,
@@ -710,7 +713,7 @@ fa_rate_distribution <- projects %>%
         proposal_type
       )
     ),
-    lead_group = if_else(dare_lead, "DARE-led", "Other CAS-led")
+    lead_group = if_else(dare_lead, "DARE-led", "Other CAS departments")
   ) %>%
   select(
     key_id, year, lead_group, lead_unit_code, lead_unit_name,
@@ -735,9 +738,57 @@ fa_rate_distribution <- fa_rate_distribution %>%
     ),
     lead_group = factor(
       lead_group,
-      levels = c("DARE-led", "Other CAS-led")
+      levels = c("DARE-led", "Other CAS departments")
     )
   )
+
+summarize_fa_rates <- function(data) {
+  data %>%
+    summarise(
+      funded_awards_with_reported_fa_rate = n_distinct(key_id),
+      mean_fa_rate = mean(fa_rate),
+      median_fa_rate = median(fa_rate),
+      minimum_fa_rate = min(fa_rate),
+      maximum_fa_rate = max(fa_rate),
+      zero_fa_awards = sum(fa_rate == 0),
+      low_fa_awards = sum(fa_rate <= LOW_FA_THRESHOLD),
+      low_fa_award_share = mean(fa_rate <= LOW_FA_THRESHOLD),
+      .groups = "drop"
+    )
+}
+
+fa_comparison_by_category <- fa_rate_distribution %>%
+  mutate(
+    lead_group = as.character(lead_group),
+    fa_sponsor_category = as.character(fa_sponsor_category)
+  ) %>%
+  group_by(lead_group, fa_sponsor_category) %>%
+  summarize_fa_rates()
+
+fa_comparison_overall <- fa_rate_distribution %>%
+  mutate(lead_group = as.character(lead_group)) %>%
+  group_by(lead_group) %>%
+  summarize_fa_rates() %>%
+  mutate(fa_sponsor_category = "All categories", .after = lead_group)
+
+fa_comparison_summary <- bind_rows(
+  fa_comparison_overall,
+  fa_comparison_by_category
+) %>%
+  mutate(
+    across(
+      c(mean_fa_rate, median_fa_rate, minimum_fa_rate, maximum_fa_rate),
+      ~ round(.x, 2)
+    ),
+    low_fa_award_share = round(low_fa_award_share, 4)
+  ) %>%
+  arrange(lead_group, desc(fa_sponsor_category == "All categories"),
+          fa_sponsor_category)
+
+write_csv(
+  fa_comparison_summary,
+  file.path(out_dir, "grant_fa_comparison_summary.csv")
+)
 
 fa_plot_other_n <- fa_rate_distribution %>%
   filter(as.character(fa_sponsor_category) == "Other") %>%
@@ -798,9 +849,9 @@ fa_distribution_plot <- ggplot(
       "Labels show funded awards with reported F&A rates.\n",
       "The Other category is omitted from the figure (n = ",
       fa_plot_other_n,
-      ") but retained in the companion CSV.\n",
+      ").\n",
       "F&A bases (MTDC, TDC, S&W, or no indirect cost) differ; ",
-      "see the companion CSV. 2026 is partial."
+      "2026 is partial."
     )
   ) +
   theme_minimal(base_size = 11) +
@@ -863,9 +914,46 @@ cas_awards_department_summary <- cas_awards_by_department_year %>%
       total_awarded_dollars_2021_2026,
       2
     ),
-    average_award_amount = round(average_award_amount, 2)
+    average_award_amount = round(average_award_amount, 2),
+    recorded_funded_share = safe_divide(
+      awards_received_2021_2026,
+      proposals_submitted_2021_2026
+    )
   ) %>%
   arrange(desc(total_awarded_dollars_2021_2026))
+
+cas_academic_department_ranks <- cas_awards_department_summary %>%
+  filter(!str_detect(lead_unit_name, regex("^Dean", ignore_case = TRUE))) %>%
+  mutate(
+    proposal_count_rank_among_cas_departments =
+      min_rank(desc(proposals_submitted_2021_2026)),
+    funded_award_count_rank_among_cas_departments =
+      min_rank(desc(awards_received_2021_2026)),
+    award_dollars_rank_among_cas_departments =
+      min_rank(desc(total_awarded_dollars_2021_2026)),
+    average_award_rank_among_cas_departments =
+      min_rank(desc(average_award_amount)),
+    funded_share_rank_among_cas_departments =
+      min_rank(desc(recorded_funded_share)),
+    cas_academic_departments_in_comparison = n()
+  ) %>%
+  select(
+    lead_unit_code,
+    proposal_count_rank_among_cas_departments,
+    funded_award_count_rank_among_cas_departments,
+    award_dollars_rank_among_cas_departments,
+    average_award_rank_among_cas_departments,
+    funded_share_rank_among_cas_departments,
+    cas_academic_departments_in_comparison
+  )
+
+cas_awards_department_summary <- cas_awards_department_summary %>%
+  left_join(
+    cas_academic_department_ranks,
+    by = "lead_unit_code",
+    relationship = "one-to-one"
+  ) %>%
+  mutate(recorded_funded_share = round(recorded_funded_share, 4))
 
 write_csv(
   cas_awards_by_department_year,
