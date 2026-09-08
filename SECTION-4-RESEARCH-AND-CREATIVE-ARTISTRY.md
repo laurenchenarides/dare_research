@@ -52,6 +52,7 @@ Citation evidence helps assess the reach of the department's publications beyond
 | 2024 | 48 | 593 | 12.35 | 6.50 | 85.42% | 3.32 |
 | 2025 | 57 | 286 | 5.02 | 3.00 | 77.19% | 5.90 |
 | 2026 partial | 28 | 54 | 1.93 | 1.00 | 53.57% | 6.32 |
+| **Total** | **264** | **4,649** | **17.61** | **6.00** | **85.61%** | **5.07** |
 
 The publication-weighted average journal impact factor gives each DARE publication equal weight and averages the impact factors of the journals in which those articles appeared. A journal impact factor reflects the average number of recent citations to articles in that journal, based on citations in the current reporting year to items published during the prior two years. DARE's annual publication-weighted average ranged from 3.32 to 6.57. The increase from 3.32 in 2024 to 5.90 in 2025 and 6.32 in partial-year 2026 indicates that recent publication placement shifted toward higher-impact journals relative to the 2022–2024 cohorts, even though those articles have not yet had much time to accumulate citations of their own. The measure is best interpreted as evidence of journal placement rather than as a departmental impact factor.
 
@@ -90,11 +91,23 @@ The journals with the largest numbers of DARE publications include leading disci
 
 ## Sponsored projects
 
-DARE was the lead unit on 153 proposals submitted during the 2021–2026 reporting window. Eighty-five were recorded as funded, representing 55.6 percent of all DARE-led proposals and $63.42 million in awards. This is a recorded funded share, not a final proposal success rate, because proposals without a final outcome include both those that were not funded and those still in progress. Each project is counted once in its submission year, and a multi-year award is not repeated in later years. The 2026 results are partial.
+DARE was the lead unit on 153 proposals submitted during the 2021–2026 reporting window. Eighty-five proposal records were recorded as funded, representing 55.6 percent of all DARE-led proposals and $63.42 million in total award value. The funded-award count is the number of funded project records; total award dollars are the sum of the award amounts associated with those records. The recorded funded share is not a final proposal success rate because proposals without a final outcome include both those that were not funded and those still in progress. Each project is counted once in its proposal-submission year, and a multi-year award is not repeated in later years. The 2026 results are partial.
 
-Among the five CAS academic departments represented in the same records, DARE ranked fifth in proposals submitted and funded awards received, but second in total award dollars and first in average award amount. Its recorded funded share of 55.6 percent ranked second, just below Soil and Crop Sciences at 55.9 percent. This pattern reflects a portfolio with fewer awards but substantially greater dollars per funded project, driven in large part by the Northwest Mountain Food Business Center award discussed below. **Appendix Table C7** provides the CAS department comparison.
+Among the five CAS academic departments represented in the same records, DARE ranked fifth in the number of proposals submitted and in the number of funded project records. It ranked second in the combined dollar value of those awards and first in average dollars per funded award. Its recorded funded share of 55.6 percent ranked second, just below Soil and Crop Sciences at 55.9 percent. This pattern reflects a portfolio with fewer awards but substantially greater dollars per funded project, driven in large part by the Northwest Mountain Food Business Center award discussed below. **Appendix Table C7** provides the CAS department comparison.
 
 Annual funded awards ranged from eight to 23 during the five completed years. Award dollars varied more because large multi-year awards are assigned to a single submission cohort. The 2023 cohort contains $52.74 million of the six-year total. This concentration means that annual dollar totals describe the timing and scale of awards but should not be interpreted as annual expenditures.
+
+**Table C1. Sponsored project activity by year, 2021–2026**
+
+| Year | Proposals submitted | Funded award count | Total award dollars | Average award amount |
+|---:|---:|---:|---:|---:|
+| 2021 | 27 | 19 | $3,275,393 | $172,389 |
+| 2022 | 36 | 23 | $5,168,809 | $224,731 |
+| 2023 | 30 | 17 | $52,740,418 | $3,102,378 |
+| 2024 | 34 | 16 | $1,031,587 | $64,474 |
+| 2025 | 20 | 8 | $1,082,918 | $135,365 |
+| 2026 partial | 6 | 2 | $124,000 | $62,000 |
+| **Total** | **153** | **85** | **$63,423,126** | **$746,154** |
 
 Federal sponsors accounted for 62 awards and $60.18 million, or 94.9 percent of DARE’s award dollars. Foundation and nonprofit sponsors accounted for 12 awards and $2.21 million. State sponsors accounted for six awards and $333,292, industry sponsors for three awards and $621,667, and other sponsors for two awards and $72,994.
 
@@ -104,7 +117,7 @@ University pass-through arrangements form a distinct part of the portfolio. Acro
 
 Sponsored projects also document collaboration across CAS. Other-unit investigators participated on DARE-led projects, including nine projects involving Animal Sciences investigators, two involving Agricultural Biology investigators, and one involving Horticulture and Landscape Architecture investigators. In the reverse direction, DARE faculty served as PI or co-PI on 29 proposals led by other CAS units. Six of these proposals were funded for $1.97 million. Animal Sciences led 12 of the 29 proposals, Agricultural Biology seven, Soil and Crop Sciences six, and Horticulture and Landscape Architecture four. Sponsored-project collaboration by CAS unit is reported in **Appendix Table E2**.
 
-Facilities and administrative (F&A) rates influence how an award supports the research enterprise by shaping the allocation between direct project costs and recovery of institutional facilities and administrative costs. Sponsor policies, negotiated award terms, and pass-through arrangements can limit CSU's allowable F&A recovery; in a pass-through award, the prime recipient recovers its own indirect costs and the subaward terms determine the rate available to CSU. Because F&A is generally applied to an eligible direct-cost base rather than the entire award, the stated rate is not itself the share of total award dollars devoted to indirect costs. **Appendix Figure C1** compares DARE-led funded awards with awards led by the other CAS academic departments combined and reports pass-through institutions separately. Among awards with reported rates, the median was 15 percent for DARE-led awards and 10 percent for other CAS departments. Federal awards had the same 10 percent median in both groups, while DARE's pass-through awards had a median rate of 35 percent compared with 11.11 percent for other CAS departments. These results indicate that DARE's reported F&A rates were not generally lower than those elsewhere in CAS, but differences in sponsor mix, F&A bases, and award terms prevent the rates from being translated directly into the share available for research personnel or student support.
+Facilities and administrative (F&A) rates influence how an award supports the research enterprise by shaping the allocation between direct project costs and recovery of institutional facilities and administrative costs. Sponsor policies, negotiated award terms, and pass-through arrangements can limit CSU's allowable F&A recovery; in a pass-through award, the prime recipient recovers its own indirect costs and the subaward terms determine the rate available to CSU. Because F&A is generally applied to an eligible direct-cost base rather than the entire award, the stated rate is not itself the share of total award dollars devoted to indirect costs. **Appendix Figure C1** compares DARE-led funded awards with awards led by the other CAS academic departments combined and reports pass-through institutions separately. Among awards with reported rates, DARE's median was 15 percent, compared with 10 percent for the other CAS departments. Federal awards had the same 10 percent median in both groups, while DARE's pass-through awards had a median rate of 35 percent compared with 11.11 percent for other CAS departments. DARE therefore had a higher median reported F&A rate overall and for pass-through awards, while federal rates were the same. Because the rates apply to different categories of eligible costs, they cannot be converted directly into the dollars available for research personnel or student support.
 
 > Add annual sponsored-project expenditures, graduate research assistant expenditures, requested dollars, resolved proposal outcomes, and award dates. Obtain these data from the CSU or CAS research administration and financial systems. Use them to complete proposal success measures, Tables C5 and C6, and annual active-project counts. Proposals without a final recorded outcome may be either pending or not funded.
 
@@ -120,17 +133,15 @@ OpenAlex identified at least one external institutional affiliation on 192 of th
 
 ## Recognition and mentoring
 
-Faculty recognition reinforces the evidence of scholarly influence. DARE faculty received 17 documented research awards, fellowships, and scholarly recognitions during 2021–2026. These include university and college honors, competitive fellowships, interdisciplinary awards, and fellow designations from the Agricultural and Applied Economics Association and Western Agricultural Economics Association. Collectively, they recognize established disciplinary leadership, early-career achievement, and collaborative research.
+Departmental records identify 53 competitive awards received during 2021–2026 across research, teaching, Extension, service, and student achievement. All required an application. Fourteen of the awards recognized students; the remaining 39 recognized faculty, staff, or alumni. Among the faculty awards, 19 were categorized as research awards, fellowships, or scholarly recognitions. These include university and college honors, interdisciplinary awards, and fellow designations from the Agricultural and Applied Economics Association and Western Agricultural Economics Association.
 
-Organizations granting these honors included the College of Agricultural Sciences, Colorado State University, the Agricultural and Applied Economics Association, the Western Agricultural Economics Association, the Farm Foundation, and other organizations. Appendix Table F1 lists the awards and the organizations that granted them.
-
-> Add award research areas and verify which recognitions were competitive or elected. Obtain this information from award announcements or a brief faculty verification request.
+Organizations granting the research honors included the College of Agricultural Sciences, Colorado State University, the Agricultural and Applied Economics Association, the Western Agricultural Economics Association, the Farm Foundation, and other organizations. Appendix Table F1 lists the faculty research awards and the organizations that granted them.
 
 Scholarly service provides another important indicator of disciplinary standing. Editorships, associate editorships, journal editorial-board service, association leadership, elected fellow status, review panels, and leadership in professional or multistate research organizations demonstrate how faculty shape their fields in addition to publishing within them.
 
 > Add a paragraph or table describing scholarly service during 2021–2026, including journal editorships and editorial boards, association offices, elected fellow status, major review panels, and other disciplinary leadership. Obtain these records through a targeted CV review followed by a short faculty verification request. Record organization, role, years, level, and whether the position was elected, appointed, or competitively selected.
 
-Graduate mentoring is a substantial component of faculty research engagement. An active committee membership represents one faculty member serving in one recorded role on a graduate committee during a calendar year; a faculty member serving on several committees contributes several memberships. Recorded memberships ranged from 229 in 2021 to 271 in 2024 among completed years. In 2025, DARE faculty held 252 active memberships, including 59 advisor and 20 co-advisor roles. These figures show broad faculty participation in graduate education, but they should not be interpreted as counts of unique students.
+Graduate mentoring is a substantial component of faculty research engagement. From 2021 through partial-year 2026, 441 faculty committee memberships began: 80 in 2021, 66 in 2022, 100 in 2023, 76 in 2024, 85 in 2025, and 34 in 2026. Each membership represents one faculty member beginning service in one recorded role on a graduate committee; a faculty member joining several committees contributes several memberships. These figures document the flow of new committee service during the review period rather than the number of memberships active in each year or the number of unique students.
 The department also uses onboarding, mentor committees, promotion-and-tenure review, annual department-head meetings, and optional mentoring for associate professors.
 
 > Add the department’s faculty mentoring and advancement mechanisms from onboarding documents, promotion-and-tenure procedures, mentor-committee records, and department-head practices. Graduate committee activity documents faculty mentoring of students rather than faculty advancement supports.
@@ -139,9 +150,7 @@ The department also uses onboarding, mentor committees, promotion-and-tenure rev
 
 Students participate directly in DARE's scholarly production. Publication records identify 75 student-coauthored scholarly outputs during 2021–2026. Annual counts increased from 10 in 2021 to 18 in 2024, followed by 16 in 2025; four are recorded for partial-year 2026. This sustained participation demonstrates that faculty research creates opportunities for students to contribute to publishable scholarship. The 75 identified outputs include students recognized through faculty reporting and departmental degree records. Because available departmental records do not comprehensively identify undergraduate students or students affiliated with other departments and institutions, this count should be interpreted as a conservative measure of student participation.
 
-Students received 12 documented awards during the reporting window. Appendix Table G1 reports student-coauthored publications and awards by year, while Appendix Table G2 provides output-level information including research area, venue, peer-review status, and identified external institutions.
-
-Graduate committee participation provides additional evidence of faculty-student engagement but should not be treated as a count of research participants. Committee memberships include advising and service across AREC and other graduate programs.
+Students received 14 documented awards during the reporting window. Appendix Table G1 reports student-coauthored publications and awards by year, while Appendix Table G2 provides output-level information including research area, venue, peer-review status, and identified external institutions.
 
 > Add undergraduate versus graduate participation, graduate research assistant appointments, student conference presentations, community-engaged research projects involving students, and resulting placements or awards. Obtain these records from graduate-program files, payroll or appointment records, faculty annual activity reports, student travel records, and a targeted faculty request.
 
@@ -198,16 +207,7 @@ The appendices retain the established alphabetical table groups (A through H). T
 
 ## Appendix C. Sponsored projects
 
-### Table C1. Sponsored project activity by year, 2021–2026
-
-| Year | Proposals | Funded awards | Award dollars | Average award |
-|---:|---:|---:|---:|---:|
-| 2021 | 27 | 19 | $3,275,393 | $172,389 |
-| 2022 | 36 | 23 | $5,168,809 | $224,731 |
-| 2023 | 30 | 17 | $52,740,418 | $3,102,378 |
-| 2024 | 34 | 16 | $1,031,587 | $64,474 |
-| 2025 | 20 | 8 | $1,082,918 | $135,365 |
-| 2026 partial | 6 | 2 | $124,000 | $62,000 |
+Table C1 is embedded in the sponsored-project narrative because it presents the principal annual measures used in the discussion.
 
 ### Table C2. Sponsored awards by funding-source type and year
 
@@ -315,7 +315,7 @@ Supporting quality tables embedded in the main text include:
 | 2023 | 15 | 4 | 0 |
 | 2024 | 18 | 2 | 2 |
 | 2025 | 16 | 0 | 0 |
-| 2026 partial | 4 | 2 | 0 |
+| 2026 partial | 4 | 4 | 0 |
 
 ### Table G2. Student-coauthored scholarly outputs
 

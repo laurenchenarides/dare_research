@@ -105,3 +105,9 @@ Consequence: the sum of per-faculty counts exceeds the department-level distinct
 - `10.1371/journal.pone.0261833` is assigned to Jordan Suter's “Summer Crowds” publication and not to Jesse Burkhardt's lettuce-production paper.
 - `10.1080/10871209.2024.2414880` appears once, on Dana Hoag's 2025 wolf-depredation publication.
 - `publications_faculty_doi_cleaned - Copy.csv` is byte-for-byte identical to `publications_faculty_doi_cleaned.csv` and is not used by the pipeline.
+
+## Recognition and graduate-committee inputs
+
+`data/awards.xlsx` contains 53 award records dated 2021-2026. The recipient-type totals are 37 faculty, 14 students, one staff member, and one alumnus/alumna. All listed awards were competitive and required an application, as confirmed by the department. Appendix Table F1 is the narrower faculty research-award table and includes the 19 records coded both `Faculty` and `Research`. Appendix Table G1 uses all 14 records coded `Student`, regardless of whether the award category is research, teaching, or service. `output/table_F0_department_awards_by_year.csv` reconciles the complete 53-record inventory by year and recipient type.
+
+`data/grad_committee_membership.xlsx` uses `MEMBER_FROM_YEAR` to identify the year in which each faculty-student committee membership began. The 2021-2026 reporting total is 441 membership starts: 80 in 2021, 66 in 2022, 100 in 2023, 76 in 2024, 85 in 2025, and 34 in partial-year 2026. These are not counts of all committee memberships active during each year and are not counts of unique students. Role and program counts in `output/table_F2_grad_committee_mentoring_activity.csv` use the same membership-start cohort definition.

@@ -63,7 +63,7 @@ The requested layout is `output/table_E4_multistate_projects_template.csv`.
 
 Please provide the department’s formal and informal faculty-development mechanisms, including career stage, mechanism, frequency, expected participants, actual participants if appropriate for internal use, and intended outcome. Requested mechanisms include onboarding, mentor committees, annual promotion-and-tenure committee review, annual department-head meetings, and optional mentor committees for associate professors.
 
-The graduate committee workbook measures faculty service on student committees; it does not document faculty mentoring and advancement supports. Its results are therefore reported separately in `output/table_F2_grad_committee_mentoring_activity.csv`.
+The graduate committee workbook measures faculty service on student committees; it does not document faculty mentoring and advancement supports. Its results are reported separately in `output/table_F2_grad_committee_mentoring_activity.csv` using `MEMBER_FROM_YEAR` to count committee memberships beginning in each year from 2021 through 2026. These counts are not concurrent active memberships or unique students.
 
 The requested F2 layout is `output/table_F2_faculty_mentoring_supports_template.csv`.
 
@@ -77,4 +77,4 @@ For each role, please provide faculty member, organization or journal, role titl
 
 Please provide annual 2021–2026 records for undergraduate research participants, graduate research assistants, student conference presentations, community-engaged research projects involving students, and other student scholarly products. For output-level records, please include undergraduate/graduate status, research area, venue, peer-review or jury status, external collaborator, and any resulting placement, award, or other outcome.
 
-Current sources support student-coauthored publications and student awards, but they do not consistently identify student level or the remaining requested measures.
+Current sources support student-coauthored publications and 14 student awards during 2021-2026, but they do not consistently identify student level or the remaining requested measures.

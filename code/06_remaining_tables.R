@@ -345,6 +345,43 @@ write_csv(table_e3, file.path(out_dir, "table_E3_external_collaboration.csv"))
 
 awards <- read_excel(file.path(data_dir, "awards.xlsx"))
 
+# Complete department award inventory. The source records one award per row
+# and identifies whether it was received by a faculty member, student, staff
+# member, or alumnus/alumna. All listed awards were competitive and required
+# an application, as confirmed by the department.
+table_f0_awards_summary <- awards %>%
+  filter(Year %in% REPORT_YEARS) %>%
+  transmute(
+    year = as.integer(Year),
+    recipient_type = .data[["Faculty or Student?"]]
+  ) %>%
+  count(year, recipient_type, name = "award_count") %>%
+  complete(
+    year = REPORT_YEARS,
+    recipient_type = c("Faculty", "Student", "Staff", "Alumni"),
+    fill = list(award_count = 0L)
+  ) %>%
+  pivot_wider(
+    names_from = recipient_type,
+    values_from = award_count,
+    names_glue = "{tolower(recipient_type)}_awards"
+  ) %>%
+  mutate(
+    total_awards = faculty_awards + student_awards + staff_awards +
+      alumni_awards,
+    partial_year = year == 2026
+  ) %>%
+  select(
+    year, total_awards, faculty_awards, student_awards,
+    staff_awards, alumni_awards, partial_year
+  ) %>%
+  arrange(year)
+
+write_csv(
+  table_f0_awards_summary,
+  file.path(out_dir, "table_F0_department_awards_by_year.csv")
+)
+
 table_f1 <- awards %>%
   filter(
     Year %in% REPORT_YEARS,
@@ -365,11 +402,8 @@ table_f1 <- awards %>%
     ),
     year = as.integer(Year),
     research_area_represented = NA_character_,
-    competitive_or_elected_designation = case_when(
-      str_detect(.data[["Award Name"]], regex("fellow", TRUE)) ~
-        "Fellow/elected designation; verify selection process",
-      TRUE ~ "Not specified in source"
-    ),
+    competitive_or_elected_designation =
+      "Competitive; application required",
     source_limitation =
       "Recipient and research area are not included in awards.xlsx"
   ) %>%
@@ -386,33 +420,45 @@ committee_raw <- read_excel(file.path(data_dir, "grad_committee_membership.xlsx"
   select(1:7) %>%
   mutate(
     membership_id = row_number(),
-    from_date = as.Date(MEMBER_FROM_DATE, format = "%m/%d/%Y"),
-    to_date = as.Date(MEMBER_TO_DATE, format = "%m/%d/%Y")
-  )
+    member_from_year = suppressWarnings(as.integer(MEMBER_FROM_YEAR))
+  ) %>%
+  filter(member_from_year %in% REPORT_YEARS)
 
-committee_year <- crossing(
-  committee_raw,
-  year = REPORT_YEARS
-) %>%
-  filter(
-    !is.na(from_date),
-    from_date <= as.Date(paste0(year, "-12-31")),
-    is.na(to_date) | to_date >= as.Date(paste0(year, "-01-01"))
-  )
-
-table_f2_supplement <- committee_year %>%
-  group_by(year) %>%
+table_f2_supplement <- committee_raw %>%
+  group_by(year = member_from_year) %>%
   summarise(
-    active_committee_memberships = n_distinct(membership_id),
-    advisor_memberships = sum(MEMBER_FUNCTION_DESC == "Advisor"),
-    coadvisor_memberships = sum(MEMBER_FUNCTION_DESC == "Co-Advisor"),
-    committee_member_memberships = sum(MEMBER_FUNCTION_DESC == "Committee Member"),
-    outside_member_memberships = sum(MEMBER_FUNCTION_DESC == "Outside Member"),
-    faculty_participants = n_distinct(MEMBER_NAME),
-    arec_program_memberships = sum(str_detect(PROGRAM, "^AREC-")),
-    other_program_memberships = sum(!str_detect(PROGRAM, "^AREC-")),
+    committee_memberships_beginning = n_distinct(membership_id),
+    advisor_memberships = sum(MEMBER_FUNCTION_DESC == "Advisor", na.rm = TRUE),
+    coadvisor_memberships = sum(MEMBER_FUNCTION_DESC == "Co-Advisor", na.rm = TRUE),
+    committee_member_memberships = sum(
+      MEMBER_FUNCTION_DESC == "Committee Member",
+      na.rm = TRUE
+    ),
+    outside_member_memberships = sum(
+      MEMBER_FUNCTION_DESC == "Outside Member",
+      na.rm = TRUE
+    ),
+    faculty_participants = n_distinct(MEMBER_NAME, na.rm = TRUE),
+    arec_program_memberships = sum(str_detect(PROGRAM, "^AREC-"), na.rm = TRUE),
+    other_program_memberships = sum(
+      !str_detect(PROGRAM, "^AREC-"),
+      na.rm = TRUE
+    ),
     partial_year = first(year) == 2026,
     .groups = "drop"
+  ) %>%
+  right_join(tibble(year = REPORT_YEARS), by = "year") %>%
+  mutate(
+    across(
+      c(
+        committee_memberships_beginning, advisor_memberships,
+        coadvisor_memberships, committee_member_memberships,
+        outside_member_memberships, faculty_participants,
+        arec_program_memberships, other_program_memberships
+      ),
+      ~ replace_na(.x, 0L)
+    ),
+    partial_year = year == 2026
   )
 
 write_csv(

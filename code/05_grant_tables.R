@@ -248,6 +248,7 @@ projects <- grants_raw %>%
     lead_unit_name = str_remove(lead_unit, "^\\d+-"),
     lead_college = clean_character(`Lead College/Division`),
     start_date = as.Date(`Start Date`),
+    start_year = as.integer(format(start_date, "%Y")),
     end_date = as.Date(`End Date`),
     end_date_century_error = !is.na(end_date) & end_date < as.Date("2000-01-01"),
     fa_rate = suppressWarnings(as.numeric(`F&A Rate`)),
@@ -294,6 +295,66 @@ if (any(!projects$year %in% REPORT_YEARS)) {
 if (any(is.na(projects$amount) | projects$amount < 0)) {
   stop("At least one project amount is missing or negative.", call. = FALSE)
 }
+
+# Reconcile the two plausible time-window definitions. Proposal and award
+# tables use Date Sent so funded and unfunded records remain in the same
+# proposal-submission cohorts. Start Date produces a different award total
+# because two funded DARE records were submitted during 2021-2026 but have
+# project start dates in 2020.
+grant_total_reconciliation <- bind_rows(
+  projects %>%
+    filter(
+      dare_lead,
+      funded,
+      year %in% REPORT_YEARS
+    ) %>%
+    summarise(
+      reporting_basis = "Date Sent (reporting rule)",
+      funded_award_count = n_distinct(key_id),
+      funded_award_dollars = sum(amount, na.rm = TRUE)
+    ),
+  projects %>%
+    filter(
+      dare_lead,
+      funded,
+      start_year %in% REPORT_YEARS
+    ) %>%
+    summarise(
+      reporting_basis = "Project Start Date (comparison only)",
+      funded_award_count = n_distinct(key_id),
+      funded_award_dollars = sum(amount, na.rm = TRUE)
+    )
+) %>%
+  mutate(funded_award_dollars = round(funded_award_dollars, 2))
+
+grant_reporting_window_difference <- projects %>%
+  filter(
+    dare_lead,
+    funded,
+    xor(
+      year %in% REPORT_YEARS,
+      start_year %in% REPORT_YEARS
+    )
+  ) %>%
+  transmute(
+    key_id,
+    project_title,
+    date_sent,
+    date_sent_year = year,
+    start_date,
+    start_year,
+    amount,
+    included_by_date_sent = year %in% REPORT_YEARS,
+    included_by_start_date = start_year %in% REPORT_YEARS,
+    explanation = case_when(
+      included_by_date_sent & !included_by_start_date ~
+        "Included in proposal-submission cohort; project start predates review window",
+      !included_by_date_sent & included_by_start_date ~
+        "Project starts in review window; proposal submission predates review window",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  arrange(date_sent, key_id)
 
 unknown_status <- projects %>%
   filter(!is.na(status), status != "Funded") %>%
@@ -1246,6 +1307,14 @@ write_csv(
 write_csv(
   pass_through_institution_year,
   file.path(out_dir, "grant_pass_through_institution_by_year.csv")
+)
+write_csv(
+  grant_total_reconciliation,
+  file.path(out_dir, "grant_total_reconciliation.csv")
+)
+write_csv(
+  grant_reporting_window_difference,
+  file.path(out_dir, "grant_reporting_window_difference.csv")
 )
 write_csv(
   data_availability,

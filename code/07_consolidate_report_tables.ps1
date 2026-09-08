@@ -11,7 +11,9 @@ if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot "SECTION-4-RESEARCH-AND
 
 $outputPath = [System.IO.Path]::GetFullPath((Join-Path $ProjectRoot $OutputFile))
 $outputDir = Split-Path -Parent $outputPath
-$tempPath = Join-Path $outputDir "SECTION-4-REPORT-TABLES.tmp.xlsx"
+$tempPath = Join-Path ([System.IO.Path]::GetTempPath()) (
+    "SECTION-4-REPORT-TABLES-" + [guid]::NewGuid().ToString("N") + ".xlsx"
+)
 [System.IO.Directory]::CreateDirectory($outputDir) | Out-Null
 
 $colors = @{
@@ -63,7 +65,7 @@ function Convert-TypedValue {
     $number = 0.0
     if ([double]::TryParse($text, [Globalization.NumberStyles]::Any,
             [Globalization.CultureInfo]::InvariantCulture, [ref]$number)) {
-        if ($Header -match "(?i)(share|percentage|percent|rate)$|(?i)_(share|percentage|percent|rate)_") {
+        if ($Header -match "(?i)(^|_)(share|percentage|percent|rate)($|_)") {
             if ([math]::Abs($number) -gt 1) { return $number / 100.0 }
             return $number
         }
@@ -187,12 +189,24 @@ $t42 = Read-CsvTable "output/table_D4b_citations_by_publication_year.csv" `
     @{ year = "Publication year"; peer_reviewed_journal_publications = "Publications"; total_google_scholar_citations = "Google Scholar citations"; mean_google_scholar_citations_per_publication = "Mean citations per publication"; median_google_scholar_citations_per_publication = "Median citations per publication"; percentage_of_publications_cited_in_google_scholar = "Percentage cited"; publication_weighted_average_journal_impact_factor = "Publication-weighted average journal IF" }
 Add-TableDefinition "4.2 Citations" "Table 4.2" "Main text" `
     "Citation indicators and journal-portfolio benchmark by publication year, 2021-2026" "Complete" `
-    "Google Scholar citations are cumulative; 2026 is partial. Journal impact factors are publication-weighted within each cohort." $t42
+    "Google Scholar citations are cumulative; 2026 is partial. Journal impact factors are publication-weighted within each cohort." $t42 `
+    @{} "Total"
 
-$ifRaw = Read-CsvTable "output/table_D4a_impact_factor_summary.csv"
+$ifPath = Join-Path $ProjectRoot "output/table_D4a_impact_factor_summary.csv"
+$ifRecord = @(Import-Csv -LiteralPath $ifPath -Encoding UTF8)[0]
+$ifColumns = @(
+    "peer_reviewed_journal_publications",
+    "publications_with_available_impact_factor",
+    "mean_impact_factor",
+    "median_impact_factor",
+    "minimum_impact_factor",
+    "maximum_impact_factor"
+)
 $ifLabels = @("Publications in the journal-impact analysis", "Publications with an available impact factor", "Mean impact factor", "Median impact factor", "Minimum impact factor", "Maximum impact factor")
-$ifData = for ($i = 0; $i -lt $ifRaw.Headers.Count; $i++) { ,@($ifLabels[$i], $ifRaw.Data[0][$i]) }
-$t43 = @{ Headers = @("Impact-factor indicator", "Department value"); Data = @($ifData); Source = $ifRaw.Source }
+$ifData = for ($i = 0; $i -lt $ifColumns.Count; $i++) {
+    ,@($ifLabels[$i], (Convert-TypedValue $ifColumns[$i] $ifRecord.($ifColumns[$i])))
+}
+$t43 = @{ Headers = @("Impact-factor indicator", "Department value"); Data = @($ifData); Source = "output/table_D4a_impact_factor_summary.csv" }
 Add-TableDefinition "4.3 IF Summary" "Table 4.3" "Main text" `
     "Journal impact-factor coverage and distribution for peer-reviewed publications" "Complete" `
     "Impact-factor statistics describe journal placement; they are not a departmental impact factor." $t43
@@ -217,13 +231,30 @@ Add-TableDefinition "B2 Radar Template" "Table B2" "Appendix B" "Academic Analyt
     "Department values and aligned peer statistics are awaiting Academic Analytics data." `
     (Read-CsvTable "output/table_B2_AA_productivity_radar_template.csv")
 
-$c1 = Read-CsvTable "output/table_C1_sponsored_projects_by_year.csv"
+$c1 = Read-CsvTable "output/table_C1_sponsored_projects_by_year.csv" `
+    @("year", "proposals_submitted", "awards_received", "total_awarded_dollars", "average_award_amount") `
+    @{ year = "Year"; proposals_submitted = "Proposals submitted"; awards_received = "Funded award count"; total_awarded_dollars = "Total award dollars"; average_award_amount = "Average award amount" }
+$c1SourceRows = @(Import-Csv -LiteralPath (Join-Path $ProjectRoot "output/table_C1_sponsored_projects_by_year.csv") -Encoding UTF8)
+$c1ProposalTotal = ($c1SourceRows | Measure-Object -Property proposals_submitted -Sum).Sum
+$c1AwardTotal = ($c1SourceRows | Measure-Object -Property awards_received -Sum).Sum
+$c1DollarTotal = ($c1SourceRows | Measure-Object -Property total_awarded_dollars -Sum).Sum
+$c1AverageTotal = if ($c1AwardTotal -gt 0) { $c1DollarTotal / $c1AwardTotal } else { $null }
+$c1.Data = @($c1.Data) + ,@("Total", [double]$c1ProposalTotal, [double]$c1AwardTotal, [double]$c1DollarTotal, [double]$c1AverageTotal)
 Add-TableDefinition "C1 Projects by Year" "Table C1" "Appendix C" "Sponsored project activity by year, 2021-2026" "Complete" `
-    "Projects are assigned to the proposal-submission year; full multi-year awards are not repeated in later years. 2026 is partial." $c1
+    "Projects are assigned to the proposal-submission year; full multi-year awards are not repeated in later years. 2026 is partial." $c1 `
+    @{} "Total"
+
+$c1Faculty = Read-CsvTable "output/table_C1_sponsored_projects_by_year.csv" `
+    @("year", "active_faculty", "faculty_serving_as_pi", "faculty_serving_as_copi", "faculty_serving_as_pi_or_copi", "share_active_faculty_pi_or_copi") `
+    @{ year = "Year"; active_faculty = "Active faculty"; faculty_serving_as_pi = "Faculty serving as PI"; faculty_serving_as_copi = "Faculty serving as Co-PI"; faculty_serving_as_pi_or_copi = "Faculty serving as PI or Co-PI"; share_active_faculty_pi_or_copi = "Share of active faculty serving as PI or Co-PI" }
+Add-TableDefinition "C1 Faculty Roles" "Table C1 supplement" "Appendix C" "Faculty participation in sponsored projects by year" "Complete" `
+    "This companion panel preserves the faculty-participation measures while keeping the principal Table C1 narrow enough for a portrait page." $c1Faculty
 
 Add-TableDefinition "C2 Awards by Source" "Table C2" "Appendix C" "Sponsored awards by funding-source type and year" "Complete" `
-    "Award counts and dollars use the originating sponsor for university pass-through awards when a prime sponsor is identified." `
-    (Read-CsvTable "output/table_C2_awards_by_source_year.csv")
+    "The four-column long format fits one page wide. Zero-count source-year combinations are retained for completeness." `
+    (Read-CsvTable "output/table_C2_awards_by_source_year_long.csv" `
+        @("year", "funding_source_type", "award_count", "award_dollars") `
+        @{ year = "Year"; funding_source_type = "Funding source type"; award_count = "Funded award count"; award_dollars = "Award dollars" })
 
 Add-TableDefinition "C3 Awards by Sponsor" "Table C3" "Appendix C" "Sponsored awards by sponsor" "Partial" `
     "Sponsor, award, dollar, faculty-involvement, and year fields are populated. Primary research area remains to be completed." `
@@ -300,8 +331,12 @@ Add-TableDefinition "E4 Multistate Template" "Table E4" "Appendix E" "Leadership
     "Requires participation and leadership records from faculty or department files." `
     (Read-CsvTable "output/table_E4_multistate_projects_template.csv")
 
+Add-TableDefinition "F0 Award Summary" "Recognition summary" "Appendix F" "Department awards by recipient type and year" "Complete" `
+    "Includes all competitive awards recorded for faculty, students, staff, and alumni during 2021-2026." `
+    (Read-CsvTable "output/table_F0_department_awards_by_year.csv")
+
 Add-TableDefinition "F1 Awards" "Table F1" "Appendix F" "Faculty research awards, fellowships, and scholarly recognitions" "Partial" `
-    "Research-area and competitive-or-elected fields require verification." `
+    "All listed awards were competitive and required an application. Research-area classifications are not available in the source." `
     (Read-CsvTable "output/table_F1_faculty_research_awards.csv")
 
 Add-TableDefinition "F2 Mentoring Supports" "Table F2" "Appendix F" "Faculty research mentoring and advancement supports" "Awaiting verification" `
@@ -309,7 +344,7 @@ Add-TableDefinition "F2 Mentoring Supports" "Table F2" "Appendix F" "Faculty res
     (Read-CsvTable "output/table_F2_faculty_mentoring_supports_template.csv")
 
 Add-TableDefinition "F2 Grad Committees" "Table F2 supplement" "Appendix F" "Graduate committee mentoring activity" "Complete" `
-    "Counts are faculty-student committee relationships active during each year, not unique students." `
+    "Counts are faculty-student committee memberships beginning in each year, based on MEMBER_FROM_YEAR; they are not counts of unique students." `
     (Read-CsvTable "output/table_F2_grad_committee_mentoring_activity.csv")
 
 Add-TableDefinition "G1 Student Engagement" "Table G1" "Appendix G" "Student participation in research and scholarly activity" "Partial" `
@@ -542,6 +577,9 @@ try {
 finally {
     if ($null -ne $workbook) { try { $workbook.Close($false) } catch {} }
     if ($null -ne $excel) { try { $excel.Quit() } catch {} }
+    if (Test-Path -LiteralPath $tempPath) {
+        try { Remove-Item -LiteralPath $tempPath -Force } catch {}
+    }
     [GC]::Collect()
     [GC]::WaitForPendingFinalizers()
 }

@@ -1071,7 +1071,43 @@ table_D4b_citations_by_publication_year <- impact_base %>%
       ~ round(.x, 2)
     )
   ) %>%
-  arrange(year)
+  arrange(year) %>%
+  mutate(year = as.character(year))
+
+table_D4b_total <- impact_base %>%
+  summarise(
+    year = "Total",
+    peer_reviewed_journal_publications = n(),
+    publications_with_google_scholar_citation_data =
+      sum(!is.na(google_scholar_citations)),
+    publication_weighted_average_journal_impact_factor =
+      mean_or_na(impact_factor),
+    total_google_scholar_citations =
+      sum_or_na(google_scholar_citations),
+    mean_google_scholar_citations_per_publication =
+      mean_or_na(google_scholar_citations),
+    median_google_scholar_citations_per_publication =
+      median_or_na(google_scholar_citations),
+    percentage_of_publications_cited_in_google_scholar =
+      100 * mean(
+        !is.na(google_scholar_citations) & google_scholar_citations > 0
+      ),
+    partial_year = FALSE
+  ) %>%
+  mutate(
+    across(
+      c(mean_google_scholar_citations_per_publication,
+        median_google_scholar_citations_per_publication,
+        publication_weighted_average_journal_impact_factor,
+        percentage_of_publications_cited_in_google_scholar),
+      ~ round(.x, 2)
+    )
+  )
+
+table_D4b_citations_by_publication_year <- bind_rows(
+  table_D4b_citations_by_publication_year,
+  table_D4b_total
+)
 
 table_D4c_journals_by_publication_count <- impact_base %>%
   mutate(journal = str_squish(venue)) %>%

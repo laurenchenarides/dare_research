@@ -19,6 +19,10 @@ Source of truth for sponsored-project rules applied by `code/05_grant_tables.R` 
 - Awards and award dollars are grouped by proposal-submission cohort (`Date Sent` year), not award date, because the workbook contains no award date.
 - Award dollars are not expenditures. The workbook contains no expenditure transactions or fiscal-year expenditure totals.
 
+### Reporting-window reconciliation
+
+The proposal-submission rule produces 85 funded DARE-led records totaling $63,423,126.10. Filtering those funded records by `Start Date` instead produces 83 records totaling $63,343,445.96. The $79,680.14 difference consists of two records submitted during the reporting window whose project start dates are in 2020: `K000148564` ($75,080.14) and `K000154606` ($4,600.00). Tables C1-C3 and the CAS comparisons retain the `Date Sent` rule so funded and unfunded proposals remain in the same submission cohorts. The two definitions are reproduced in `output/grant_total_reconciliation.csv`, and the differing records are listed in `output/grant_reporting_window_difference.csv`.
+
 ## Investigators and faculty participation
 
 `Investigators` is parsed at semicolons into one row per person-project-role-unit combination. Expected entries have:
@@ -70,6 +74,8 @@ The low-F&A audit uses a transparent threshold of 10 percent or less and separat
 - **F&A comparison summary:** overall and sponsor-category rate comparisons between DARE-led and other-CAS-led funded awards.
 - **Pass-through institution summary:** proposal and funded-award activity by direct higher-education institution, including originating-sponsor diversity, federal funding share, years represented, and DARE-specific counts and dollars.
 - **Pass-through institution by year:** the same activity by direct institution and `Date Sent` year. The observed funded share is descriptive only because blank statuses combine not-funded and in-progress proposals.
+- **Grant total reconciliation:** DARE funded-award count and dollars under both the report's `Date Sent` rule and a comparison based on `Start Date`.
+- **Reporting-window difference:** row-level records included under one of those date definitions but not the other.
 
 ## Tables not supported by this workbook
 
