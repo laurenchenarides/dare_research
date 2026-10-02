@@ -1,20 +1,20 @@
 summary_group,category,institution_count,coauthored_publication_links
-Overall,All external institutions,326,NA
-Overall,United States institutions,180,NA
+Overall,All external institutions,325,NA
+Overall,United States institutions,179,NA
 Overall,Institutions outside the United States,141,NA
 Overall,Countries represented,41,NA
-Overall,Publications with at least one external institutional affiliation,NA,192
+Overall,Publications with at least one external institutional affiliation,NA,182
 Partner type,University/education,195,356
 Partner type,Government,37,92
 Partner type,facility,35,48
 Partner type,Foundation/nonprofit,25,42
-Partner type,Industry,16,86
+Partner type,Industry,15,23
 Partner type,other,10,14
 Partner type,healthcare,5,5
 Partner type,Other/unknown,1,1
 Partner type,archive,1,1
 Partner type,funder,1,1
-Country code,US,180,480
+Country code,US,179,417
 Country code,GB,23,24
 Country code,DE,14,17
 Country code,FR,14,15

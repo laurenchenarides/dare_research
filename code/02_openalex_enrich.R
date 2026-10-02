@@ -45,6 +45,7 @@
 #   output/publications_enriched.csv
 #   output/pub_openalex.csv
 #   output/coauthors_long.csv
+#   output/openalex_affiliation_corrections.csv
 #   output/coauthor_grad_match.csv
 #   output/openalex_discovery_audit.csv
 #   output/openalex_affiliation_exclusions.csv
@@ -1483,7 +1484,7 @@ missing_dois <- pubs %>%
 
 write_csv(missing_dois, file.path(out_dir, "oa_missing_dois.csv"))
 
-coauthors_long <- map_dfr(all_works, parse_work_authors) %>%
+coauthors_long_raw <- map_dfr(all_works, parse_work_authors) %>%
   left_join(oa_key_map, by = "oa_id", relationship = "many-to-one") %>%
   mutate(
     publication_key = coalesce(
@@ -1499,6 +1500,71 @@ coauthors_long <- map_dfr(all_works, parse_work_authors) %>%
     institution, ror, country_code, institution_type, raw_affiliation
   ) %>%
   distinct()
+
+# OpenAlex occasionally resolves the word "Resource" in CSU's department name
+# to the unrelated organization reSOURCE (ROR 002sg8b56). Correct only records
+# whose raw affiliation explicitly identifies Colorado State University, and
+# retain an audit table of every corrected row.
+RESOURCE_ROR <- "https://ror.org/002sg8b56"
+CSU_ROR <- "https://ror.org/03k1gpj17"
+
+openalex_affiliation_corrections <- coauthors_long_raw %>%
+  filter(
+    ror == RESOURCE_ROR,
+    str_detect(
+      coalesce(raw_affiliation, ""),
+      regex("Colorado State University", ignore_case = TRUE)
+    )
+  ) %>%
+  transmute(
+    publication_key,
+    oa_id,
+    doi_clean,
+    au_key,
+    au_id,
+    au_display_name,
+    raw_affiliation,
+    original_institution = institution,
+    original_ror = ror,
+    original_country_code = country_code,
+    original_institution_type = institution_type,
+    corrected_institution = "Colorado State University",
+    corrected_ror = CSU_ROR,
+    corrected_country_code = "US",
+    corrected_institution_type = "education",
+    correction_reason = paste(
+      "OpenAlex false match to reSOURCE; raw affiliation explicitly names",
+      "Colorado State University"
+    )
+  )
+
+coauthors_long <- coauthors_long_raw %>%
+  mutate(
+    correct_resource_to_csu =
+      ror == RESOURCE_ROR &
+      str_detect(
+        coalesce(raw_affiliation, ""),
+        regex("Colorado State University", ignore_case = TRUE)
+      ),
+    institution = if_else(
+      correct_resource_to_csu,
+      "Colorado State University",
+      institution
+    ),
+    ror = if_else(correct_resource_to_csu, CSU_ROR, ror),
+    country_code = if_else(correct_resource_to_csu, "US", country_code),
+    institution_type = if_else(
+      correct_resource_to_csu,
+      "education",
+      institution_type
+    )
+  ) %>%
+  select(-correct_resource_to_csu)
+
+write_csv(
+  openalex_affiliation_corrections,
+  file.path(out_dir, "openalex_affiliation_corrections.csv")
+)
 
 
 # ==============================================================================

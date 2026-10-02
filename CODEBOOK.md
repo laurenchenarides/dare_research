@@ -105,6 +105,7 @@ Consequence: the sum of per-faculty counts exceeds the department-level distinct
 - `10.1371/journal.pone.0261833` is assigned to Jordan Suter's “Summer Crowds” publication and not to Jesse Burkhardt's lettuce-production paper.
 - `10.1080/10871209.2024.2414880` appears once, on Dana Hoag's 2025 wolf-depredation publication.
 - `publications_faculty_doi_cleaned - Copy.csv` is byte-for-byte identical to `publications_faculty_doi_cleaned.csv` and is not used by the pipeline.
+- OpenAlex ROR `https://ror.org/002sg8b56` identifies the unrelated organization reSOURCE, not Colorado State University. Stage 02 reassigns that ROR to CSU only when the raw affiliation explicitly names Colorado State University, writes the affected rows to `output/openalex_affiliation_corrections.csv`, and excludes the corrected CSU affiliations from external-collaboration totals.
 
 ## Recognition and graduate-committee inputs
 

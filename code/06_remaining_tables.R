@@ -18,6 +18,7 @@ suppressPackageStartupMessages({
 })
 
 REPORT_YEARS <- 2021:2026
+CSU_ROR <- "https://ror.org/03k1gpj17"
 
 find_project_root <- function(start = getwd()) {
   current <- normalizePath(start, winslash = "/", mustWork = TRUE)
@@ -211,7 +212,8 @@ publication_partner_rows <- qualifying_publications %>%
       filter(
         !is.na(institution),
         institution != "",
-        !str_detect(institution, regex("Colorado State University", TRUE))
+        !str_detect(institution, regex("Colorado State University", TRUE)),
+        coalesce(ror, "") != CSU_ROR
       ) %>%
       select(publication_key, institution, institution_type, country_code),
     by = "publication_key"
