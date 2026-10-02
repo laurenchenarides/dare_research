@@ -1,0 +1,10 @@
+indicator,department_value,peer_median,peer_75th_percentile,peer_maximum,department_rank,department_percentile,peer_units,unit,interpretation,academic_analytics_metric,academic_analytics_field
+Articles per faculty member,7.42857142857143,6.62993762993763,8.302884615384615,11.5,14,63.8888888888889,36,count per faculty,Comparable,Articles per Faculty Member,articlecountperfaculty
+Citations per faculty member,158.857142857143,101.0198863636365,131.32,403.827586206897,7,83.3333333333334,36,count per faculty,Strength,Citations per Faculty Member,citationcountperfaculty
+Citations per publication,21.3846153846154,14.2734384662956,17.73492063492065,36.7115987460815,5,88.8888888888889,36,count per publication,Strength,Citations per Publication,citationcountperarticle
+Grants per faculty member,0.285714285714286,0.34666666666666646,0.5526819923371645,1.14285714285714,23,38.8888888888889,36,count per faculty,Opportunity,Grants per Faculty Member,grantcountperfaculty
+Grant dollars per faculty member,78690.4761904762,149166.4733333335,222791.09420289824,1331100.225,30,19.4444444444444,36,dollars per faculty,Opportunity,Grant Dollars per Faculty Member,grantdollarsperfaculty
+Books per faculty member,0.80952380952381,0.16954022988505751,0.277777777777778,0.80952380952381,1,100,36,count per faculty,Strength,Book Publications per Faculty,bookcountperfaculty
+Chapters per faculty member,0.619047619047619,0.1483516483516485,0.2655502392344497,0.692307692307692,3,94.4444444444444,36,count per faculty,Strength,Chapter Publications per Faculty,chaptercountperfaculty
+Conference proceedings per faculty member,0.0476190476190476,0.0455486542443064,0.118589743589744,0.625,18,52.7777777777778,36,count per faculty,Comparable,Conference Proceedings per Faculty Member,confproccountperfaculty
+Awards per faculty member,0.714285714285714,0.684065934065934,1.028846153846155,2.16,18,52.7777777777778,36,count per faculty,Comparable,Awards per Faculty Member,awardcountperfaculty

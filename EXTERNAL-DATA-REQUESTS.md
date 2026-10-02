@@ -1,6 +1,22 @@
 # External data requests for research and creative artistry tables
 
-## Academic Analytics request: Tables B1, B2, and peer fields in D4
+## Academic Analytics: received exports and remaining metadata
+
+Academic Analytics exports were received and stored in `academic_analytics/`. The comparison filter is public, land-grant institutions in the Agricultural Economics comparison discipline. The export contains 36 units and 745 faculty before the DARE adjustment. The DARE Stage 1 unit model excludes Hayley Chouinard, James G. Pritchett, Gregory Merrill Perry, and Kellie J. Enns from this research benchmark, producing a 21-member DARE research-active roster and an adjusted peer population of 741 faculty.
+
+`code/08_academic_analytics_peer_comparison.R` generates the completed B1 and B2 peer tables, the available Academic Analytics citation indicators for D4, filtered faculty and collaboration audits, and report-ready figures. Outputs are stored in `output/academic_analytics/` and `output/figures/academic_analytics/`.
+
+The received files do not include every requested citation indicator or the exact observation window for each metric. The remaining request is limited to:
+
+- Exact coverage periods for articles, citations, grants, grant dollars, awards, books, chapters, and conference proceedings
+- Citation snapshot date and citation database definition
+- Confirmation of how grants and grant dollars are attributed across PI and co-PI records
+- Comparable peer distributions for cross-institutional collaboration, if available
+- Percentage of publications cited, field-weighted citation impact, and highly cited-publication measures, if available
+
+Google Scholar values remain separate from Academic Analytics and are not substituted into the peer benchmark.
+
+### Original requested fields retained for provenance
 
 Please provide an export for Colorado State University’s Department of Agricultural and Resource Economics and the agreed set of comparable R1 departments. Use the same comparison year, faculty inclusion rules, discipline/taxonomy, and observation window for every institution. Please include the metric definitions and indicate whether departed faculty, non-tenure-track faculty, joint appointments, and zero-research appointments are included.
 

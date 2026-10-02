@@ -1,0 +1,7 @@
+indicator,value,interpretation_note
+Research-active DARE faculty in the benchmark,21,Stage 1 faculty count
+Within-DARE faculty collaboration pairs,19,Distinct faculty pairs after removing reciprocal duplicate rows
+Within-DARE pairwise article links,32,"Pairwise links, not unique publications"
+Other CSU units represented,14,Units with at least one filtered DARE collaboration record
+External institutions represented,31,Institutions outside CSU with at least one filtered DARE collaboration record
+External collaborators represented,69,Distinct collaborators within institution; a person may appear under more than one institution only if AA records do so
